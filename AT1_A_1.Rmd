@@ -307,6 +307,11 @@ transactions %>%
   filter(monthly_amount <= 64000 & monthly_amount >= 50000) %>%
 
 ggplot(aes(x = monthly_amount)) + geom_histogram(binwidth = 100)
+
+transactions %>%
+  filter(monthly_amount <= 75000 & monthly_amount >= 62000) %>%
+
+ggplot(aes(x = monthly_amount)) + geom_histogram(binwidth = 10)
 ```
 
 * Are any fees "standard"
