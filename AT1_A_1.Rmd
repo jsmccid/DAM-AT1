@@ -1,0 +1,321 @@
+---
+title: "DAM AT1 Part A"
+author: Joshua McCarthy
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Package Install, eval = FALSE}
+install.packages(tidyverse)
+```
+
+```{r Load Libraries}
+library(tidyverse)
+```
+
+# 1. EDA
+
+## a. Do you need to clean the data in any way? Justify what you decide to do (or not do).
+
+### what do we do?
+provide financial services to a number of clients, each client working in a specified industry group, and in a specified location group. Clients are billed monthly.
+
+### Data
+
+```{r}
+transactions <- read_csv("transactions.csv")
+```
+
+```{r}
+names(transactions)
+str(transactions)
+summary(transactions)
+range(transactions$date) # range doesn't work on dates? 
+sapply(transactions, function(x) length(unique(x))) #number of unique entries for each variable
+
+```
+*Transactions don't have unique identifiers (no primary key), relies on composite keys date + customer
+* Are there any NA's"?
+```{r}
+nrow(transactions) == nrow(na.omit(transactions))
+
+# A. No
+
+```
+
+
+#### date - Date of the first day of each month
+
+##### Top level info
+* Transaction period 1/1/2013 - 1/9/2016 (see below, actual range - 01/11/2016)
+** Period of 45 months inclusive (actual 47 months inclusive)
+
+##### Changes to make
+* As character -> as posix? / date
+```{r}
+transactions$date <- as.Date(transactions$date, format = "%d/%m/%Y")
+range(transactions$date) # range doesn't work on dates? 
+# date was being read incorrectly
+```
+
+
+##### Questions
+* All customer have equal number of transactions over the full period?
+```{r}
+number_of_transactions_per_customer <- as.data.frame(table(transactions$customer_id))
+head(number_of_transactions_per_customer)
+
+# A. no
+```
+
+* Do any customers have more than one transaction for the same date?
+```{r}
+# ggplot(transactions, aes(y = customer_id, x= date)) + geom_point(alpha = 0.25)
+# too much data for small area
+
+transactions$duplicated <- transactions %>%
+  select(date, customer_id) %>%
+  duplicated()
+
+transactions %>% 
+  filter(duplicated == "TRUE")
+
+#A. No.
+```
+
+```{r}
+transactions <- transactions %>% 
+  select(-duplicated)
+```
+
+* Why are there 47 dates in a 45 month range?
+The range function was not reading the date as character data correctly
+
+* Breaks in customer relationship?
+
+#### customer_id - Unique customer identifier
+
+##### Top level info
+* Hashed customer ID's
+
+##### Changes to make
+* to factors
+```{r}
+transactions$customer_id <- as.factor(transactions$customer_id) 
+```
+
+
+##### Questions
+* How many unique customers?
+```{r}
+# table(transactions$customer_id)
+# Alot
+
+length(unique(transactions$customer_id))
+```
+
+
+#### industry - Code for 10 industries, ranging from 1 to 10
+
+##### Top level info
+* x
+
+##### Changes to make
+* To factors
+```{r}
+transactions$industry <- as.factor(transactions$industry)
+```
+
+
+##### Questions
+* Are all industries represented?
+```{r}
+unique(transactions$industry)
+
+#A. Yes
+```
+
+* Do all customers only operate in one industry?
+
+```{r}
+
+# transactions$multi_industry <- 
+  
+industry_check <- transactions %>%
+  select(industry, customer_id) %>%
+  distinct()
+
+industry_check$multi_industry <- industry_check %>%
+  select(customer_id) %>%
+  duplicated()
+
+industry_check %>% 
+  filter(multi_industry == "TRUE")
+
+# A. Yes
+
+```
+* Customer distribution between industries?
+```{r}
+transactions %>%
+  distinct(customer_id, industry) %>%
+ggplot(aes(x = industry)) + geom_bar()
+```
+** low participation in industry 6 and 10
+```{r}
+customers_industry_6 <- transactions %>%
+  distinct(customer_id, industry) %>%
+  filter(industry == 6) 
+
+count(customers_industry_6)
+
+customers_industry_10 <- transactions %>%
+  distinct(customer_id, industry) %>%
+  filter(industry == 10) 
+
+count(customers_industry_10)
+
+#A. Both still significant, even though under represented
+```
+
+
+#### location - Code for 10 industries, ranging from 1 to 10
+
+##### Top level info
+* x
+
+##### Changes to make
+* To factors
+```{r}
+transactions$location <- as.factor(transactions$location)
+```
+
+
+##### Questions
+* Are all locations represented?
+
+```{r}
+unique(transactions$location)
+
+# A. Yes
+```
+
+* Do all customers only operate in one location?
+
+```{r}
+location_check <- transactions %>%
+  select(location, customer_id) %>%
+  distinct()
+
+location_check$multi_location <- location_check %>%
+  select(customer_id) %>%
+  duplicated()
+
+location_check %>% 
+  filter(multi_location == "TRUE")
+
+# A. Yes
+```
+
+* Customer distribution between locations?
+
+```{r}
+transactions %>%
+  distinct(customer_id, location) %>%
+ggplot(aes(x = location)) + geom_bar()
+```
+
+
+#### monthly_amount - Total transaction amount for customer in given month
+
+##### Top level info
+* Range from 0 to 100,000,000
+* Median 179399
+* Mean 395397
+
+##### Changes to make
+* x
+
+##### Questions
+* Why are there transactions worth 0?
+** How many transactions worth 0?
+```{r}
+zero_trans <- transactions %>%
+  filter(monthly_amount == 0)
+
+zero_trans
+
+#A. only one transaction with amount 0, error?
+```
+*** How many transactions by that customer?
+```{r}
+transactions %>%
+  filter(customer_id == zero_trans$customer_id) %>%
+  nrow()
+```
+
+* Why are there transactions worth 100,000,000
+** How many transactions are worth 100,000,000
+```{r}
+large_trans <- transactions %>%
+  filter(monthly_amount == 100000000)
+
+large_trans
+
+#only one transaction of 100mm
+
+largeish_trans <- transactions %>%
+  filter(monthly_amount >= 50000000)
+
+largeish_trans
+
+```
+
+** Is this an arbitrary value?
+* Does most business fall within a certain range?
+* What is the distribution of transactions?
+```{r}
+ggplot(transactions, aes(x = monthly_amount)) + geom_histogram(bins = 100)
+
+# A. Distribution is heavily skewed toward the lower end of the range
+
+transactions %>%
+  filter(monthly_amount <= 1000000) %>%
+
+ggplot(aes(x = monthly_amount)) + geom_histogram(bins  = 100)
+
+# Still skewed heavily
+
+transactions %>%
+  filter(monthly_amount <= 100000) %>%
+
+ggplot(aes(x = monthly_amount)) + geom_histogram(bins  = 100)
+
+#It appears most billing is cut
+
+transactions %>%
+  filter(monthly_amount <= 80000 & monthly_amount >= 50000) %>%
+
+ggplot(aes(x = monthly_amount)) + geom_histogram(binwidth = 2000)
+
+# almost no transactions below 64000
+
+transactions %>%
+  filter(monthly_amount <= 64000 & monthly_amount >= 50000) %>%
+
+ggplot(aes(x = monthly_amount)) + geom_histogram(binwidth = 100)
+```
+
+* Are any fees "standard"
+** Are they from the same customer?
+* What is each customers total spend?
+
+#### Exploration plots
+
+```{r}
+plot(transactions)
+```
+

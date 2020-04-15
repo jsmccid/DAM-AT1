@@ -1,0 +1,30 @@
+---
+title: "junk"
+output: html_notebook
+---
+
+```{r}
+
+customers <- tibble(cid = unique(transactions$customer_id), duplicates = NA)
+doubles <- NA
+
+
+# for (variable in customers$cid) {
+if (
+transactions2 %>%
+  filter(customer_id == "b6d0d3c61122345690a19bb8af632db4") %>%
+  nrow() 
+
+==
+
+transactions2 %>%
+  filter(customer_id == "b6d0d3c61122345690a19bb8af632db4") %>%
+  filter(!duplicated(date)) %>%
+  nrow()
+) { 
+ rbind(doubles, "FALSE")
+} else { 
+  rbind(doubles, "TRUE")
+  }
+```
+
