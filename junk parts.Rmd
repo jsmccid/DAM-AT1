@@ -58,3 +58,52 @@ for (indust in 1:10){
 }
 ```
 
+```{r}
+plotlist_industry <- lapply(list, function)
+  plotind <- ggplot(dfind, aes(x=date , y= monthly_amount)) + geom_point(alpha = 0.25)
+  assign(plotname, plotind)
+plotlist_industry[[indust]] <- plotname
+
+industries_and_plots$plotname <- as.character(industries_and_plots$plotname)
+plotlist_industry <- as.list(industries_and_plots$plotname)
+
+# print(as.list(industries_and_plots$plotname))
+# multiplot(plot_trans_industry_1,plot_trans_industry_2,plot_trans_industry_3, cols = 2)
+
+
+
+testlist <- as.list(plot_trans_industry_1,plot_trans_industry_2,plot_trans_industry_3)
+testlist[[]] <- plot_trans_industry_4
+
+```
+
+```{r}
+```{r}
+# modified code from CANVAS Announcement
+# industry_location is the aggregated data frame
+plotlist_loc_ind <- data.frame()
+industries = unique(transactions$industry)
+locations = unique(transactions$location)
+x = 1
+for (ind in industries) {
+for (loc in locations) {
+  temp_name <- paste("plot", x, sep = "_")
+# create a subset of the data
+temp = transactions[transactions$industry == ind &
+transactions$location == loc, ]
+assign(temp_name, temp)
+row <- cbind(temp_name)
+plotlist_loc_ind <- rbind(plotlist_loc_ind, row)
+x <- x+1
+}
+}
+
+plotlist_loc_ind <- as.list(1:100)
+
+plotlist_loc_ind <- lapply(plotlist_loc_ind, function(int){
+  ggplot(eval(as.symbol(paste("plot_", int, sep=""))), aes(x = date, y = monthly_amount)) + geom_point(alpha = 0.25) + theme_void() + labs (title = paste("plot", int, sep = " "))
+  })
+
+multiplot(plotlist = plotlist_loc_ind, cols = 5)
+```
+

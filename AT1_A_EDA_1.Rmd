@@ -389,44 +389,27 @@ ggplot(aes(x = date, y = monthly_amount)) + geom_point(alpha = 0.1)
 
 
 ```{r}
-plot(transactions)
+# plot(transactions)
+# long load
 ```
 
 Split by industry
 
 ```{r}
-industries_and_plots <- data.frame(stringsAsFactors = FALSE)
 for (indust in 1:10){
   dfname <- paste("transactions_industry", indust, sep = "_")
-  plotname <- paste("plot_trans_industry", indust, sep = "_")
   dfind <- transactions %>%
     filter(industry == indust)
-  assign(dfname, dfindust)
-  ind_row <- cbind(dfname, plotname)
-  industries_and_plots <- rbind(industries_and_plots, ind_row)
+  assign(dfname, dfind)
 }
 
 plotlist_industry <- as.list(1:10)
 
 plotlist_industry <- lapply(plotlist_industry, function(ind){
-  ggplot(glue(transactions_industry_, {ind}), aes(x = date, y = monthly_amount))
+  ggplot(eval(as.symbol(paste("transactions_industry_", ind, sep=""))), aes(x = date, y = monthly_amount)) + geom_point() + labs (title = paste("industry", ind, sep = " "))
   })
 
-plotlist_industry <- lapply(list, function)
-  plotind <- ggplot(dfind, aes(x=date , y= monthly_amount)) + geom_point(alpha = 0.25)
-  assign(plotname, plotind)
-plotlist_industry[[indust]] <- plotname
-
-industries_and_plots$plotname <- as.character(industries_and_plots$plotname)
-plotlist_industry <- as.list(industries_and_plots$plotname)
-
-# print(as.list(industries_and_plots$plotname))
-# multiplot(plot_trans_industry_1,plot_trans_industry_2,plot_trans_industry_3, cols = 2)
-
-
-
-testlist <- as.list(plot_trans_industry_1,plot_trans_industry_2,plot_trans_industry_3)
-testlist[[]] <- plot_trans_industry_4
+multiplot(plotlist = plotlist_industry, cols = 2)
 
 ```
 
@@ -435,9 +418,47 @@ Split by location
 ```{r}
 for (locat in 1:10){
   dfname <- paste("transactions_location", locat, sep = "_")
-  dfloc <- transactions %>%
-    filter(industry == locat)
-  assign(dfname, dfloc)
+  dfind <- transactions %>%
+    filter(location== locat)
+  assign(dfname, dfind)
 }
+
+plotlist_location <- as.list(1:10)
+
+plotlist_location <- lapply(plotlist_location, function(loc){
+  ggplot(eval(as.symbol(paste("transactions_location_", loc, sep=""))), aes(x = date, y = monthly_amount)) + geom_point() + labs (title = paste("location", loc, sep = " "))
+  })
+
+multiplot(plotlist = plotlist_location, cols = 2)
+```
+
+Split industry by location
+
+```{r}
+# modified code from CANVAS Announcement
+# industry_location is the aggregated data frame
+plotlist_loc_ind <- data.frame()
+industries = unique(transactions$industry)
+locations = unique(transactions$location)
+for (ind in industries) {
+for (loc in locations) {
+  temp_name <- paste("industry", ind, "location", loc, sep = "_")
+# create a subset of the data
+temp = transactions[transactions$industry == ind &
+transactions$location == loc, ]
+assign(temp_name, temp)
+row <- cbind(temp_name)
+plotlist_loc_ind <- rbind(plotlist_loc_ind, row)
+}
+}
+
+plotlist_loc_ind <- as.list(as.character(plotlist_loc_ind$temp_name))
+
+plotlist_loc_ind <- lapply(plotlist_loc_ind, function(plotlist_loc_ind){
+  ggplot(eval(as.symbol(paste(plotlist_loc_ind))), aes(x = date, y = monthly_amount)) + geom_point(alpha = 0.25) + theme_void() + labs (title = paste(plotlist_loc_ind))
+  })
+
+multiplot(plotlist = plotlist_loc_ind, cols = 5)
+
 ```
 
