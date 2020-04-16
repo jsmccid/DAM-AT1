@@ -16,6 +16,54 @@ install.packages(tidyverse)
 library(tidyverse)
 ```
 
+```{r Custom Function}
+# Multiple plot function
+#
+# ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
+# - cols:   Number of columns in layout
+# - layout: A matrix specifying the layout. If present, 'cols' is ignored.
+#
+# If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
+# then plot 1 will go in the upper left, 2 will go in the upper right, and
+# 3 will go all the way across the bottom.
+#
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  library(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots = length(plots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
+```
+
 # 1. EDA
 
 ## a. Do you need to clean the data in any way? Justify what you decide to do (or not do).
@@ -312,6 +360,12 @@ transactions %>%
   filter(monthly_amount <= 75000 & monthly_amount >= 62000) %>%
 
 ggplot(aes(x = monthly_amount)) + geom_histogram(binwidth = 10)
+
+transactions %>%
+  filter(monthly_amount >= 10000000) %>%
+
+ggplot(aes(x = monthly_amount)) + geom_histogram(bins = 1000)
+
 ```
 
 * Are any fees "standard"
@@ -321,6 +375,69 @@ ggplot(aes(x = monthly_amount)) + geom_histogram(binwidth = 10)
 #### Exploration plots
 
 ```{r}
+ggplot(transactions, aes(x = date, y = monthly_amount)) + geom_point()
+
+ggplot(filter(transactions, industry != 6 & industry != 10), aes(x = date, y = monthly_amount)) + geom_point()
+
+```
+
+```{r}
+transactions %>%
+  filter(monthly_amount < 4000000) %>%
+ggplot(aes(x = date, y = monthly_amount)) + geom_point(alpha = 0.1)
+```
+
+
+```{r}
 plot(transactions)
+```
+
+Split by industry
+
+```{r}
+industries_and_plots <- data.frame(stringsAsFactors = FALSE)
+for (indust in 1:10){
+  dfname <- paste("transactions_industry", indust, sep = "_")
+  plotname <- paste("plot_trans_industry", indust, sep = "_")
+  dfind <- transactions %>%
+    filter(industry == indust)
+  assign(dfname, dfindust)
+  ind_row <- cbind(dfname, plotname)
+  industries_and_plots <- rbind(industries_and_plots, ind_row)
+}
+
+plotlist_industry <- as.list(1:10)
+
+plotlist_industry <- lapply(plotlist_industry, function(ind){
+  ggplot(glue(transactions_industry_, {ind}), aes(x = date, y = monthly_amount))
+  })
+
+plotlist_industry <- lapply(list, function)
+  plotind <- ggplot(dfind, aes(x=date , y= monthly_amount)) + geom_point(alpha = 0.25)
+  assign(plotname, plotind)
+plotlist_industry[[indust]] <- plotname
+
+industries_and_plots$plotname <- as.character(industries_and_plots$plotname)
+plotlist_industry <- as.list(industries_and_plots$plotname)
+
+# print(as.list(industries_and_plots$plotname))
+# multiplot(plot_trans_industry_1,plot_trans_industry_2,plot_trans_industry_3, cols = 2)
+
+
+
+testlist <- as.list(plot_trans_industry_1,plot_trans_industry_2,plot_trans_industry_3)
+testlist[[]] <- plot_trans_industry_4
+
+```
+
+Split by location
+
+```{r}
+for (locat in 1:10){
+  dfname <- paste("transactions_location", locat, sep = "_")
+  dfloc <- transactions %>%
+    filter(industry == locat)
+  assign(dfname, dfloc)
+}
 ```
 

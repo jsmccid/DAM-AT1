@@ -28,3 +28,33 @@ transactions2 %>%
   }
 ```
 
+```{r}
+industries_and_plots <- data.frame(stringsAsFactors = FALSE)
+for (indust in 1:10){
+  dfname <- paste("transactions_industry", indust, sep = "_")
+  plotname <- paste("plot_trans_industry", indust, sep = "_")
+  dfind <- transactions %>%
+    filter(industry == indust)
+  plotind <- ggplot(dfind, aes(x=date , y= monthly_amount)) + geom_point(alpha = 0.25)
+  assign(dfname, dfindust)
+  assign(plotname, plotind)
+  ind_row <- cbind(dfname, plotname)
+  industries_and_plots <- rbind(industries_and_plots, ind_row)
+}
+```
+
+```{r}
+industries_and_plots <- data.frame(stringsAsFactors = FALSE)
+plotlist_industry <- list()
+for (indust in 1:10){
+  dfname <- paste("transactions_industry", indust, sep = "_")
+  plotname <- paste("plot_trans_industry", indust, sep = "_")
+  dfind <- transactions %>%
+    filter(industry == indust)
+  plotind <- ggplot(dfind, aes(x=date , y= monthly_amount)) + geom_point(alpha = 0.25)
+  assign(dfname, dfindust)
+  assign(plotname, plotind)
+  plotlist_industry[[indust]] <- plotname
+}
+```
+

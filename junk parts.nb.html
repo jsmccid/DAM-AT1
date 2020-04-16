@@ -1778,8 +1778,44 @@ transactions2 %&gt;%
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5kdXN0cmllc19hbmRfcGxvdHMgPC0gZGF0YS5mcmFtZShzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpXG5mb3IgKGluZHVzdCBpbiAxOjEwKXtcbiAgZGZuYW1lIDwtIHBhc3RlKFwidHJhbnNhY3Rpb25zX2luZHVzdHJ5XCIsIGluZHVzdCwgc2VwID0gXCJfXCIpXG4gIHBsb3RuYW1lIDwtIHBhc3RlKFwicGxvdF90cmFuc19pbmR1c3RyeVwiLCBpbmR1c3QsIHNlcCA9IFwiX1wiKVxuICBkZmluZCA8LSB0cmFuc2FjdGlvbnMgJT4lXG4gICAgZmlsdGVyKGluZHVzdHJ5ID09IGluZHVzdClcbiAgcGxvdGluZCA8LSBnZ3Bsb3QoZGZpbmQsIGFlcyh4PWRhdGUgLCB5PSBtb250aGx5X2Ftb3VudCkpICsgZ2VvbV9wb2ludChhbHBoYSA9IDAuMjUpXG4gIGFzc2lnbihkZm5hbWUsIGRmaW5kdXN0KVxuICBhc3NpZ24ocGxvdG5hbWUsIHBsb3RpbmQpXG4gIGluZF9yb3cgPC0gY2JpbmQoZGZuYW1lLCBwbG90bmFtZSlcbiAgaW5kdXN0cmllc19hbmRfcGxvdHMgPC0gcmJpbmQoaW5kdXN0cmllc19hbmRfcGxvdHMsIGluZF9yb3cpXG59XG5gYGAifQ== -->
+<pre class="r"><code>industries_and_plots &lt;- data.frame(stringsAsFactors = FALSE)
+for (indust in 1:10){
+  dfname &lt;- paste(&quot;transactions_industry&quot;, indust, sep = &quot;_&quot;)
+  plotname &lt;- paste(&quot;plot_trans_industry&quot;, indust, sep = &quot;_&quot;)
+  dfind &lt;- transactions %&gt;%
+    filter(industry == indust)
+  plotind &lt;- ggplot(dfind, aes(x=date , y= monthly_amount)) + geom_point(alpha = 0.25)
+  assign(dfname, dfindust)
+  assign(plotname, plotind)
+  ind_row &lt;- cbind(dfname, plotname)
+  industries_and_plots &lt;- rbind(industries_and_plots, ind_row)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5kdXN0cmllc19hbmRfcGxvdHMgPC0gZGF0YS5mcmFtZShzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpXG5wbG90bGlzdF9pbmR1c3RyeSA8LSBsaXN0KClcbmZvciAoaW5kdXN0IGluIDE6MTApe1xuICBkZm5hbWUgPC0gcGFzdGUoXCJ0cmFuc2FjdGlvbnNfaW5kdXN0cnlcIiwgaW5kdXN0LCBzZXAgPSBcIl9cIilcbiAgcGxvdG5hbWUgPC0gcGFzdGUoXCJwbG90X3RyYW5zX2luZHVzdHJ5XCIsIGluZHVzdCwgc2VwID0gXCJfXCIpXG4gIGRmaW5kIDwtIHRyYW5zYWN0aW9ucyAlPiVcbiAgICBmaWx0ZXIoaW5kdXN0cnkgPT0gaW5kdXN0KVxuICBwbG90aW5kIDwtIGdncGxvdChkZmluZCwgYWVzKHg9ZGF0ZSAsIHk9IG1vbnRobHlfYW1vdW50KSkgKyBnZW9tX3BvaW50KGFscGhhID0gMC4yNSlcbiAgYXNzaWduKGRmbmFtZSwgZGZpbmR1c3QpXG4gIGFzc2lnbihwbG90bmFtZSwgcGxvdGluZClcbiAgcGxvdGxpc3RfaW5kdXN0cnlbW2luZHVzdF1dIDwtIHBsb3RuYW1lXG59XG5gYGAifQ== -->
+<pre class="r"><code>industries_and_plots &lt;- data.frame(stringsAsFactors = FALSE)
+plotlist_industry &lt;- list()
+for (indust in 1:10){
+  dfname &lt;- paste(&quot;transactions_industry&quot;, indust, sep = &quot;_&quot;)
+  plotname &lt;- paste(&quot;plot_trans_industry&quot;, indust, sep = &quot;_&quot;)
+  dfind &lt;- transactions %&gt;%
+    filter(industry == indust)
+  plotind &lt;- ggplot(dfind, aes(x=date , y= monthly_amount)) + geom_point(alpha = 0.25)
+  assign(dfname, dfindust)
+  assign(plotname, plotind)
+  plotlist_industry[[indust]] &lt;- plotname
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAianVuayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CgpjdXN0b21lcnMgPC0gdGliYmxlKGNpZCA9IHVuaXF1ZSh0cmFuc2FjdGlvbnMkY3VzdG9tZXJfaWQpLCBkdXBsaWNhdGVzID0gTkEpCmRvdWJsZXMgPC0gTkEKCgojIGZvciAodmFyaWFibGUgaW4gY3VzdG9tZXJzJGNpZCkgewppZiAoCnRyYW5zYWN0aW9uczIgJT4lCiAgZmlsdGVyKGN1c3RvbWVyX2lkID09ICJiNmQwZDNjNjExMjIzNDU2OTBhMTliYjhhZjYzMmRiNCIpICU+JQogIG5yb3coKSAKCj09Cgp0cmFuc2FjdGlvbnMyICU+JQogIGZpbHRlcihjdXN0b21lcl9pZCA9PSAiYjZkMGQzYzYxMTIyMzQ1NjkwYTE5YmI4YWY2MzJkYjQiKSAlPiUKICBmaWx0ZXIoIWR1cGxpY2F0ZWQoZGF0ZSkpICU+JQogIG5yb3coKQopIHsgCiByYmluZChkb3VibGVzLCAiRkFMU0UiKQp9IGVsc2UgeyAKICByYmluZChkb3VibGVzLCAiVFJVRSIpCiAgfQpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAianVuayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9CgpjdXN0b21lcnMgPC0gdGliYmxlKGNpZCA9IHVuaXF1ZSh0cmFuc2FjdGlvbnMkY3VzdG9tZXJfaWQpLCBkdXBsaWNhdGVzID0gTkEpCmRvdWJsZXMgPC0gTkEKCgojIGZvciAodmFyaWFibGUgaW4gY3VzdG9tZXJzJGNpZCkgewppZiAoCnRyYW5zYWN0aW9uczIgJT4lCiAgZmlsdGVyKGN1c3RvbWVyX2lkID09ICJiNmQwZDNjNjExMjIzNDU2OTBhMTliYjhhZjYzMmRiNCIpICU+JQogIG5yb3coKSAKCj09Cgp0cmFuc2FjdGlvbnMyICU+JQogIGZpbHRlcihjdXN0b21lcl9pZCA9PSAiYjZkMGQzYzYxMTIyMzQ1NjkwYTE5YmI4YWY2MzJkYjQiKSAlPiUKICBmaWx0ZXIoIWR1cGxpY2F0ZWQoZGF0ZSkpICU+JQogIG5yb3coKQopIHsgCiByYmluZChkb3VibGVzLCAiRkFMU0UiKQp9IGVsc2UgeyAKICByYmluZChkb3VibGVzLCAiVFJVRSIpCiAgfQpgYGAKCmBgYHtyfQppbmR1c3RyaWVzX2FuZF9wbG90cyA8LSBkYXRhLmZyYW1lKHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRSkKZm9yIChpbmR1c3QgaW4gMToxMCl7CiAgZGZuYW1lIDwtIHBhc3RlKCJ0cmFuc2FjdGlvbnNfaW5kdXN0cnkiLCBpbmR1c3QsIHNlcCA9ICJfIikKICBwbG90bmFtZSA8LSBwYXN0ZSgicGxvdF90cmFuc19pbmR1c3RyeSIsIGluZHVzdCwgc2VwID0gIl8iKQogIGRmaW5kIDwtIHRyYW5zYWN0aW9ucyAlPiUKICAgIGZpbHRlcihpbmR1c3RyeSA9PSBpbmR1c3QpCiAgcGxvdGluZCA8LSBnZ3Bsb3QoZGZpbmQsIGFlcyh4PWRhdGUgLCB5PSBtb250aGx5X2Ftb3VudCkpICsgZ2VvbV9wb2ludChhbHBoYSA9IDAuMjUpCiAgYXNzaWduKGRmbmFtZSwgZGZpbmR1c3QpCiAgYXNzaWduKHBsb3RuYW1lLCBwbG90aW5kKQogIGluZF9yb3cgPC0gY2JpbmQoZGZuYW1lLCBwbG90bmFtZSkKICBpbmR1c3RyaWVzX2FuZF9wbG90cyA8LSByYmluZChpbmR1c3RyaWVzX2FuZF9wbG90cywgaW5kX3JvdykKfQpgYGAKCmBgYHtyfQppbmR1c3RyaWVzX2FuZF9wbG90cyA8LSBkYXRhLmZyYW1lKHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRSkKcGxvdGxpc3RfaW5kdXN0cnkgPC0gbGlzdCgpCmZvciAoaW5kdXN0IGluIDE6MTApewogIGRmbmFtZSA8LSBwYXN0ZSgidHJhbnNhY3Rpb25zX2luZHVzdHJ5IiwgaW5kdXN0LCBzZXAgPSAiXyIpCiAgcGxvdG5hbWUgPC0gcGFzdGUoInBsb3RfdHJhbnNfaW5kdXN0cnkiLCBpbmR1c3QsIHNlcCA9ICJfIikKICBkZmluZCA8LSB0cmFuc2FjdGlvbnMgJT4lCiAgICBmaWx0ZXIoaW5kdXN0cnkgPT0gaW5kdXN0KQogIHBsb3RpbmQgPC0gZ2dwbG90KGRmaW5kLCBhZXMoeD1kYXRlICwgeT0gbW9udGhseV9hbW91bnQpKSArIGdlb21fcG9pbnQoYWxwaGEgPSAwLjI1KQogIGFzc2lnbihkZm5hbWUsIGRmaW5kdXN0KQogIGFzc2lnbihwbG90bmFtZSwgcGxvdGluZCkKICBwbG90bGlzdF9pbmR1c3RyeVtbaW5kdXN0XV0gPC0gcGxvdG5hbWUKfQpgYGAKCg==</div>
 
 
 
