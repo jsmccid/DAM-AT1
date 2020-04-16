@@ -9,4 +9,181 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r, eval = FALSE}
+install.packages("lubridate")
+```
+
+
+```{r}
+library(lubridate)
+library(tidyverse)
+```
+
+
+
+```{r Prep}
+#import
+transactions <- read_csv("transactions.csv")
+
+# convert dates to dates
+transactions$date <- as.Date(transactions$date, format = "%d/%m/%Y")
+
+#change variable name to avoid conflicts
+tname <- names(transactions)
+tname[1] <- "trdate"
+names(transactions) <- tname
+
+# convert neccessary variables to factors
+transactions$customer_id <- as.factor(transactions$customer_id) 
+transactions$industry <- as.factor(transactions$industry)
+transactions$location <- as.factor(transactions$location)
+```
+
+# 2. Basic Model Fitting
+
+## a. Creating the model
+
+### i. Create an aggregated data set using the fields date, industry and location, with a mean of monthly_amount.
+
+```{r}
+aggregated_transactions <- group_by(transactions, trdate, location, industry) %>%
+  summarise(mean_amount = mean(monthly_amount))
+```
+
+### ii. Create a line plot of the variable monthly_amount for industry = 1 and location = 1.  Note the seasonality by month in this time series. 
+
+```{r}
+aggregated_transactions$trmonth <- month(aggregated_transactions$trdate, label = TRUE, abbr = TRUE)
+```
+
+
+```{r}
+a_i1_l1 <- aggregated_transactions %>%
+  filter(location == 1, industry == 1)
+
+a_i1_l1_plot <- ggplot(a_i1_l1 , aes( x = trdate, y = mean_amount)) + geom_line() + geom_point() + geom_text(aes(label = trmonth, vjust=-1))
+
+a_i1_l1_plot
+```
+
+### iii. For industry= 1 and location = 1, train a linear regression model with monthly_amount as the target. 
+
+Intial Model test
+```{r}
+a_i1_l1_lm_bad <- lm(mean_amount ~ trdate, a_i1_l1)
+summary(a_i1_l1_lm_bad)
+plot(a_i1_l1_lm_bad)
+
+a11lm_predict <- data.frame(mean_amount_pred = predict(a_i1_l1_lm_bad, a_i1_l1), trdate = a_i1_l1$trdate)
+
+a_i1_l1_plot + geom_line(color ="red", data = a11lm_predict, aes(y = mean_amount_pred))
+```
+
+#### i. Note 1 :Remember that time is very important in this model, so be sure to include variable(s) for the time sequence.
+
+```{r}
+# EDA
+a_i1_l1_filt <- a_i1_l1 %>%
+  data.frame() %>%
+  select(mean_amount)
+ts_a_i1_l1 <- ts(a_i1_l1_filt, start = decimal_date(as.Date("2013-01-01")), frequency = 12)
+plot(ts_a_i1_l1)
+components_a_i1_l1 <- decompose(ts_a_i1_l1)
+plot(components_a_i1_l1)
+```
+
+```{r}
+a_i1_l1 <- a_i1_l1 %>%
+  data.frame() %>%
+  select(-location, -industry)
+```
+
+
+```{r}
+a_i1_l1_lm_bad <- lm(mean_amount ~., a_i1_l1)
+summary(a_i1_l1_lm_bad)
+plot(a_i1_l1_lm_bad)
+
+a11lm_predict <- data.frame(mean_amount_pred = predict(a_i1_l1_lm_bad, a_i1_l1), trdate = a_i1_l1$trdate)
+
+a_i1_l1_plot + geom_line(color ="red", data = a11lm_predict, aes(y = mean_amount_pred))
+```
+
+
+```{r}
+a_i1_l1$quaters <- "Q4"
+  a_i1_l1[a_i1_l1$trmonth == "Jan" | a_i1_l1$trmonth == "Feb" | a_i1_l1$trmonth == "Mar" , "quaters"] <- "Q1"
+  a_i1_l1[a_i1_l1$trmonth == "Apr" | a_i1_l1$trmonth == "May" | a_i1_l1$trmonth == "Jun" , "quaters"] <- "Q2"
+  a_i1_l1[a_i1_l1$trmonth == "Jul" | a_i1_l1$trmonth == "Aug" | a_i1_l1$trmonth == "Sep" , "quaters"] <- "Q3"
+a_i1_l1$quaters <- as.factor(a_i1_l1$quaters)  
+```
+
+
+```{r}
+a_i1_l1_lm_bad <- lm(mean_amount ~ trdate + quaters, a_i1_l1)
+summary(a_i1_l1_lm_bad)
+plot(a_i1_l1_lm_bad)
+
+a11lm_predict <- data.frame(mean_amount_pred = predict(a_i1_l1_lm_bad, a_i1_l1), trdate = a_i1_l1$trdate)
+
+a_i1_l1_plot + geom_line(color ="red", data = a11lm_predict, aes(y = mean_amount_pred))
+```
+```{r}
+a_i1_l1_lm_bad <- lm(mean_amount ~ trdate + quaters + trmonth, a_i1_l1)
+summary(a_i1_l1_lm_bad)
+plot(a_i1_l1_lm_bad)
+
+a11lm_predict <- data.frame(mean_amount_pred = predict(a_i1_l1_lm_bad, a_i1_l1), trdate = a_i1_l1$trdate)
+
+a_i1_l1_plot + geom_line(color ="red", data = a11lm_predict, aes(y = mean_amount_pred))
+```
+
+```{r}
+# inflation 
+# https://www.statista.com/statistics/271845/inflation-rate-in-australia/
+inflation <- tibble(year = c(2013, 2014, 2015, 2016), inflperc = c(2.45, 2.51, 1.51, 1.25))
+
+# gdp growth
+# https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?end=2016&locations=AU&start=2013
+gdpgrowth <- tibble(year = c(2013, 2014, 2015, 2016), growthperc = c(2.585,2.533,2.193,2.771))
+
+# CPI
+# https://www.rba.gov.au/inflation/measures-cpi.html
+
+# vs USD
+
+# vs EURO
+
+# vs YUAN
+```
+
+
+
+* Holidays
+* School Holidays
+* Seasons
+* Inflation
+* Population growth
+* Economic Growth
+* Dollar
+
+##### (Hint: on your plot you may see local trends like seasonality. Consider how you could craft a variable to capture this?).
+
+##### You may also see a global upwards or downwards slope, could you craft a variable to capture this? Therefore there are two simple variables you could create to capture time.
+
+##### Could you craft more complex ones, perhaps with polynomials to capture local or global trends? Experiment and see! 
+
+#### ii. Note 2: Carefully think about how you split your test and train sets. (Hint: Random is not appropriate!)
+
+Splitting will be;
+* Training set - 3 earliest years (01/01/2013 - 31/12/2015)
+* Testing set - most recent year(01/01/2016 - end)
+
+```{r}
+a_i1_l1_trainset <- a_i1_l1 %>%
+  filter(trdate <= "15-12-31")
+
+a_i1_l1_testset <- a_i1_l1 %>%
+  filter(trdate > "15-12-31")
+```
 

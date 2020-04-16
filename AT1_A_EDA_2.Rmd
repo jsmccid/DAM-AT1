@@ -9,4 +9,32 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(tidyverse)
+```
 
+## 1. Undertake EDA on this dataset. 
+
+## a. Do you need to clean the data in any way? Justify what you decide to do (or not do). 
+
+### Prep
+```{r Prep}
+#import
+transactions <- read_csv("transactions.csv")
+
+# convert dates to dates
+transactions$date <- as.Date(transactions$date, format = "%d/%m/%Y")
+
+#change variable name to avoid conflicts
+tname <- names(transactions)
+tname[1] <- "trdate"
+names(transactions) <- tname
+
+# convert neccessary variables to factors
+transactions$customer_id <- as.factor(transactions$customer_id) 
+transactions$industry <- as.factor(transactions$industry)
+transactions$location <- as.factor(transactions$location)
+```
+
+
+## b. Describe two insights gained just from EDA that would be of interest to the sales manager.

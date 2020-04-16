@@ -107,3 +107,10 @@ plotlist_loc_ind <- lapply(plotlist_loc_ind, function(int){
 multiplot(plotlist = plotlist_loc_ind, cols = 5)
 ```
 
+```{r}
+# aggregated_transactions <- transactions %>%
+ # select(trdate, industry, location, monthly_amount)
+
+# aggregated_transactions <- aggregate(aggregated_transactions, list(aggregated_transactions$trdate), mean)
+```
+
