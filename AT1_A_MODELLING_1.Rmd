@@ -26,7 +26,7 @@ library(tidyverse)
 transactions <- read_csv("transactions.csv")
 
 # convert dates to dates
-transactions$date <- as.Date(transactions$date, format = "%d/%m/%Y")
+transactions$date <- as.Date(transactions$date, format = "%d/%m/%y")
 
 #change variable name to avoid conflicts
 tname <- names(transactions)
@@ -53,9 +53,16 @@ aggregated_transactions <- group_by(transactions, trdate, location, industry) %>
 ### ii. Create a line plot of the variable monthly_amount for industry = 1 and location = 1.  Note the seasonality by month in this time series. 
 
 ```{r}
-aggregated_transactions$trmonth <- month(aggregated_transactions$trdate, label = TRUE, abbr = TRUE)
+aggregated_transactions$trmonth <- lubridate::month(aggregated_transactions$trdate, label = TRUE, abbr = TRUE)
 ```
 
+```{r}
+# Output date list
+trdates_out <- data.frame(unique(aggregated_transactions$trdate))
+names(trdates_out) <- "trdate"
+# trdates_out$trdate <- format(as.Date(trdates_out$trdate), "%Y-%m-%d")
+write_csv(trdates_out, "trdates_out.csv")
+```
 
 ```{r}
 a_i1_l1 <- aggregated_transactions %>%
@@ -77,7 +84,7 @@ plot(a_i1_l1_lm_bad)
 a11lm_predict <- data.frame(mean_amount_pred = predict(a_i1_l1_lm_bad, a_i1_l1), trdate = a_i1_l1$trdate)
 
 a_i1_l1_plot + geom_line(color ="red", data = a11lm_predict, aes(y = mean_amount_pred))
-```
+``` 
 
 #### i. Note 1 :Remember that time is very important in this model, so be sure to include variable(s) for the time sequence.
 

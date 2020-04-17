@@ -11,11 +11,29 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 CPIData <- read_csv("CPIdata.csv")
-datelist <- read_csv("trdates_out.csv")
-names(datelist) <- "unique_dates"
+trdates_out <- read_csv("trdates_out.csv")
+
+CPIData$Cdate <- as.Date(CPIData$Cdate)
+CPIData$Ndate <- as.numeric(CPIData$Cdate)
+trdates_out$trdate <- as.Date(trdates_out$trdate)
+trdates_out$Ndate <- as.numeric(trdates_out$trdate)
+ 
 ```
 
 ```{r}
+CPI_lm <- loess(index ~ Ndate, data = CPIData, span = 0.35, degree = 2)
+
+CPI_predict <- data.frame(index_predict = predict(CPI_lm, CPIData), Cdate = CPIData$Cdate)
+CPI_tdates <- data.frame(trindex_predict = predict(CPI_lm, trdates_out), trdate = trdates_out$trdate)
+
+CPI_predict_plot <- ggplot(CPIData , aes( x = Ndate, y = index)) + geom_point() + geom_line(color ="red", data = CPI_predict, aes(y = index_predict)) + geom_point(color = "blue", data = CPI_tdates, aes(x = Ndate, y = trindex_predict) )
+
+CPI_predict_plot 
+```
+
+```{r}
+CPI_predict <- data.frame(index_predict = predict(CPI_lm, CPIData), Cdate = CPIData$Cdate)
+
 
 ```
 
