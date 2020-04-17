@@ -1,0 +1,21 @@
+---
+title: "CPIData Editing"
+author: "Joshua McCarthy"
+date: "17/04/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+CPIData <- read_csv("CPIdata.csv")
+datelist <- read_csv("trdates_out.csv")
+names(datelist) <- "unique_dates"
+```
+
+```{r}
+
+```
+
