@@ -1,0 +1,15 @@
+---
+title: "DAM AT1-A"
+author: "Joshua McCarthy"
+date: "20/04/2020"
+site: "bookdown::bookdown_site"
+output:
+  bookdown::gitbook: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Planning
+
