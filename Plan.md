@@ -1,5 +1,3 @@
----
-Title: "Plan"
-Author: Joshua McCarthy
----
+# Plan
+## EDA
 
