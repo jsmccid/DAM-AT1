@@ -1,1 +1,386 @@
 # Understanding
+
+## Initial Import and Data Prep
+
+```{r Initial_Import}
+# import dataset
+#list of common NA substitution terms
+# 0 is not included intentionally
+pot_nas <- c("", " ", "  ", ".", ",", "NaN", "NAN", "nan", "NA", "na", "N/A", "n/a")
+
+# To make checking for missing values, including the read_csv(,na) argument allows us to assign all missing values defined in pot_nas as NA 
+transactions <- read_csv("./core_data/transactions.csv", na = pot_nas)
+
+# check names match dictionary
+names(transactions)
+
+# rename date to trdate due to potential issues with R date function
+tname <- names(transactions)
+tname[1] <- "trdate"
+names(transactions) <- tname
+
+#check for NA values
+if (nrow(transactions) == nrow(na.omit(transactions))){
+  print("no missing values")
+} else {
+  print("missing values present")
+}
+
+#data does not appear to have any missing values
+
+# check data structure
+str(transactions)
+
+# date variable not returned in date format
+transactions$trdate <- as.Date(transactions$trdate, format = "%d/%m/%y")
+
+# update industry, customer and location as they are all factors
+transactions$customer_id <- as.factor(transactions$customer_id)
+transactions$industry <- as.factor(transactions$industry)
+transactions$location <- as.factor(transactions$location)
+
+# double check formatting
+str(transactions)
+
+summary(transactions)
+```
+The summary shows;
+* Date range from Jan 2013 to Dec 2016
+* 4464 unique customers
+* All 10 locations and industries are represtened
+* There is a disproportionate number of transactions in industires 1 & 2
+* There is a disproportionate number of transactions in locations 1 & 2
+* The monthly transaction amounts range from 0 - 100M
+** The mean is 395396 and median is 179399, low considering the range
+
+## Data Quality
+
+## Initial Understanding
+
+### Customers
+
+```{r Initia_ Queries_Customer}
+# Do all customer have equal numbers of transactions?
+
+## counts transactions by customer_id, formats as a table
+number_of_transactions_per_customer <- as.data.frame(table(transactions$customer_id))
+summary(number_of_transactions_per_customer)
+
+# Answer - No
+
+# Do any customers have duplicate transactions on the same date?
+
+## creates a dataframe of the trdate and customer_id columns
+duplicate_check <- transactions %>%
+  select(trdate, customer_id)
+
+## appends a column to the dataframe if there is a duplicate transaction
+duplicate_check$dup <- transactions %>%
+  select(trdate, customer_id) %>%
+  duplicated()
+
+## creates a table of rows that are duplicates
+dup_check_sum <- duplicate_check %>% 
+  filter(duplicate_check$dup == "TRUE")
+
+## if there are no entries, therefore no duplicates in the new table prints "no duplicates
+if (nrow(dup_check_sum) == 0){
+  print ("No duplicates")
+} else{
+  print("Yes duplicates")
+}
+
+# Answer - No
+
+# Are all customers transactions continuous or are there breaks?
+
+
+
+# Answer - ?
+
+# Do any customers operate across industries?
+
+## selects the columns customer_id and industry and then writes unique entries to dataframe
+industry_check <- transactions %>%
+  select(industry, customer_id) %>%
+  distinct()
+
+## selects only the customer id and checks for duplicates
+industry_check$multi_industry <- industry_check %>%
+  select(customer_id) %>%
+  duplicated()
+
+## if the customer id is duplicated, that means that it appeared in more than one industry
+
+
+## same as duplicate check for dates
+industry_checksum <- industry_check %>% 
+  filter(multi_industry == "TRUE")
+
+if (nrow(industry_checksum) == 0){
+  print ("No duplicate")
+} else{
+  print("Yes duplicates")
+}
+
+# Answer - No
+
+# Do any customers operate across locations?
+
+## same process as industry but for location
+location_check <- transactions %>%
+  select(location, customer_id) %>%
+  distinct()
+
+location_check$multi_location <- location_check %>%
+  select(customer_id) %>%
+  duplicated()
+
+location_checksum<- location_check %>% 
+  filter(multi_location == "TRUE")
+
+if (nrow(location_checksum) == 0){
+  print ("No")
+} else{
+  print("Yes")
+}
+
+# Answer - No
+
+```
+### Industry
+```{r Initial_Queries_Industry}
+
+# Number of transactons per industry
+
+## using only customer_id and industry, creates a bar plot, counting how many times each industry appeared
+transactions %>%
+  select(customer_id, industry) %>%
+ggplot(aes(x = industry)) + geom_bar()
+
+# Industries 1 & 2 have a much larger number of transactions, similarly industries 6 & 10 appear quite low
+
+## create a summary of transactions per industry in a table
+
+number_of_transactions_per_industry <- as.data.frame(table(transactions$industry))
+## give the columns readable names
+names(number_of_transactions_per_industry) <- c("industry", "count")
+number_of_transactions_per_industry
+
+# calculates mean of transactions per industry
+ntpi_mean <- mean(number_of_transactions_per_industry$count)
+## calculates standard deviation of transactions per industry 
+ntpi_sd <- sd(number_of_transactions_per_industry$count)
+## calculates standard deviations from mean for each count
+number_of_transactions_per_industry$SDs <- (number_of_transactions_per_industry$count - ntpi_mean)/ntpi_sd 
+number_of_transactions_per_industry
+
+# industry 1 is 2.5 standard deviations from the mean however industry 2 is within 1 standard deviation
+
+# number of customer per industry
+
+## creates a bar plot, counting how many times each industry appeared
+transactions %>%
+  ## selects only unique customer id's per industry so each customer is only counted once
+  distinct(customer_id, industry) %>%
+ggplot(aes(x = industry)) + geom_bar()
+
+# a similar trend appears in the number of customers, likely as each customer can have a maximum of 47 transactions
+
+## creates a table summarising each customer into a single entry, keeping other information
+number_of_customers_per_industry <- group_by(transactions, customer_id, industry) %>%
+  summarise(mean_amount = mean(monthly_amount))
+
+## organises counts into a dataframe
+number_of_customers_per_industry <- as.data.frame(table(number_of_customers_per_industry$industry))
+## readable column headers
+names(number_of_customers_per_industry) <- c("industry", "count")
+number_of_customers_per_industry
+
+## deviations from mean count
+ncpi_mean <- mean(number_of_customers_per_industry$count)
+ncpi_sd <- sd(number_of_customers_per_industry$count)
+number_of_customers_per_industry$SDs <- (number_of_customers_per_industry$count - ncpi_mean)/ncpi_sd 
+number_of_customers_per_industry
+
+# industry 1 has 2.2 standard deviation higher customer count, this skews the sd count for other industries
+# industry 7 only has a total of 7 customers
+
+## subset data for industry 6
+industry_6 <- transactions %>%
+  filter(industry == 6)
+summary(industry_6)
+nrow(industry_6)
+
+# 195 total entries for industry 6
+# all 7 customers in industry 6 operate in location 1
+# the range is still 0-100M meaning both values exist in industry 6
+
+#try removing the industry  subset and checking table summary
+
+## subset data without industry 6
+industry_no_6 <- transactions %>% 
+  filter(industry != 6)
+summary(industry_no_6)
+
+# the lowest value is now $45k and highest is $64M
+# Meaning industry 6 contains both the lowest and highest monthly_amounts in the dataset
+# industry 6's data looks questionable
+
+```
+### Industry 6
+
+```{r}
+# if all zero values in the dataset are in industry 6, are zero values common?
+industry_6 %>% 
+  filter(monthly_amount == 0)
+
+#only one monthly amount of 0, and the next lowest is 45k in the dataset indicates its inclusion is likely and error
+# remove this value from industry_6 subset and main dataset
+
+industry_6 <- industry_6 %>% 
+  filter(monthly_amount != 0)
+
+transactions <- transactions %>% 
+  filter(monthly_amount != 0)
+
+## plotting monlthy amount against date, colouring the plot by customer_id
+ggplot(industry_6, aes(x = trdate, y = monthly_amount, color = customer_id)) +
+  #changes the opacity of each point so overlapping points are easier to differentiate
+  geom_point(alpha = 0.5) +
+  facet_wrap(industry_6$customer_id)
+
+#mean of each customer's monthly payments in industry_6
+i6_customer_summary <- industry_6 %>% 
+  group_by(customer_id) %>% 
+  summarise(mean_amount = mean(monthly_amount))
+i6_customer_summary
+
+# it appears the 100M ammount is correct from the plot if it belongs to customer ecf
+
+industry_6 %>% 
+  filter(monthly_amount == 100000000)
+
+# it does, it will remain in the dataset
+
+# check the distribution of the main dataset with and without industry 6
+
+# with industry 6 (the large spread indicated a need for more bins)
+ggplot(transactions, aes(x = monthly_amount)) + geom_histogram(bins = 1000)
+
+#the data is heavily skewed industry 6's high amounts for customer 6c530aae768250b8d9c3c908a13ee287 appear to be outliers
+
+# without industry 6
+
+## remake industry_no_6 subset due to removal of 0 transactions
+
+industry_no_6 <- transactions %>% 
+  filter(industry != 6)
+summary(industry_no_6)
+
+ggplot(industry_no_6, aes(x = monthly_amount)) + geom_histogram(bins = 1000)
+
+# the data is still quite skewed this will need to be addressed later
+
+# the plots for the customer in industry 6 except 6c530aae768250b8d9c3c908a13ee287 and a2a7902052d85a18a7b564d8872f1ff6 appear legitimate at this scale a closer inspection of those two customers is needed to reduce the issues with scaling
+
+# customer 6c530aae768250b8d9c3c908a13ee287
+
+industry_6 %>% 
+  filter(customer_id == "6c530aae768250b8d9c3c908a13ee287") %>% 
+ggplot(aes(x= trdate, y = monthly_amount)) + geom_point(alpha = 0.5)
+
+# customer a2a7902052d85a18a7b564d8872f1ff6
+
+industry_6 %>% 
+  filter(customer_id == "a2a7902052d85a18a7b564d8872f1ff6") %>% 
+ggplot(aes(x= trdate, y = monthly_amount)) + geom_point(alpha = 0.5)
+
+# at their own scales both customers transactions do not look suspicious, though still quite low
+```
+
+```{r Initial Queries - Location}
+# Number of transactions per location
+number_of_transactions_per_location <- as.data.frame(table(transactions$location))
+names(number_of_transactions_per_location) <- c("location", count)
+number_of_transactions_per_location
+
+sd(number_of_transactions_per_location$count)
+
+# number of customers per location
+
+
+```
+
+
+
+
+```{r Multiplot}
+#Import new function for managing large plots
+
+# Multiple plot function
+#
+# ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
+# - cols:   Number of columns in layout
+# - layout: A matrix specifying the layout. If present, 'cols' is ignored.
+#
+# If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
+# then plot 1 will go in the upper left, 2 will go in the upper right, and
+# 3 will go all the way across the bottom.
+#
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  library(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots = length(plots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
+```
+
+## Deeper Understanding
+
+### Location
+
+```{r}
+# Customer distribution between locations
+transactions %>%
+  distinct(customer_id, location) %>%
+ggplot(aes(x = location)) + geom_bar()
+```
+
+### Industry
+
+```{r}
+transactions %>%
+  distinct(customer_id, industry) %>%
+ggplot(aes(x = industry)) + geom_bar()
+```
+
