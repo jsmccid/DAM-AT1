@@ -1,0 +1,28 @@
+# Data Preparation
+
+```{r}
+#import cleaned data
+load(file ="./core_data/transactions_clean.Rdata")
+
+# create aggregate dataset as per brief
+transaction_agg  <-  aggregate(.~trdate + location + industry, transactions[-2], FUN = mean)
+```
+
+## Constructed Variables
+```{r}
+# months
+
+# nov-dec lul
+
+#april lul
+
+#overall rise
+
+#seasonality curve
+```
+
+## Integrated variables
+```{r}
+
+```
+

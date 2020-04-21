@@ -13,3 +13,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Planning
 
+```{r}
+library(bookdown)
+library(tidyverse)
+```
+
+Install bookdown and build this page to see full book

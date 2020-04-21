@@ -92,12 +92,6 @@ if (nrow(dup_check_sum) == 0){
 
 # Answer - No
 
-# Are all customers transactions continuous or are there breaks?
-
-
-
-# Answer - ?
-
 # Do any customers operate across industries?
 
 ## selects the columns customer_id and industry and then writes unique entries to dataframe
@@ -299,19 +293,164 @@ ggplot(aes(x= trdate, y = monthly_amount)) + geom_point(alpha = 0.5)
 # at their own scales both customers transactions do not look suspicious, though still quite low
 ```
 
+### Industry 10
+
+```{r}
+# A look into industry 10
+
+industry_10 <- transactions %>% 
+  filter(industry == 10)
+summary(industry_10)
+
+ggplot(industry_10, aes(x = trdate, y = monthly_amount)) +
+  geom_point(alpha = 0.5) +
+  facet_wrap(industry_10$location)
+
+# the number of transactions by location within industry 10 appear quite inconsistent
+
+industry_10_locations <- as.data.frame(table(industry_10$location))
+## give the columns readable names
+names(industry_10_locations) <- c("location", "count")
+industry_10_locations
+
+# industry 10 is missing location 6
+# is it possible industry 6 in location 1 corresponds to industry 10 location 6?
+# industry 10 location 10 only has 4 entires
+
+ggplot(filter(industry_10, location == 10), aes(x = trdate, y = monthly_amount)) +
+  geom_point(alpha = 0.5)
+
+# the values are low but do not appear illigitimate
+
+# industry 10 location 8 has a large difference between 2 sets of transactions
+
+industry_10 %>% 
+  filter(location == 8) %>% 
+  ggplot(aes(x = trdate, y = monthly_amount, color = customer_id)) + geom_point()
+
+## only two customers in industry 10 location 8
+
+i10_l8 <-industry_10 %>% 
+  filter(location == 8) 
+
+# customer d714d2c5a796d5814c565d78dd16188d
+
+i10_l8 %>% 
+  filter(customer_id == "d714d2c5a796d5814c565d78dd16188d") %>% 
+  ggplot(aes(x = trdate, y = monthly_amount)) + geom_point()
+
+# transactions are very cyclic and high
+
+# customer db8e1af0cb3aca1ae2d0018624204529
+
+i10_l8 %>% 
+  filter(customer_id == "db8e1af0cb3aca1ae2d0018624204529") %>% 
+  ggplot(aes(x = trdate, y = monthly_amount)) + geom_point()
+
+# transactions are quite random
+```
+
 ```{r Initial Queries - Location}
-# Number of transactions per location
+# Number of transactons per location
+
+## using only customer_id and location, creates a bar plot, counting how many times each location appeared
+transactions %>%
+  select(customer_id, location) %>%
+ggplot(aes(x = location)) + geom_bar()
+
+# Locations 1 and 2 mirroring industries 1 and 2 have a higher representation, however no single location has such an obviously small number of represetnation as indstury 6 or 10
+
+## create a summary of transactions per location in a table
+
 number_of_transactions_per_location <- as.data.frame(table(transactions$location))
-names(number_of_transactions_per_location) <- c("location", count)
+## give the columns readable names
+names(number_of_transactions_per_location) <- c("location", "count")
 number_of_transactions_per_location
 
-sd(number_of_transactions_per_location$count)
+# calculates mean of transactions per location
+ntpl_mean <- mean(number_of_transactions_per_location$count)
+## calculates standard deviation of transactions per location 
+ntpl_sd <- sd(number_of_transactions_per_location$count)
+## calculates standard deviations from mean for each count
+number_of_transactions_per_location$SDs <- (number_of_transactions_per_location$count - ntpl_mean)/ntpl_sd 
+number_of_transactions_per_location
 
-# number of customers per location
+# location 2 is ~2 standard deviations outside of the mean
+
+# number of customer per location
+
+## creates a bar plot, counting how many times each location appeared
+transactions %>%
+  ## selects only unique customer id's per location so each customer is only counted once
+  distinct(customer_id, location) %>%
+ggplot(aes(x = location)) + geom_bar()
+
+# a similar trend appears in the number of customers, likely as each customer can have a maximum of 47 transactions
+
+# Further investigation into location would be challenging
 
 
 ```
+## Monthly Amount
 
+```{r}
+# coming back to distribution
+
+ggplot(transactions, aes(x = monthly_amount)) + geom_histogram(bins = 20) + geom_density()
+
+# the transactions are focused in a small range
+
+#create a subset within 1sd of the mean
+tmean <- mean(transactions$monthly_amount)
+tsd <- sd(transactions$monthly_amount)
+
+transactions_1sd <- transactions %>% 
+  filter(monthly_amount >= tmean - tsd & monthly_amount <= tmean + tsd)
+
+range(transactions_1sd$monthly_amount)
+
+ggplot(transactions_1sd, aes(x = monthly_amount)) + geom_histogram(aes(y=..density..),bins = 30) + geom_density()
+
+density(transactions_1sd$monthly_amount)
+which.max(density(transactions_1sd$monthly_amount, n = 2056)$y)
+tr_densityhigh <- density(transactions_1sd$monthly_amount, n = 2056)$x[which.max(density(transactions_1sd$monthly_amount, n = 2056)$y)]
+
+
+transactions_focus <- transactions %>% 
+  filter(monthly_amount >= tr_densityhigh - (tsd/75) & monthly_amount <= tr_densityhigh + tsd/75)
+
+ggplot(transactions_focus, aes(x = monthly_amount)) + geom_histogram(aes(y=..density..),bins = 30) + geom_density()
+
+range(transactions_focus$monthly_amount)
+
+# subset down again by sd
+
+tmean2 <- mean(transactions_1sd$monthly_amount)
+tsd2 <- sd(transactions_1sd$monthly_amount)
+
+transactions_1sd2 <- transactions_1sd %>% 
+  filter(monthly_amount >= tmean2 - tsd2 & monthly_amount <= tmean2 + tsd2)
+
+ggplot(transactions_1sd2, aes(x = monthly_amount)) + geom_histogram(aes(y=..density..),bins = 30) + geom_density()
+
+# transaction distributions broken down by location and industry
+
+ggplot(transactions, aes(x= trdate, y = monthly_amount)) + geom_point() + facet_grid(rows = vars(transactions$industry), cols = vars(transactions$location))
+
+# we can see that industry 6 location 1 and industry 8 location 10 have exceptionally high values
+
+# removing those two
+transactions_rm <- transactions %>% 
+  filter(industry != 6, location != 10 & location != 8)
+
+ggplot(transactions_rm, aes(x= trdate, y = monthly_amount)) + geom_point() + facet_grid(rows = vars(transactions_rm$industry), cols = vars(transactions_rm$location))
+
+ggplot(transactions, aes(x= trdate, y = monthly_amount)) + geom_point() + facet_grid(rows = vars(transactions$industry), cols = vars(transactions$location), scales = "free")
+
+ggplot(transactions, aes(x = monthly_amount)) + geom_histogram(bins = 25) + facet_grid(rows = vars(transactions$industry), cols = vars(transactions$location), scales = "free")
+
+# a slight limitation with facet_grid, attempt to show density plots of each individually
+```
 
 
 
@@ -365,22 +504,130 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 }
 ```
 
-## Deeper Understanding
-
-### Location
-
 ```{r}
-# Customer distribution between locations
-transactions %>%
-  distinct(customer_id, location) %>%
-ggplot(aes(x = location)) + geom_bar()
+# we will the custom 'multiplot' function to make our plots
+
+# modified code from CANVAS Announcement
+
+#initialise dataframes
+plotlist_loc_ind <- data.frame()
+combo_obs <- data.frame()
+combo_row <- data.frame()
+#create list of locations and industries
+industries = unique(transactions$industry)
+locations = unique(transactions$location)
+# work through groups in sequence
+for (ind in industries) {
+for (loc in locations) {
+  # create a name for each group
+  temp_name <- paste("industry", ind, "location", loc, sep = "_")
+# create a subset of the data for each unique group
+temp = transactions[transactions$industry == ind &
+transactions$location == loc, ]
+# create a row of the name and the number of observations in the group
+combo_row <- cbind(temp_name, nrow(temp))
+# add row to list, outputting list of all groups and observations per group
+combo_obs <- rbind(combo_obs, combo_row)
+# rename the temp data frame to the name of the group
+assign(temp_name, temp)
+# create a vector of all group dataframe names
+row <- cbind(temp_name)
+plotlist_loc_ind <- rbind(plotlist_loc_ind, row)
+}
+}
+
+# transform into a list
+plotlist_loc_ind <- as.list(as.character(plotlist_loc_ind$temp_name))
+
+#create a list of plots for all groupings (caution large file)
+plotlist_loc_ind <- lapply(plotlist_loc_ind, function(plotlist_loc_ind){
+  ggplot(eval(as.symbol(paste(plotlist_loc_ind))), aes(x = monthly_amount)) + geom_density() + theme_void() + labs (title = paste(plotlist_loc_ind))
+  })
+
+#uses multiplot function to plot all listed plots
+multiplot(plotlist = plotlist_loc_ind, cols = 5)
+
+# not very ordered but the distributions of each group can be visualised
+
+# additonally the function created a list of how many observations per grouping
+str
+names(combo_obs) <- c("group", "obs")
+combo_obs$obs <- as.character(combo_obs$obs)
+combo_obs$obs <- as.numeric(combo_obs$obs)
+combo_obs
+
+combo_obs %>% 
+  filter(obs <= 20)
+
+# We also pickup the previously unnoticed unreprestented group of industry 9 in location 8
 ```
 
-### Industry
+## Target dataset
 
 ```{r}
-transactions %>%
-  distinct(customer_id, industry) %>%
-ggplot(aes(x = industry)) + geom_bar()
+# The brief specifies to train on industry 1, location 1 taking a closer look a the dataset
+
+i1_l1 <- transactions %>% 
+  filter(industry ==1, location == 1)
+summary(i1_l1)
+
+ggplot(i1_l1, aes(x = monthly_amount)) + geom_density()
+
+# the data is again heavily skewed
+
+ggplot(i1_l1, aes(x = trdate, y = monthly_amount)) + geom_point(alpha = 0.1)
+
+```
+
+## Aggregate mean
+
+```{r}
+# The brief also specifies to use an aggregated mean dataset
+transactions_agg  <-  aggregate(.~trdate + location + industry, transactions[-2], FUN = mean)
+
+transactions_agg %>% 
+  filter(industry == 1 & location == 1) %>% 
+  ggplot(aes(x = monthly_amount)) + geom_density()
+
+#this helps with the distribution but is it actual
+
+
+transactions_agg %>% 
+  filter(industry == 1 & location == 1) %>% 
+  ggplot(aes(x = trdate, y = monthly_amount)) + geom_point() + geom_line()
+
+```
+
+
+```{r}
+# Using a similar method to visualise the distributions of the aggregated groupings
+plotlist_loc_ind_agg <- data.frame()
+combo_obs <- data.frame()
+combo_row <- data.frame()
+industries = unique(transactions_agg$industry)
+locations = unique(transactions_agg$location)
+for (ind in industries) {
+for (loc in locations) {
+  temp_name <- paste("industrya", ind, "locationa", loc, sep = "_")
+# create a subset of the data
+temp = transactions_agg[transactions_agg$industry == ind &
+transactions_agg$location == loc, ]
+combo_row <- cbind(temp_name, nrow(temp))
+combo_obs <- rbind(combo_obs, combo_row)
+assign(temp_name, temp)
+row <- cbind(temp_name)
+plotlist_loc_ind_agg <- rbind(plotlist_loc_ind_agg, row)
+}
+}
+
+plotlist_loc_ind_agg <- as.list(as.character(plotlist_loc_ind_agg$temp_name))
+
+plotlist_loc_ind_agg <- lapply(plotlist_loc_ind_agg, function(plotlist_loc_ind){
+  ggplot(eval(as.symbol(paste(plotlist_loc_ind))), aes(x = monthly_amount)) + geom_density() + theme_void() + labs (title = paste(plotlist_loc_ind))
+  })
+
+multiplot(plotlist = plotlist_loc_ind_agg, cols = 5)
+
+#this improves the distributions for some of the groupings
 ```
 

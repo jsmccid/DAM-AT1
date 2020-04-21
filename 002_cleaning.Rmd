@@ -1,0 +1,53 @@
+# Data Cleaning
+
+A summar of all data cleaning based on previous data exploration and understanding, outputting to file to be used in next steps
+```{r Cleaning}
+
+# data cleaning based on previous data exploration and understanding, outputting to file to be used in next steps
+
+# import dataset
+#list of common NA substitution terms
+# 0 is not included intentionally
+pot_nas <- c("", " ", "  ", ".", ",", "NaN", "NAN", "nan", "NA", "na", "N/A", "n/a")
+
+# To make checking for missing values, including the read_csv(,na) argument allows us to assign all missing values defined in pot_nas as NA 
+transactions <- read_csv("./core_data/transactions.csv", na = pot_nas)
+
+# check names match dictionary
+names(transactions)
+
+# rename date to trdate due to potential issues with R date function
+tname <- names(transactions)
+tname[1] <- "trdate"
+names(transactions) <- tname
+
+#check for NA values
+if (nrow(transactions) == nrow(na.omit(transactions))){
+  print("no missing values")
+} else {
+  print("missing values present")
+}
+
+#data does not appear to have any missing values
+
+# date variable not returned in date format
+transactions$trdate <- as.Date(transactions$trdate, format = "%d/%m/%y")
+
+# update industry, customer and location as they are all factors
+transactions$customer_id <- as.factor(transactions$customer_id)
+transactions$industry <- as.factor(transactions$industry)
+transactions$location <- as.factor(transactions$location)
+
+# remove single 0 amount
+
+transactions <- transactions %>% 
+  filter(monthly_amount != 0)
+
+# double check formatting
+str(transactions)
+
+summary(transactions)
+
+write_csv(transactions, "./core_data/transactions_clean_csv.csv")
+save(transactions, file = "./core_data/transactions_clean.Rdata")
+```

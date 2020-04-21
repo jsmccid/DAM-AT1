@@ -1,0 +1,33 @@
+# External Data
+
+```{r}
+# as the data is of finanical transactions for a recent period, they may relate to other datasets that track finanical metrics, as financial metrics generally have a longer history, models can be more accuratley trained to predict them individually, increasing the accuracy of the final prediction
+
+# the company is Australian so australian finanical metrics could be valid
+
+# importing data from the relavant periods for potential financial metrics
+
+#consumer price index for australia
+auscpi <- read_csv("./integrate_data/CPIdata.csv")
+
+# asx index of top 500 companies
+allords<- read_csv("./integrate_data/ASX All Ordinaries.csv")
+
+# asx index of the 200 companies after the top 100 in asx all ordinaries
+smallords<- read_csv("./integrate_data/ASX Small Ordinaries.csv")
+
+# asx index of top 20 companies
+asx20 <- read_csv("./integrate_data/S&P_ASX 20.csv")
+
+# asx index of top 200 companies
+asx200 <- read_csv("./integrate_data/S&P_ASX 200.csv")
+
+# temperature data
+
+# rainfall
+
+# tourism
+
+
+```
+
