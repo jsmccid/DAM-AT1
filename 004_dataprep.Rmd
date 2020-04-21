@@ -23,6 +23,6 @@ transaction_agg  <-  aggregate(.~trdate + location + industry, transactions[-2],
 
 ## Integrated variables
 ```{r}
-
+#import chosen prepared external datasets
 ```
 

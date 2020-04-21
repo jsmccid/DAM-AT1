@@ -631,3 +631,10 @@ multiplot(plotlist = plotlist_loc_ind_agg, cols = 5)
 #this improves the distributions for some of the groupings
 ```
 
+## Conclusions
+
+A great deal is learnt about the data however the dataset appears to have been previously cleaned and treated for the intended use i.e. mean_amount modelling.
+
+There is skewness in all underlying datasets, however taking a mean of the transactions per month renders the distribution of the target dataset's distribution more toward the normal distribution useful for regression.
+
+Little additional cleaning will be undertaken at this stage of the process.
