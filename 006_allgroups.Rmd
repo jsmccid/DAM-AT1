@@ -1,0 +1,100 @@
+# Fitting to all groups
+
+```{r}
+# import prepped data
+load(file = "./core_data/transactions_prepd.Rdata")
+
+
+```
+
+```{r}
+#prepd_train <- transactions_prepd %>% 
+ # ungroup() %>% 
+  #group_by(industry, location) %>% 
+  #group_split()
+
+# pi1l1 <- transactions_prepd %>% 
+  #filter(industry == 1, location == 1) %>% 
+  #select(-industry, -location, -trdate) %>% #removing trdate and switching to ndate for ease of calculation
+  #arrange(ndate) %>% 
+  #select(ndate, everything())
+```
+
+
+```{r}
+#final variable list
+industry_location <- transactions_prepd %>% 
+  select(ndate, location, industry, mean_amount, Jan, Mar, May, Jul, Oct, Nov, Dec, allords_volume)
+
+```
+
+```{r}
+# industry_location is the aggregated data frame
+output = data.frame()
+industries = unique(as.numeric(industry_location$industry))
+locations = unique(as.numeric(industry_location$location))
+
+for (ind in industries) {
+for (loc in locations) {
+# create a subset of the data
+temp = industry_location[industry_location$industry == ind &
+industry_location$location == loc, ]
+
+# Check to make sure you have at least X months of data
+if (nrow(temp) >= 4) {
+# train your model
+# INSERT YOUR MODEL TRAINING CODE, INCLUDING TRAINING/TEST PARTITIONING
+
+trainrows <- ceiling(0.75*nrow(temp))
+train_temp <- temp[1:trainrows,]
+test_temp <- temp[(trainrows+1):nrow(temp),] 
+
+model <- lm(mean_amount ~., data = select(temp, -industry, -location))
+
+# output a prediction
+temp$prediction = predict(model, temp)
+
+# CALCULATE YOUR ERROR
+error <- rmse(temp$mean_amount, temp$prediction)
+
+# append your error to the output data frame, include industry and location variables
+row <- cbind(ind,loc,error)
+output = rbind(output, row)
+}else output = rbind(output, "lowmonths")
+}
+}
+```
+
+
+```{r}
+trainrows <- ceiling(0.75*nrow(pi1l1))
+train_i1l1 <- pi1l1[1:trainrows,]
+test_i1l1 <- pi1l1[(trainrows+1):nrow(pi1l1),]
+```
+
+```{r}
+lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+```
+
+```{r}
+rmse(train_i1l1_ok$mean_amount, lm_train_i1l1_predict$mean_amount_pred)
+```
+
+```{r}
+december_prediction <- train_i1l1_ok2[1,]
+december_prediction$ndate <- as.numeric(as.Date("2016-12-01"))
+december_prediction$Jan <- 0
+december_prediction$Dec <- 1
+december_prediction$allords_volume <- as.numeric(16.35e9)
+december_prediction$mean_amount <- NA
+
+dec_i1l1_pred <- data.frame(mean_amount_pred = predict(lm_train_i1l1_ok2, december_prediction), ndate = december_prediction$ndate)
+
+dec_i1l1_pred$mean_amount
+#169433.5
+```
+

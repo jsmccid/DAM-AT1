@@ -1,0 +1,460 @@
+# Modelling
+
+```{r}
+# import prepped data
+load(file = "./core_data/transactions_prepd.Rdata")
+
+```
+
+
+## Test Setup
+
+```{r}
+pi1l1 <- transactions_prepd %>% 
+  filter(industry == 1, location == 1) %>% 
+  select(-industry, -location, -trdate) %>% #removing trdate and switching to ndate for ease of calculation
+  arrange(ndate) %>% 
+  select(ndate, everything())
+
+trainrows <- ceiling(0.75*nrow(pi1l1))
+train_i1l1 <- pi1l1[1:trainrows,]
+test_i1l1 <- pi1l1[(trainrows+1):nrow(pi1l1),]
+```
+
+```{r}
+baseplot_train_i1l1 <- ggplot(train_i1l1, aes(x =  ndate, y = mean_amount)) +
+  geom_point() + geom_line() +
+  geom_text(aes(label = trmonth, vjust=-1))
+baseplot_train_i1l1
+```
+
+## Initial Model
+```{r}
+#remove trmonth as we have dummy variables in place
+train_i1l1 <- train_i1l1 %>% 
+  select(-trmonth) 
+```
+
+
+```{r}
+lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+#AR^2 of 0.8722 but with some issues
+```
+
+```{r}
+cor_train_i1l1 <- cor(train_i1l1)
+corrplot(cor_train_i1l1, method = "number")
+
+# highlights an unnoticed corrolation between transactions and date
+
+t11 <- transactions %>% 
+  filter(industry == 1, location == 1)
+as.data.frame(table(t11$trdate))
+
+# this verifies the correlation, this shows as the company has grown and the number of customers has increased,
+# so has the mean spend per customer, or newer customers are spending more
+
+# reducing variables with high correllation & irrelevant months
+# ntrans - ndate, 
+
+train_i1l1 <- train_i1l1 %>% 
+  select(-trindex_predict, -asx20_price, -Jun, -Sep)
+```
+
+
+```{r}
+# compare between ndate and ntrans
+lm_train_i1l1 <- lm(mean_amount ~. -ndate, data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+#AR^2 0.8059
+
+lm_train_i1l1_high <- lm(mean_amount ~. -ntrans, data = train_i1l1)
+summary(lm_train_i1l1_high)
+plot(lm_train_i1l1_high)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1_high, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+#AR^2 0.872
+
+# removing ntrans
+train_i1l1 <- train_i1l1 %>% 
+  select(-ntrans)
+
+# checking corroloation once again
+cor_train_i1l1 <- cor(train_i1l1)
+corrplot(cor_train_i1l1, method = "number")
+
+# test between as20_volume and allords_volume
+
+lm_train_i1l1 <- lm(mean_amount ~. -asx20_volume, data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+#0.8659
+
+lm_train_i1l1 <- lm(mean_amount ~. -allords_volume, data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+#0.8463
+
+train_i1l1 <- train_i1l1 %>% 
+  select(-asx20_volume)
+
+lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+# the adjusted r-squared is decreasing as variables that correlated with ndate are removed, ndate could be related as a polynomial
+
+
+train_i1l1 <- train_i1l1 %>% 
+  select(-allords_change_perc, -smallords_price)
+
+lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+# 0.854
+
+train_i1l1 <- train_i1l1 %>% 
+  select(-Apr)
+
+lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+#0.8563
+
+train_i1l1_ok <- train_i1l1
+```
+```{r}
+lm_train_i1l1 <- lm(mean_amount ~. + sin(2*pi*ndate), data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+```
+```{r}
+lm_train_i1l1 <- lm(mean_amount ~. + allords_volume*ndate*Dec, data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+```
+
+
+```{r}
+train_i1l1 <- train_i1l1 %>% 
+  select(-Aug, -allords_price)
+
+lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+# 0.8289, 
+
+train_i1l1 <- train_i1l1 %>% 
+  select(-Feb)
+
+lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+# 0.8287
+
+train_i1l1 <- train_i1l1 %>% 
+  select(-Jul)
+
+lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+#0.8182
+
+train_i1l1 <- train_i1l1 %>% 
+  select(-May)
+
+lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+#0.8085
+
+train_i1l1 <- train_i1l1 %>% 
+  select(-Mar)
+
+lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+#0.8
+
+train_i1l1 <- train_i1l1 %>% 
+  select(-Nov)
+
+lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+#0.7857
+
+lm_train_i1l1 <- lm(mean_amount ~. + I(ndate^2) + I(ndate^3) + I(ndate^5), data = train_i1l1)
+summary(lm_train_i1l1)
+plot(lm_train_i1l1)
+
+lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict, aes(y = mean_amount_pred))
+
+```
+
+
+```{r}
+x = model.matrix(~., train_i1l1_ok[,-2])
+y = train_i1l1_ok$mean_amount
+
+cv.fit_ridge = cv.glmnet(x, y, family = 'gaussian', nfolds = 6, alpha = 1)
+cv.fit_ridge$lambda.min
+coef(cv.fit_ridge, s = cv.fit_ridge$lambda.1se)
+
+
+ridge_predict <- data.frame(ndate = train_i1l1_ok$ndate)
+
+ridge_predict$mean_amount_pred <- predict(cv.fit_ridge$glmnet.fit, newx = model.matrix(~., train_i1l1_ok[, -2]), 
+                                                                             s = cv.fit_ridge$lambda.min)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = ridge_predict, aes(y = mean_amount_pred))
+
+#prediction_ridge = predict(cv.fit_ridge$glmnet.fit, newx = model.matrix(~ ., train_i1l1[, -2]), 
+                         # type = "class",
+                          #s = cv.fit_ridge$lambda.min)
+
+rmse(train_i1l1_ok$mean_amount, ridge_predict$mean_amount_pred)
+rmse(train_i1l1_ok$mean_amount, lm_train_i1l1_predict$mean_amount_pred)
+
+# over multiple tests lasso consistently 0's the Feb, Aug, allords_price variables with minimal impact to RMSE error comared to the "ok" model
+
+train_i1l1_ok2 <- train_i1l1_ok %>% 
+  select(-Feb, -Aug, -allords_price)
+```
+
+
+```{r}
+lm_train_i1l1_ok2 <- lm(mean_amount ~., data = train_i1l1_ok2)
+summary(lm_train_i1l1_ok2)
+plot(lm_train_i1l1_ok2)
+
+lm_train_i1l1_predict_ok2 <- data.frame(mean_amount_pred = predict(lm_train_i1l1_ok2, train_i1l1_ok2), ndate = train_i1l1$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict_ok2, aes(y = mean_amount_pred))
+
+
+x = model.matrix(~., train_i1l1_ok2[,-2])
+y = train_i1l1_ok2$mean_amount
+
+cv.fit_ridge_ok = cv.glmnet(x, y, family = 'gaussian', nfolds = 10, alpha = 1)
+cv.fit_ridge_ok$lambda.min
+coef(cv.fit_ridge_ok, s = cv.fit_ridge_ok$lambda.1se)
+
+
+ridge_predict_ok <- data.frame(ndate = train_i1l1_ok2$ndate)
+
+ridge_predict_ok$mean_amount_pred <- predict(cv.fit_ridge_ok$glmnet.fit, newx = model.matrix(~., train_i1l1_ok2[, -2]), 
+                                                                             s = cv.fit_ridge_ok$lambda.min)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = ridge_predict_ok, aes(y = mean_amount_pred))
+
+#prediction_ridge = predict(cv.fit_ridge$glmnet.fit, newx = model.matrix(~ ., train_i1l1[, -2]), 
+                         # type = "class",
+                          #s = cv.fit_ridge$lambda.min)
+
+rmse(train_i1l1_ok2$mean_amount, ridge_predict_ok$mean_amount_pred)
+rmse(train_i1l1_ok2$mean_amount, lm_train_i1l1_predict_ok$mean_amount_pred)
+```
+
+```{r}
+# drop extra columns from test
+test_i1l1_mod <- test_i1l1 %>% 
+  select(ndate, mean_amount, Jan, Mar, May, Jul, Oct, Nov, Dec, allords_volume)
+
+
+#testset test
+lm_test_i1l1_pred <- data.frame(mean_amount_pred = predict(lm_train_i1l1_ok2, test_i1l1_mod), ndate = test_i1l1_mod$ndate)
+
+ridge_predict_test <- data.frame(ndate = test_i1l1_mod$ndate)
+
+ridge_predict_test$mean_amount_pred <- predict(cv.fit_ridge_ok$glmnet.fit, newx = model.matrix(~., test_i1l1_mod[, -2]), 
+                                                                             s = cv.fit_ridge_ok$lambda.min)
+
+# baseplot_train_i1l1 + geom_line(color ="red", data = ridge_predict, aes(y = mean_amount_pred))
+
+rmse(test_i1l1_mod$mean_amount, ridge_predict_test$mean_amount_pred)
+rmse(test_i1l1_mod$mean_amount, lm_test_i1l1_pred$mean_amount_pred)
+
+ggplot(test_i1l1_mod, aes(x = ndate, y = mean_amount)) + geom_point() + geom_line() +
+  geom_line(color ="red", data = ridge_predict_test, aes(y = mean_amount_pred)) +
+  geom_line(color ="blue", data = lm_test_i1l1_pred, aes(y = mean_amount_pred))
+
+```
+
+```{r}
+
+# check agains best model
+
+# drop extra columns from test
+test_i1l1_mod <- test_i1l1 %>% 
+  select(-trindex_predict, -asx20_price, -Jun, -Sep)
+
+#testset test
+lm_test_i1l1_pred <- data.frame(mean_amount_pred = predict(lm_train_i1l1_high, test_i1l1_mod), ndate = test_i1l1_mod$ndate)
+
+# baseplot_train_i1l1 + geom_line(color ="red", data = ridge_predict, aes(y = mean_amount_pred))
+
+rmse(test_i1l1_mod$mean_amount, ridge_predict_test$mean_amount_pred)
+rmse(test_i1l1_mod$mean_amount, lm_test_i1l1_pred$mean_amount_pred)
+
+ggplot(test_i1l1_mod, aes(x = ndate, y = mean_amount)) + geom_point() + geom_line() +
+  geom_line(color ="red", data = ridge_predict_test, aes(y = mean_amount_pred)) +
+  geom_line(color ="blue", data = lm_test_i1l1_pred, aes(y = mean_amount_pred))
+
+# the more generalised model produced more accurate results in the test-set than the most accurate training model
+```
+
+
+
+
+## All Ordinaries Volume
+```{r}
+# As all ordinaries is a predictor the december value needs to be predicted, the increase in data availability will be leveraged here to create a more accurate model, volumes go back to july 2003
+
+allords_full <- read_csv("./integrate_data/allords_0603.csv")
+names(allords_full) <- c("date", "price","open","high","low","volume","change")
+allords_full_date <- allords_full$date
+
+allords_full[] <- lapply(allords_full, function(x) gsub("%", "e-2", x))
+allords_full[] <- lapply(allords_full, function(x) gsub("B", "e9", x))
+allords_full[] <- lapply(allords_full, function(x) as.numeric(x))
+allords_full$date <- as.numeric(allords_full_date)
+cor_asx2 <- cor(allords_full)
+corrplot(cor_asx2, method = "number")
+
+trainrows <- ceiling(0.85*nrow(allords_full))
+train_aofull <- allords_full[1:trainrows,]
+test_aofull <- allords_full[(trainrows+1):nrow(allords_full),]
+
+str(train_aofull)
+
+ggplot(train_aofull, aes(x = date, y = volume)) + geom_line()
+
+aolm <- lm(volume ~., data = train_aofull)
+summary(aolm)
+
+x = model.matrix(~., train_aofull[,-5])
+y = train_aofull$volume
+
+cv.fit_ridge_ok = cv.glmnet(x, y, family = 'gaussian', nfolds = 10, alpha = 0.5)
+cv.fit_ridge_ok$lambda.min
+coef(cv.fit_ridge_ok, s = cv.fit_ridge_ok$lambda.min)
+
+
+#ridge_predict_ok <- data.frame(ndate = $ndate)
+
+## ridge_predict_ok$mean_amount_pred <- predict(cv.fit_ridge_ok$glmnet.fit, newx = model.matrix(~., train_i1l1_ok2[, -2]), 
+ #                                                                            s = cv.fit_ridge_ok$lambda.min)
+
+# Dec 2016 - Volume 16.35B
+```
+```{r}
+# predict december 2016
+
+december_prediction <- train_i1l1_ok2[1,]
+december_prediction$ndate <- as.numeric(as.Date("2016-12-01"))
+december_prediction$Jan <- 0
+december_prediction$Dec <- 1
+december_prediction$allords_volume <- as.numeric(16.35e9)
+december_prediction$mean_amount <- NA
+
+dec_i1l1_pred <- data.frame(mean_amount_pred = predict(lm_train_i1l1_ok2, december_prediction), ndate = december_prediction$ndate)
+
+dec_i1l1_pred$mean_amount
+#169433.5
+```
+
+## Experiment
+
+```{r}
+train_i1l1_do <- train_i1l1 %>% 
+  mutate(ndatem = ndate*20.83)
+
+lmdo_train_i1l1 <- lm(mean_amount ~ ndate + I(ndate^4), data = train_i1l1_do)
+summary(lmdo_train_i1l1)
+plot(lmdo_train_i1l1)
+
+lmdo_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lmdo_train_i1l1, train_i1l1_do), ndate = train_i1l1_do$ndate)
+
+baseplot_train_i1l1 + geom_line(color ="red", data = lmdo_train_i1l1_predict, aes(y = mean_amount_pred))
+```

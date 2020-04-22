@@ -4,25 +4,68 @@
 #import cleaned data
 load(file ="./core_data/transactions_clean.Rdata")
 
+#import external data
+load(file = "./integrate_data/fin_mets.Rdata")
+
 # create aggregate dataset as per brief
-transaction_agg  <-  aggregate(.~trdate + location + industry, transactions[-2], FUN = mean)
+
+# intial aggregate function switched to dplyr so a number of transactions summarised can be appeneded 
+# transactions_agg2  <-  aggregate(.~trdate + location + industry, transactions[-2], FUN = mean)
+
+transactions_agg <- transactions %>% 
+  group_by(industry, location, trdate) %>%
+  summarise(mean_amount = mean(monthly_amount) , ntrans = n()) %>% 
+  select(trdate, everything())
 ```
 
 ## Constructed Variables
 ```{r}
 # months
+transactions_agg$trmonth <- lubridate::month(transactions_agg$trdate, label = TRUE, abbr = TRUE)
 
-# nov-dec lul
+# change months into dummy variables (0/1)
+months <- unique(transactions_agg$trmonth)
+# df_months <- data.frame(matrix(data = 0, ncol = 12, nrow = 3886))
+# names(df_months) <- months
+# transactions_agg <- cbind(transactions_agg, df_months)
+# for (mnth in months) {
+# transactions_agg[transactions_agg$trmonth == mnth, (eval(as.symbol(paste("transactions_agg", mnth, sep="$"))] <-  1
+# }
 
-#april lul
+for (mnth in months) {
+ transactions_agg[transactions_agg$trmonth == mnth, mnth] <-  1
+ transactions_agg[transactions_agg$trmonth != mnth, mnth] <-  0
+}
 
-#overall rise
-
-#seasonality curve
+# customers
+# was applied in the aggregate step
 ```
 
 ## Integrated variables
 ```{r}
-#import chosen prepared external datasets
+# join transactions dataset with external data by date
+transactions_prepd <- merge(transactions_agg, combined_external, by = "trdate") %>% 
+  arrange(industry, location, trdate)
+```
+
+## Output
+```{r}
+str(transactions_prepd)
+summary(transactions_prepd)
+
+save(transactions_prepd, file = "./core_data/transactions_prepd.Rdata")
+```
+
+## unused
+
+```{r, eval = FALSE}
+# year
+transactions_agg$tryear <- lubridate::year(transactions_agg$trdate)
+years <- unique(transactions_agg$tryear)
+
+for (yr in years) {
+ transactions_agg[transactions_agg$tryear == yr, paste(yr)] <-  1
+ transactions_agg[transactions_agg$tryear != yr, paste(yr)] <-  0
+}
 ```
 
