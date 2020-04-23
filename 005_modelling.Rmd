@@ -318,7 +318,7 @@ baseplot_train_i1l1 + geom_line(color ="red", data = lm_train_i1l1_predict_ok2, 
 x = model.matrix(~., train_i1l1_ok2[,-2])
 y = train_i1l1_ok2$mean_amount
 
-cv.fit_ridge_ok = cv.glmnet(x, y, family = 'gaussian', nfolds = 10, alpha = 1)
+cv.fit_ridge_ok = cv.glmnet(x, y, family = 'gaussian', nfolds = 10, alpha = 0)
 cv.fit_ridge_ok$lambda.min
 coef(cv.fit_ridge_ok, s = cv.fit_ridge_ok$lambda.1se)
 
@@ -365,7 +365,7 @@ ggplot(test_i1l1_mod, aes(x = ndate, y = mean_amount)) + geom_point() + geom_lin
 
 ```{r}
 
-# check agains best model
+# check against best model
 
 # drop extra columns from test
 test_i1l1_mod <- test_i1l1 %>% 

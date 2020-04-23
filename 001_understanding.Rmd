@@ -445,12 +445,24 @@ transactions_rm <- transactions %>%
 
 ggplot(transactions_rm, aes(x= trdate, y = monthly_amount)) + geom_point() + facet_grid(rows = vars(transactions_rm$industry), cols = vars(transactions_rm$location))
 
-ggplot(transactions, aes(x= trdate, y = monthly_amount)) + geom_point() + facet_grid(rows = vars(transactions$industry), cols = vars(transactions$location), scales = "free")
+ggplot(transactions, aes(x= trdate, y = monthly_amount)) + geom_point(size = 0.25) + facet_grid(rows = vars(transactions$industry), cols = vars(transactions$location), scales = "free")
 
 ggplot(transactions, aes(x = monthly_amount)) + geom_histogram(bins = 25) + facet_grid(rows = vars(transactions$industry), cols = vars(transactions$location), scales = "free")
 
 # a slight limitation with facet_grid, attempt to show density plots of each individually
 
+```
+```{r}
+low_trans <- transactions %>% 
+  filter(monthly_amount < 1000000)
+  
+  
+ggplot(transactions, aes(x= trdate, y = monthly_amount)) + geom_point(size = 0.25) + facet_grid(rows = vars(transactions$industry), cols = vars(transactions$location), scales = "free")
+  
+
+ggplot(transactions, aes(x = monthly_amount)) + geom_histogram(bins = 1000) + geom_density()
+
+ggplot(transactions_1sd, aes(x = monthly_amount)) + geom_histogram(aes(y=..density..),bins = 100) + geom_density()
 ```
 
 
@@ -549,7 +561,7 @@ plotlist_loc_ind <- lapply(plotlist_loc_ind, function(plotlist_loc_ind){
 
 ```{r, fig.height = 25}
 #uses multiplot function to plot all listed plots
-multiplot(plotlist = plotlist_loc_ind, cols = 3)
+multiplot(plotlist = plotlist_loc_ind, cols = 2)
 
 # not very ordered but the distributions of each group can be visualised
 
@@ -633,6 +645,22 @@ plotlist_loc_ind_agg <- lapply(plotlist_loc_ind_agg, function(plotlist_loc_ind){
 multiplot(plotlist = plotlist_loc_ind_agg, cols = 5)
 
 #this improves the distributions for some of the groupings
+```
+```{r}
+transactions_months <- transactions %>% 
+  filter(industry != 6, industry != 10) %>% 
+  group_by(trdate) %>%
+  summarise(mean_amount = mean(monthly_amount) , ntrans = n(), sdtrans = sd(monthly_amount))
+
+ggplot(transactions_months, aes(x = trdate, y = mean_amount)) + geom_point() + geom_line()
+```
+
+```{r}
+transactions_agg_mat <- transactions %>% 
+  group_by(industry, location, trdate) %>%
+  summarise(mean_amount = mean(monthly_amount) , ntrans = n(), sdtrans = sd(monthly_amount))
+
+ggplot(transactions_agg_mat, aes(x = trdate, y = mean_amount)) + geom_line() + facet_grid(rows = vars(transactions_agg_mat$industry), cols = vars(transactions_agg_mat$location), scales = "free")
 ```
 
 ## Conclusions
