@@ -450,6 +450,7 @@ ggplot(transactions, aes(x= trdate, y = monthly_amount)) + geom_point() + facet_
 ggplot(transactions, aes(x = monthly_amount)) + geom_histogram(bins = 25) + facet_grid(rows = vars(transactions$industry), cols = vars(transactions$location), scales = "free")
 
 # a slight limitation with facet_grid, attempt to show density plots of each individually
+
 ```
 
 
@@ -543,9 +544,12 @@ plotlist_loc_ind <- as.list(as.character(plotlist_loc_ind$temp_name))
 plotlist_loc_ind <- lapply(plotlist_loc_ind, function(plotlist_loc_ind){
   ggplot(eval(as.symbol(paste(plotlist_loc_ind))), aes(x = monthly_amount)) + geom_density() + theme_void() + labs (title = paste(plotlist_loc_ind))
   })
+```
 
+
+```{r, fig.height = 25}
 #uses multiplot function to plot all listed plots
-multiplot(plotlist = plotlist_loc_ind, cols = 5)
+multiplot(plotlist = plotlist_loc_ind, cols = 3)
 
 # not very ordered but the distributions of each group can be visualised
 

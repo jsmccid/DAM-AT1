@@ -14,7 +14,7 @@ load(file = "./integrate_data/fin_mets.Rdata")
 
 transactions_agg <- transactions %>% 
   group_by(industry, location, trdate) %>%
-  summarise(mean_amount = mean(monthly_amount) , ntrans = n()) %>% 
+  summarise(mean_amount = mean(monthly_amount) , ntrans = n(), sdtrans = sd(monthly_amount)) %>% 
   select(trdate, everything())
 ```
 
@@ -24,7 +24,7 @@ transactions_agg <- transactions %>%
 transactions_agg$trmonth <- lubridate::month(transactions_agg$trdate, label = TRUE, abbr = TRUE)
 
 # change months into dummy variables (0/1)
-months <- unique(transactions_agg$trmonth)
+tmonths <- unique(transactions_agg$trmonth)
 # df_months <- data.frame(matrix(data = 0, ncol = 12, nrow = 3886))
 # names(df_months) <- months
 # transactions_agg <- cbind(transactions_agg, df_months)
@@ -32,13 +32,14 @@ months <- unique(transactions_agg$trmonth)
 # transactions_agg[transactions_agg$trmonth == mnth, (eval(as.symbol(paste("transactions_agg", mnth, sep="$"))] <-  1
 # }
 
-for (mnth in months) {
+for (mnth in tmonths) {
  transactions_agg[transactions_agg$trmonth == mnth, mnth] <-  1
  transactions_agg[transactions_agg$trmonth != mnth, mnth] <-  0
 }
 
 # customers
 # was applied in the aggregate step
+
 ```
 
 ## Integrated variables
@@ -67,5 +68,11 @@ for (yr in years) {
  transactions_agg[transactions_agg$tryear == yr, paste(yr)] <-  1
  transactions_agg[transactions_agg$tryear != yr, paste(yr)] <-  0
 }
+
+# yearly arc
+
+# wanteed to plot a 1/2 sine curve based on trmonth but subsitututed this as a test
+yarc <- data.frame(trmonth = tmonths, yarc = c(1,2,3,4,5,6,6,5,4,3,2,1))
+transactions_agg <- merge(transactions_agg, yarc, by = "trmonth")
 ```
 

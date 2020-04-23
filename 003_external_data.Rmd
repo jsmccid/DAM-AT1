@@ -129,7 +129,7 @@ save(combined_external, file = "./integrate_data/fin_mets.Rdata")
 
 ## Unused aditional ideas
 
-```{r, echo = TRUE, EVAL = FALSE}
+```{r, echo = TRUE, eval= FALSE}
 # School Holidays
 a_i1_l1$shols <- "0"
   a_i1_l1[a_i1_l1$trmonth == "Apr" , "shols"] <- 2.5

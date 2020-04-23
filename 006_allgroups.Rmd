@@ -3,21 +3,10 @@
 ```{r}
 # import prepped data
 load(file = "./core_data/transactions_prepd.Rdata")
+load(file ="./core_data/transactions_clean.Rdata")
 
-
-```
-
-```{r}
-#prepd_train <- transactions_prepd %>% 
- # ungroup() %>% 
-  #group_by(industry, location) %>% 
-  #group_split()
-
-# pi1l1 <- transactions_prepd %>% 
-  #filter(industry == 1, location == 1) %>% 
-  #select(-industry, -location, -trdate) %>% #removing trdate and switching to ndate for ease of calculation
-  #arrange(ndate) %>% 
-  #select(ndate, everything())
+transactions_prepd <- transactions_prepd %>% 
+  select(-sdtrans)
 ```
 
 
@@ -25,12 +14,13 @@ load(file = "./core_data/transactions_prepd.Rdata")
 #final variable list
 industry_location <- transactions_prepd %>% 
   select(ndate, location, industry, mean_amount, Jan, Mar, May, Jul, Oct, Nov, Dec, allords_volume)
-
 ```
 
 ```{r}
 # industry_location is the aggregated data frame
 output = data.frame()
+decpred <- data.frame(ndate = as.numeric(as.Date("2016-12-01")), mean_amount = NA, Jan = 0, Mar = 0, May = 0, Jul = 0, Oct = 0, Nov = 0, Dec = 1, allords_volume = 	16.35e9)
+december_predict_all <- data.frame()
 industries = unique(as.numeric(industry_location$industry))
 locations = unique(as.numeric(industry_location$location))
 
@@ -41,7 +31,7 @@ temp = industry_location[industry_location$industry == ind &
 industry_location$location == loc, ]
 
 # Check to make sure you have at least X months of data
-if (nrow(temp) >= 4) {
+if (nrow(temp) >= 36) {
 # train your model
 # INSERT YOUR MODEL TRAINING CODE, INCLUDING TRAINING/TEST PARTITIONING
 
@@ -49,52 +39,345 @@ trainrows <- ceiling(0.75*nrow(temp))
 train_temp <- temp[1:trainrows,]
 test_temp <- temp[(trainrows+1):nrow(temp),] 
 
-model <- lm(mean_amount ~., data = select(temp, -industry, -location))
+model <- lm(mean_amount ~., data = select(train_temp, -industry, -location))
 
 # output a prediction
+train_temp$prediction = predict(model, train_temp)
+test_temp$prediction = predict(model, test_temp)
 temp$prediction = predict(model, temp)
 
 # CALCULATE YOUR ERROR
-error <- rmse(temp$mean_amount, temp$prediction)
+train_error <- rmse(train_temp$mean_amount, train_temp$prediction)
+test_error <- rmse(test_temp$mean_amount, test_temp$prediction)
+total_error <- rmse(temp$mean_amount, temp$prediction)
 
 # append your error to the output data frame, include industry and location variables
-row <- cbind(ind,loc,error)
+row <- cbind(ind,loc,train_error,test_error, total_error)
 output = rbind(output, row)
-}else output = rbind(output, "lowmonths")
+
+#predict decemeber
+dpred <- data.frame(industry = ind, location = loc, prediction = predict(model, decpred), acc_plu_minus = test_error)
+december_predict_all <- rbind(december_predict_all, dpred)
+
 }
 }
+}
+
+output
+grouped_errors <- output
+```
+
+## Performance
+```{r}
+# evaluating model performance by out-of-set prediction RMSE
+te_mean <- mean(grouped_errors$test_error)
+te_sd <- sd(grouped_errors$test_error)
+te_mean
+te_sd
+
+ggplot(grouped_errors, aes(x = test_error)) + geom_density()
+
+#adding an index key
+grouped_errors$key <- paste("ind",grouped_errors$ind,"loc",grouped_errors$loc, sep = "")
+
+ggplot(grouped_errors, aes(x = key, y = test_error)) + geom_point()
+
+#though the labels are not very clear one group has an obviously much poorer performance than all others
+
+worst_perf <- grouped_errors[which.max(grouped_errors$test_error),]
+worst_perf_rem <- grouped_errors[-(which.max(grouped_errors$test_error)),]
+
+# unsuprisngly it is industry 6 location 1
+
+wpr_mean <- mean(worst_perf_rem$test_error)
+wpr_sd <- sd(worst_perf_rem$test_error)
+wpr_mean
+wpr_sd
+
+#the mean and distribution are much better with the outlier removed, though as the distribution is quite skewed the SD is not very relevant
+
+# seeing the improved plo
+
+ggplot(worst_perf_rem, aes(x = test_error)) + geom_density()
+ggplot(worst_perf_rem, aes(x = key, y = test_error)) + geom_point() + geom_text(aes(label = key), vjust = +1, hjust = "inward")
+
+# second worst performer
+
+worst_perf2 <- worst_perf_rem[which.max(worst_perf_rem$test_error),]
+worst_perf2
+worst_perf2_rem <- worst_perf_rem[-(which.max(worst_perf_rem$test_error)),]
+
+# industry 10 location 8, both the industries identified in understanding as having some customers with expetionaly high transaction values
+
+# below that
+
+ggplot(worst_perf2_rem, aes(x = key, y = test_error)) + geom_point() + geom_text(aes(label = key), vjust = +1, hjust = "inward")
+
+# referring to an earlier plot
+
+ggplot(transactions, aes(x= trdate, y = monthly_amount)) + geom_point() + facet_grid(rows = vars(transactions$industry), cols = vars(transactions$location), scales = "free")
+
+ggplot(transactions, aes(x = monthly_amount)) + geom_histogram(bins = 25) + facet_grid(rows = vars(transactions$industry), cols = vars(transactions$location), scales = "free")
+
+# high test_error appears to corrolate with high variation in transaction amount, or when there are sudden changes to transactions e.g. Industry 3 location 9 & industry 9 location 4
+
+# mean by industry
+
+mb_ind <- grouped_errors %>% 
+  group_by(ind) %>%
+  summarise(mean_terror = mean(test_error), sdtest = sd(test_error)) %>% 
+  arrange(desc(mean_terror))
+mb_ind
+
+# mean by location
+
+mb_loc <- grouped_errors %>% 
+  group_by(loc) %>%
+  summarise(mean_terror = mean(test_error), sdtest = sd(test_error)) %>% 
+  arrange(desc(mean_terror))
+mb_loc
+
+# mean by location without industry 6
+
+mb_loc_n6 <- grouped_errors %>% 
+  filter(ind != 6) %>% 
+  group_by(loc) %>%
+  summarise(mean_terror = mean(test_error), sdtest = sd(test_error)) %>% 
+  arrange(desc(mean_terror))
+mb_loc_n6
+
+# the model performs poorly across groups where there is alot of variation in transaction ammounts
+```
+
+## improvements
+```{r}
+# would returning the transaction numbers or adding SD to the dataset improve performance for these groups?
+
+# SD has been retroactivley added as a variable, but removed until this part of the process
+
+#testing on two high error sets
 ```
 
 
+## Industry 6 Location 1 (round 2)
+
 ```{r}
-trainrows <- ceiling(0.75*nrow(pi1l1))
-train_i1l1 <- pi1l1[1:trainrows,]
-test_i1l1 <- pi1l1[(trainrows+1):nrow(pi1l1),]
+load(file = "./core_data/transactions_prepd.Rdata")
+
+industry_location_i6l1 <- transactions_prepd %>% 
+  select(ndate, location, industry, mean_amount, Jan, Mar, May, Jul, Oct, Nov, Dec, allords_volume, sdtrans, ntrans)
+
+
+output_i6l1 = data.frame()
+decpred_i6l1 <- data.frame(ndate = as.numeric(as.Date("2016-12-01")), mean_amount = NA, Jan = 0, Mar = 0, May = 0, Jul = 0, Oct = 0, Nov = 0, Dec = 1, allords_volume = 	16.35e9)
+december_predict_i6l1 <- data.frame()
+
+i6l1 = industry_location_i6l1[industry_location_i6l1$industry == 6 &
+industry_location_i6l1$location == 1, ]
+
+trainrows <- ceiling(0.75*nrow(i6l1 ))
+train_i6l1 <- i6l1 [1:trainrows,]
+test_i6l1 <- i6l1 [(trainrows+1):nrow(i6l1 ),] 
+
+model_i6l1 <- lm(mean_amount ~., data = select(train_i6l1, -industry, -location))
+
+# output a prediction
+train_i6l1$prediction = predict(model_i6l1, train_i6l1)
+test_i6l1$prediction = predict(model_i6l1, test_i6l1)
+i6l1 $prediction = predict(model_i6l1, i6l1 )
+
+# CALCULATE YOUR ERROR
+train_error <- rmse(train_i6l1$mean_amount, train_i6l1$prediction)
+test_error <- rmse(test_i6l1$mean_amount, test_i6l1$prediction)
+total_error <- rmse(i6l1 $mean_amount, i6l1 $prediction)
+
+# append your error to the output data frame, include industry and location variables
+ind = 6
+loc = 1
+row <- cbind(ind,loc,train_error,test_error, total_error)
+output_i6l1 = rbind(output_i6l1, row)
+
+#
+i6l1_orig <- worst_perf
+i6l1_orig$iteration <- "before"
+
+output_i6l1$key <- "ind6loc1"
+output_i6l1$iteration <- "after"
+
+i6l6_compare <- rbind(i6l1_orig, output_i6l1)
+i6l6_compare
+
+i6l6_perc_compare <- (i6l6_compare[1,4]-i6l6_compare[2,4])/i6l6_compare[1,4]
+i6l6_perc_compare
+
+#approx 38% decrease in test error
+
+summary(model_i6l1)
+plot(model_i6l1)
+
+#the model still shows some residual issues
+
+# sd and ntrans would also need to be predicted producing some challenges with this method
+# dpred <- data.frame(industry = ind, location = loc, prediction = predict(model_i6l1, decpred_i6l1), acc_plu_minus = test_error)
+# december_predict_i6l1 <- rbind(december_predict_i6l1, dpred)
+
+```
+```{r}
+
+# or by removing the outlier customer
+
+load(file ="./core_data/transactions_clean.Rdata")
+load(file = "./integrate_data/fin_mets.Rdata")
+
+# this requires rebuilding the aggregated dataset
+
+transactions_agg_i6l1 <- transactions %>% 
+  filter(customer_id != "6c530aae768250b8d9c3c908a13ee287") %>% 
+  group_by(industry, location, trdate) %>%
+  summarise(mean_amount = mean(monthly_amount) , ntrans = n(), sdtrans = sd(monthly_amount)) %>% 
+  select(trdate, everything())
+
+transactions_agg_i6l1$trmonth <- lubridate::month(transactions_agg_i6l1$trdate, label = TRUE, abbr = TRUE)
+
+tmonths <- unique(transactions_agg_i6l1$trmonth)
+
+for (mnth in tmonths) {
+ transactions_agg_i6l1[transactions_agg_i6l1$trmonth == mnth, mnth] <-  1
+ transactions_agg_i6l1[transactions_agg_i6l1$trmonth != mnth, mnth] <-  0
+}
+
+transactions_prepd_i6l1 <- merge(transactions_agg_i6l1, combined_external, by = "trdate") %>% 
+  arrange(industry, location, trdate)
+
+# not using the additonal variables for a better comparison with the original
+
+industry_location_i6l1_cr <- transactions_prepd_i6l1 %>% 
+  select(ndate, location, industry, mean_amount, Jan, Mar, May, Jul, Oct, Nov, Dec, allords_volume)
+
+
+output_i6l1 = data.frame()
+decpred_i6l1 <- data.frame(ndate = as.numeric(as.Date("2016-12-01")), mean_amount = NA, Jan = 0, Mar = 0, May = 0, Jul = 0, Oct = 0, Nov = 0, Dec = 1, allords_volume = 	16.35e9)
+december_predict_i6l1 <- data.frame()
+
+i6l1 = industry_location_i6l1_cr[industry_location_i6l1_cr$industry == 6 &
+industry_location_i6l1_cr$location == 1, ]
+
+trainrows <- ceiling(0.75*nrow(i6l1 ))
+train_i6l1 <- i6l1 [1:trainrows,]
+test_i6l1 <- i6l1 [(trainrows+1):nrow(i6l1 ),] 
+
+model_i6l1 <- lm(mean_amount ~., data = select(train_i6l1, -industry, -location))
+
+# output a prediction
+train_i6l1$prediction = predict(model_i6l1, train_i6l1)
+test_i6l1$prediction = predict(model_i6l1, test_i6l1)
+i6l1 $prediction = predict(model_i6l1, i6l1 )
+
+# CALCULATE YOUR ERROR
+train_error <- rmse(train_i6l1$mean_amount, train_i6l1$prediction)
+test_error <- rmse(test_i6l1$mean_amount, test_i6l1$prediction)
+total_error <- rmse(i6l1 $mean_amount, i6l1 $prediction)
+
+# append your error to the output data frame, include industry and location variables
+ind = 6
+loc = 1
+row <- cbind(ind,loc,train_error,test_error, total_error)
+output_i6l1 = rbind(output_i6l1, row)
+
+#
+i6l1_orig <- worst_perf
+i6l1_orig$iteration <- "before"
+
+output_i6l1$key <- "ind6loc1"
+output_i6l1$iteration <- "after"
+
+i6l6_compare <- rbind(i6l1_orig, output_i6l1)
+i6l6_compare
+
+i6l6_perc_compare <- (i6l6_compare[1,4]-i6l6_compare[2,4])/i6l6_compare[1,4]
+i6l6_perc_compare
+
+#approx 40% increase in test error
+
+summary(model_i6l1)
+plot(model_i6l1)
+```
+
+
+## Industry 3 location 9
+```{r}
+output_i3l9 = data.frame()
+decpred_i3l9 <- data.frame(ndate = as.numeric(as.Date("2016-12-01")), mean_amount = NA, Jan = 0, Mar = 0, May = 0, Jul = 0, Oct = 0, Nov = 0, Dec = 1, allords_volume = 	16.35e9)
+december_predict_i3l9 <- data.frame()
+
+#i6l1 aggregated data can be used
+
+i3l9 = industry_location_i6l1[industry_location_i6l1$industry == 3 &
+industry_location_i6l1$location == 9, ]
+
+#i3l9 had a slow start, only single transactions per month during part of the first year these NA's will need to be converted to 0
+
+i3l9[i3l9$ntrans == 1,13] <- 0
+
+trainrows <- ceiling(0.75*nrow(i3l9 ))
+train_i3l9 <- i3l9 [1:trainrows,]
+test_i3l9 <- i3l9 [(trainrows+1):nrow(i3l9),] 
+
+model_i3l9 <- lm(mean_amount ~., data = select(train_i3l9, -industry, -location))
+
+# output a prediction
+train_i3l9$prediction = predict(model_i3l9, train_i3l9)
+test_i3l9$prediction = predict(model_i3l9, test_i3l9)
+i3l9$prediction = predict(model_i3l9, i3l9 )
+
+# CALCULATE YOUR ERROR
+train_error <- rmse(train_i3l9$mean_amount, train_i3l9$prediction)
+test_error <- rmse(test_i3l9$mean_amount, test_i3l9$prediction)
+total_error <- rmse(i3l9 $mean_amount, i3l9$prediction)
+
+# append your error to the output data frame, include industry and location variables
+ind = 3
+loc = 9
+row <- cbind(ind,loc,train_error,test_error, total_error)
+output_i3l9 = rbind(output_i3l9, row)
+
+#
+i3l9_orig <- worst_perf
+i3l9_orig$iteration <- "before"
+
+output_i3l9$key <- "ind3loc9"
+output_i3l9$iteration <- "after"
+
+i6l6_compare <- rbind(i3l9_orig, output_i3l9)
+i6l6_compare
+
+i6l6_perc_compare <- (i6l6_compare[1,4]-i6l6_compare[2,4])/i6l6_compare[1,4]
+i6l6_perc_compare
+
+#approx 90% decrease in test error!
+
+summary(model_i3l9)
+plot(model_i3l9)
 ```
 
 ```{r}
-lm_train_i1l1 <- lm(mean_amount ~., data = train_i1l1)
-summary(lm_train_i1l1)
-plot(lm_train_i1l1)
-
-lm_train_i1l1_predict <- data.frame(mean_amount_pred = predict(lm_train_i1l1, train_i1l1), ndate = train_i1l1$ndate)
+# it appears the additon of particular and SD measure of the aggregated transations would improve the outcome of the model
 ```
 
+
+## dply deployment
 ```{r}
-rmse(train_i1l1_ok$mean_amount, lm_train_i1l1_predict$mean_amount_pred)
-```
+# beginnings of attempt to use dplyr for deployment on full set
 
-```{r}
-december_prediction <- train_i1l1_ok2[1,]
-december_prediction$ndate <- as.numeric(as.Date("2016-12-01"))
-december_prediction$Jan <- 0
-december_prediction$Dec <- 1
-december_prediction$allords_volume <- as.numeric(16.35e9)
-december_prediction$mean_amount <- NA
+#prepd_train <- transactions_prepd %>% 
+ # ungroup() %>% 
+  #group_by(industry, location) %>% 
+  #group_split()
 
-dec_i1l1_pred <- data.frame(mean_amount_pred = predict(lm_train_i1l1_ok2, december_prediction), ndate = december_prediction$ndate)
-
-dec_i1l1_pred$mean_amount
-#169433.5
+# pi1l1 <- transactions_prepd %>% 
+  #filter(industry == 1, location == 1) %>% 
+  #select(-industry, -location, -trdate) %>% #removing trdate and switching to ndate for ease of calculation
+  #arrange(ndate) %>% 
+  #select(ndate, everything())
 ```
 
