@@ -71,7 +71,7 @@ for (yr in years) {
 
 # yearly arc
 
-# wanteed to plot a 1/2 sine curve based on trmonth but subsitututed this as a test
+# wanted to plot a 1/2 sine curve based on trmonth but subsitututed this as a test
 yarc <- data.frame(trmonth = tmonths, yarc = c(1,2,3,4,5,6,6,5,4,3,2,1))
 transactions_agg <- merge(transactions_agg, yarc, by = "trmonth")
 ```

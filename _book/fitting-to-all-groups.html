@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Fitting to all groups | DAM AT1-A</title>
+  <meta name="description" content="7 Fitting to all groups | DAM AT1-A" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Fitting to all groups | DAM AT1-A" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Fitting to all groups | DAM AT1-A" />
+  
+  
+  
+
+<meta name="author" content="Joshua McCarthy" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modelling.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Planning</a></li>
+<li class="chapter" data-level="2" data-path="understanding.html"><a href="understanding.html"><i class="fa fa-check"></i><b>2</b> Understanding</a><ul>
+<li class="chapter" data-level="2.1" data-path="understanding.html"><a href="understanding.html#initial-import-and-data-prep"><i class="fa fa-check"></i><b>2.1</b> Initial Import and Data Prep</a></li>
+<li class="chapter" data-level="2.2" data-path="understanding.html"><a href="understanding.html#data-quality"><i class="fa fa-check"></i><b>2.2</b> Data Quality</a></li>
+<li class="chapter" data-level="2.3" data-path="understanding.html"><a href="understanding.html#initial-understanding"><i class="fa fa-check"></i><b>2.3</b> Initial Understanding</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="understanding.html"><a href="understanding.html#customers"><i class="fa fa-check"></i><b>2.3.1</b> Customers</a></li>
+<li class="chapter" data-level="2.3.2" data-path="understanding.html"><a href="understanding.html#industry"><i class="fa fa-check"></i><b>2.3.2</b> Industry</a></li>
+<li class="chapter" data-level="2.3.3" data-path="understanding.html"><a href="understanding.html#industry-6"><i class="fa fa-check"></i><b>2.3.3</b> Industry 6</a></li>
+<li class="chapter" data-level="2.3.4" data-path="understanding.html"><a href="understanding.html#industry-10"><i class="fa fa-check"></i><b>2.3.4</b> Industry 10</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="understanding.html"><a href="understanding.html#monthly-amount"><i class="fa fa-check"></i><b>2.4</b> Monthly Amount</a></li>
+<li class="chapter" data-level="2.5" data-path="understanding.html"><a href="understanding.html#target-dataset"><i class="fa fa-check"></i><b>2.5</b> Target dataset</a></li>
+<li class="chapter" data-level="2.6" data-path="understanding.html"><a href="understanding.html#aggregate-mean"><i class="fa fa-check"></i><b>2.6</b> Aggregate mean</a></li>
+<li class="chapter" data-level="2.7" data-path="understanding.html"><a href="understanding.html#conclusions"><i class="fa fa-check"></i><b>2.7</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="4" data-path="external-data.html"><a href="external-data.html"><i class="fa fa-check"></i><b>4</b> External Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="external-data.html"><a href="external-data.html#consumer-price-index"><i class="fa fa-check"></i><b>4.1</b> Consumer Price index</a></li>
+<li class="chapter" data-level="4.2" data-path="external-data.html"><a href="external-data.html#asx-data"><i class="fa fa-check"></i><b>4.2</b> ASX Data</a></li>
+<li class="chapter" data-level="4.3" data-path="external-data.html"><a href="external-data.html#comined-external-data"><i class="fa fa-check"></i><b>4.3</b> Comined external data</a></li>
+<li class="chapter" data-level="4.4" data-path="external-data.html"><a href="external-data.html#unused-aditional-ideas"><i class="fa fa-check"></i><b>4.4</b> Unused aditional ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-preparation.html"><a href="data-preparation.html"><i class="fa fa-check"></i><b>5</b> Data Preparation</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-preparation.html"><a href="data-preparation.html#constructed-variables"><i class="fa fa-check"></i><b>5.1</b> Constructed Variables</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preparation.html"><a href="data-preparation.html#integrated-variables"><i class="fa fa-check"></i><b>5.2</b> Integrated variables</a></li>
+<li class="chapter" data-level="5.3" data-path="data-preparation.html"><a href="data-preparation.html#output"><i class="fa fa-check"></i><b>5.3</b> Output</a></li>
+<li class="chapter" data-level="5.4" data-path="data-preparation.html"><a href="data-preparation.html#unused"><i class="fa fa-check"></i><b>5.4</b> unused</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="modelling.html"><a href="modelling.html"><i class="fa fa-check"></i><b>6</b> Modelling</a><ul>
+<li class="chapter" data-level="6.1" data-path="modelling.html"><a href="modelling.html#test-setup"><i class="fa fa-check"></i><b>6.1</b> Test Setup</a></li>
+<li class="chapter" data-level="6.2" data-path="modelling.html"><a href="modelling.html#initial-model"><i class="fa fa-check"></i><b>6.2</b> Initial Model</a></li>
+<li class="chapter" data-level="6.3" data-path="modelling.html"><a href="modelling.html#all-ordinaries-volume"><i class="fa fa-check"></i><b>6.3</b> All Ordinaries Volume</a></li>
+<li class="chapter" data-level="6.4" data-path="modelling.html"><a href="modelling.html#experiment"><i class="fa fa-check"></i><b>6.4</b> Experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html"><i class="fa fa-check"></i><b>7</b> Fitting to all groups</a><ul>
+<li class="chapter" data-level="7.1" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#performance"><i class="fa fa-check"></i><b>7.1</b> Performance</a></li>
+<li class="chapter" data-level="7.2" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#improvements"><i class="fa fa-check"></i><b>7.2</b> improvements</a></li>
+<li class="chapter" data-level="7.3" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#industry-6-location-1-round-2"><i class="fa fa-check"></i><b>7.3</b> Industry 6 Location 1 (round 2)</a></li>
+<li class="chapter" data-level="7.4" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#industry-3-location-9"><i class="fa fa-check"></i><b>7.4</b> Industry 3 location 9</a></li>
+<li class="chapter" data-level="7.5" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#dply-deployment"><i class="fa fa-check"></i><b>7.5</b> dply deployment</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DAM AT1-A</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="fitting-to-all-groups" class="section level1">
+<h1><span class="header-section-number">7</span> Fitting to all groups</h1>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1"><span class="co"># import prepped data</span></a>
+<a class="sourceLine" id="cb307-2" data-line-number="2"><span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&quot;./core_data/transactions_prepd.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb307-3" data-line-number="3"><span class="kw">load</span>(<span class="dt">file =</span><span class="st">&quot;./core_data/transactions_clean.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb307-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb307-5" data-line-number="5">transactions_prepd &lt;-<span class="st"> </span>transactions_prepd <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb307-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>sdtrans)</a></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1"><span class="co">#final variable list</span></a>
+<a class="sourceLine" id="cb308-2" data-line-number="2">industry_location &lt;-<span class="st"> </span>transactions_prepd <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb308-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(ndate, location, industry, mean_amount, Jan, Mar, May, Jul, Oct, Nov, Dec, allords_volume)</a></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1"><span class="co"># industry_location is the aggregated data frame</span></a>
+<a class="sourceLine" id="cb309-2" data-line-number="2">output =<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb309-3" data-line-number="3">decpred &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ndate =</span> <span class="kw">as.numeric</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2016-12-01&quot;</span>)), <span class="dt">mean_amount =</span> <span class="ot">NA</span>, <span class="dt">Jan =</span> <span class="dv">0</span>, <span class="dt">Mar =</span> <span class="dv">0</span>, <span class="dt">May =</span> <span class="dv">0</span>, <span class="dt">Jul =</span> <span class="dv">0</span>, <span class="dt">Oct =</span> <span class="dv">0</span>, <span class="dt">Nov =</span> <span class="dv">0</span>, <span class="dt">Dec =</span> <span class="dv">1</span>, <span class="dt">allords_volume =</span>  <span class="fl">16.35e9</span>)</a>
+<a class="sourceLine" id="cb309-4" data-line-number="4">december_predict_all &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb309-5" data-line-number="5">industries =<span class="st"> </span><span class="kw">unique</span>(<span class="kw">as.numeric</span>(industry_location<span class="op">$</span>industry))</a>
+<a class="sourceLine" id="cb309-6" data-line-number="6">locations =<span class="st"> </span><span class="kw">unique</span>(<span class="kw">as.numeric</span>(industry_location<span class="op">$</span>location))</a>
+<a class="sourceLine" id="cb309-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb309-8" data-line-number="8"><span class="cf">for</span> (ind <span class="cf">in</span> industries) {</a>
+<a class="sourceLine" id="cb309-9" data-line-number="9"><span class="cf">for</span> (loc <span class="cf">in</span> locations) {</a>
+<a class="sourceLine" id="cb309-10" data-line-number="10"><span class="co"># create a subset of the data</span></a>
+<a class="sourceLine" id="cb309-11" data-line-number="11">temp =<span class="st"> </span>industry_location[industry_location<span class="op">$</span>industry <span class="op">==</span><span class="st"> </span>ind <span class="op">&amp;</span></a>
+<a class="sourceLine" id="cb309-12" data-line-number="12">industry_location<span class="op">$</span>location <span class="op">==</span><span class="st"> </span>loc, ]</a>
+<a class="sourceLine" id="cb309-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb309-14" data-line-number="14"><span class="co"># Check to make sure you have at least X months of data</span></a>
+<a class="sourceLine" id="cb309-15" data-line-number="15"><span class="cf">if</span> (<span class="kw">nrow</span>(temp) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">36</span>) {</a>
+<a class="sourceLine" id="cb309-16" data-line-number="16"><span class="co"># train your model</span></a>
+<a class="sourceLine" id="cb309-17" data-line-number="17"><span class="co"># INSERT YOUR MODEL TRAINING CODE, INCLUDING TRAINING/</span><span class="al">TEST</span><span class="co"> PARTITIONING</span></a>
+<a class="sourceLine" id="cb309-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb309-19" data-line-number="19">trainrows &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="fl">0.75</span><span class="op">*</span><span class="kw">nrow</span>(temp))</a>
+<a class="sourceLine" id="cb309-20" data-line-number="20">train_temp &lt;-<span class="st"> </span>temp[<span class="dv">1</span><span class="op">:</span>trainrows,]</a>
+<a class="sourceLine" id="cb309-21" data-line-number="21">test_temp &lt;-<span class="st"> </span>temp[(trainrows<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="kw">nrow</span>(temp),] </a>
+<a class="sourceLine" id="cb309-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb309-23" data-line-number="23">model &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> <span class="kw">select</span>(train_temp, <span class="op">-</span>industry, <span class="op">-</span>location))</a>
+<a class="sourceLine" id="cb309-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb309-25" data-line-number="25"><span class="co"># output a prediction</span></a>
+<a class="sourceLine" id="cb309-26" data-line-number="26">train_temp<span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model, train_temp)</a>
+<a class="sourceLine" id="cb309-27" data-line-number="27">test_temp<span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model, test_temp)</a>
+<a class="sourceLine" id="cb309-28" data-line-number="28">temp<span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model, temp)</a>
+<a class="sourceLine" id="cb309-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb309-30" data-line-number="30"><span class="co"># CALCULATE YOUR ERROR</span></a>
+<a class="sourceLine" id="cb309-31" data-line-number="31">train_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(train_temp<span class="op">$</span>mean_amount, train_temp<span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb309-32" data-line-number="32">test_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(test_temp<span class="op">$</span>mean_amount, test_temp<span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb309-33" data-line-number="33">total_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(temp<span class="op">$</span>mean_amount, temp<span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb309-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb309-35" data-line-number="35"><span class="co"># append your error to the output data frame, include industry and location variables</span></a>
+<a class="sourceLine" id="cb309-36" data-line-number="36">row &lt;-<span class="st"> </span><span class="kw">cbind</span>(ind,loc,train_error,test_error, total_error)</a>
+<a class="sourceLine" id="cb309-37" data-line-number="37">output =<span class="st"> </span><span class="kw">rbind</span>(output, row)</a>
+<a class="sourceLine" id="cb309-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb309-39" data-line-number="39"><span class="co">#predict decemeber</span></a>
+<a class="sourceLine" id="cb309-40" data-line-number="40">dpred &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">industry =</span> ind, <span class="dt">location =</span> loc, <span class="dt">prediction =</span> <span class="kw">predict</span>(model, decpred), <span class="dt">acc_plu_minus =</span> test_error)</a>
+<a class="sourceLine" id="cb309-41" data-line-number="41">december_predict_all &lt;-<span class="st"> </span><span class="kw">rbind</span>(december_predict_all, dpred)</a>
+<a class="sourceLine" id="cb309-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb309-43" data-line-number="43">}</a>
+<a class="sourceLine" id="cb309-44" data-line-number="44">}</a>
+<a class="sourceLine" id="cb309-45" data-line-number="45">}</a>
+<a class="sourceLine" id="cb309-46" data-line-number="46"></a>
+<a class="sourceLine" id="cb309-47" data-line-number="47">output</a></code></pre></div>
+<pre><code>##    ind loc train_error   test_error total_error
+## 1    1   1    3895.290     8672.532    5406.023
+## 2    1   2    7517.271    10268.024    8243.750
+## 3    1   3    5294.130    15360.581    8757.274
+## 4    1   4    7699.804     8483.127    7890.109
+## 5    1   5    5576.327    15919.373    9117.584
+## 6    1   6    5853.082     9696.393    6945.883
+## 7    1   7   14949.199    17754.280   15650.836
+## 8    1   8    4650.881    15813.074    8665.524
+## 9    1   9    8073.405    14045.066    9802.711
+## 10   1  10    8503.050    14888.191   10356.525
+## 11   2   1   21241.467    20906.393   21163.521
+## 12   2   2   16998.259    22143.519   18332.368
+## 13   2   3   39598.871   106479.033   62085.420
+## 14   2   4   36074.533    36848.062   36257.051
+## 15   2   5   38654.379   129285.617   71108.589
+## 16   2   6   21412.246    81695.846   43740.472
+## 17   2   7   19180.581    64594.705   35472.928
+## 18   2   8   43836.984   125068.506   71643.913
+## 19   2   9   50607.327    36573.985   47694.479
+## 20   2  10   21698.464    89477.378   47269.677
+## 21   3   1   77693.401   173253.737  107929.346
+## 22   3   2   42081.707    68963.351   49694.107
+## 23   3   3   82700.509   303411.435  163659.023
+## 24   3   4   64994.910    71311.605   66527.066
+## 25   3   5  132606.388   179201.536  144861.301
+## 26   3   7   49881.767    50451.723   50015.743
+## 27   3   8   33914.699    34886.172   34160.158
+## 28   3   9  148122.385   794161.575  405480.208
+## 29   4   1   21388.094    71688.032   39410.317
+## 30   4   2    6981.621    12508.189    8599.545
+## 31   4   3   14494.126    27516.177   18387.906
+## 32   4   4   21603.664    28716.983   23462.589
+## 33   4   5   25464.219    46839.963   31782.893
+## 34   4   6  138553.013   300892.292  189455.414
+## 35   4   7   18415.599    29821.522   21631.040
+## 36   4   8   12591.545    14662.995   13105.732
+## 37   4   9   11075.150    14283.310   11903.749
+## 38   4  10   21012.606    39372.696   26476.552
+## 39   5   1   59161.965    91496.155   68119.417
+## 40   5   2   29451.600    30488.851   29697.609
+## 41   5   3   49704.337    42248.602   48073.742
+## 42   5   4   42128.382   122087.010   69626.731
+## 43   5   5   15167.065   156243.737   77541.651
+## 44   5   6   61724.744   162117.231   95233.191
+## 45   5   7   29825.216    36721.676   31574.587
+## 46   5   8   38860.540    38781.761   38842.117
+## 47   5   9   45845.884    94178.541   60710.684
+## 48   5  10   76662.653   164356.921  104037.945
+## 49   6   1 3398587.535 11313638.885 6229300.998
+## 50   7   1   18657.862    71535.014   38266.148
+## 51   7   2   19108.429    25538.778   20792.427
+## 52   7   3   84381.100    32052.712   75459.904
+## 53   7   4   45182.621    67755.795   51362.752
+## 54   7   5   43623.216    56127.253   46849.786
+## 55   7   6   34767.971    35224.528   34875.361
+## 56   7   7   13064.627    33449.670   19814.204
+## 57   7   8   34562.677    39695.372   35829.911
+## 58   7   9   87045.702   218993.216  130490.781
+## 59   7  10   49110.600   111821.184   69092.966
+## 60   8   1  232578.881   619268.640  362197.073
+## 61   8   2   49774.260   109477.258   68576.272
+## 62   8   3  107934.532    78985.444  101899.071
+## 63   8   4   33285.550    88185.518   51659.471
+## 64   8   5  176349.354   116664.553  164335.167
+## 65   8   6  114534.722   231100.285  150158.501
+## 66   8   7  165097.213   264819.477  193108.840
+## 67   8   8   39560.720    94849.498   57483.119
+## 68   8   9   26480.756    70389.712   41191.334
+## 69   8  10   99057.465   103150.476  100030.416
+## 70   9   1   85861.232   138191.539  100579.529
+## 71   9   2   59698.637   182168.189  102452.804
+## 72   9   3   87967.438   157814.887  108425.741
+## 73   9   4  476128.292   730155.100  546274.122
+## 74   9   7   92129.789   547239.918  276749.796
+## 75   9   9   68267.270   111490.127   80626.269
+## 76  10   2   25553.898    31339.474   27019.241
+## 77  10   5    6233.101    25480.393   13480.017
+## 78  10   7  102983.701   104309.568  103295.536
+## 79  10   8  757593.976   970693.994  812493.743</code></pre>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">grouped_errors &lt;-<span class="st"> </span>output</a></code></pre></div>
+<div id="performance" class="section level2">
+<h2><span class="header-section-number">7.1</span> Performance</h2>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1"><span class="co"># evaluating model performance by out-of-set prediction RMSE</span></a>
+<a class="sourceLine" id="cb312-2" data-line-number="2">te_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(grouped_errors<span class="op">$</span>test_error)</a>
+<a class="sourceLine" id="cb312-3" data-line-number="3">te_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(grouped_errors<span class="op">$</span>test_error)</a>
+<a class="sourceLine" id="cb312-4" data-line-number="4">te_mean</a></code></pre></div>
+<pre><code>## [1] 263623.3</code></pre>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1">te_sd</a></code></pre></div>
+<pre><code>## [1] 1271581</code></pre>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1"><span class="kw">ggplot</span>(grouped_errors, <span class="kw">aes</span>(<span class="dt">x =</span> test_error)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1"><span class="co">#adding an index key</span></a>
+<a class="sourceLine" id="cb317-2" data-line-number="2">grouped_errors<span class="op">$</span>key &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;ind&quot;</span>,grouped_errors<span class="op">$</span>ind,<span class="st">&quot;loc&quot;</span>,grouped_errors<span class="op">$</span>loc, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb317-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb317-4" data-line-number="4"><span class="kw">ggplot</span>(grouped_errors, <span class="kw">aes</span>(<span class="dt">x =</span> key, <span class="dt">y =</span> test_error)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-40-2.png" width="672" /></p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1"><span class="co">#though the labels are not very clear one group has an obviously much poorer performance than all others</span></a>
+<a class="sourceLine" id="cb318-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb318-3" data-line-number="3">worst_perf &lt;-<span class="st"> </span>grouped_errors[<span class="kw">which.max</span>(grouped_errors<span class="op">$</span>test_error),]</a>
+<a class="sourceLine" id="cb318-4" data-line-number="4">worst_perf_rem &lt;-<span class="st"> </span>grouped_errors[<span class="op">-</span>(<span class="kw">which.max</span>(grouped_errors<span class="op">$</span>test_error)),]</a>
+<a class="sourceLine" id="cb318-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb318-6" data-line-number="6"><span class="co"># unsuprisngly it is industry 6 location 1</span></a>
+<a class="sourceLine" id="cb318-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb318-8" data-line-number="8">wpr_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(worst_perf_rem<span class="op">$</span>test_error)</a>
+<a class="sourceLine" id="cb318-9" data-line-number="9">wpr_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(worst_perf_rem<span class="op">$</span>test_error)</a>
+<a class="sourceLine" id="cb318-10" data-line-number="10">wpr_mean</a></code></pre></div>
+<pre><code>## [1] 121956.5</code></pre>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" data-line-number="1">wpr_sd</a></code></pre></div>
+<pre><code>## [1] 178426.8</code></pre>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1"><span class="co">#the mean and distribution are much better with the outlier removed, though as the distribution is quite skewed the SD is not very relevant</span></a>
+<a class="sourceLine" id="cb322-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb322-3" data-line-number="3"><span class="co"># seeing the improved plo</span></a>
+<a class="sourceLine" id="cb322-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb322-5" data-line-number="5"><span class="kw">ggplot</span>(worst_perf_rem, <span class="kw">aes</span>(<span class="dt">x =</span> test_error)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-40-3.png" width="672" /></p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1"><span class="kw">ggplot</span>(worst_perf_rem, <span class="kw">aes</span>(<span class="dt">x =</span> key, <span class="dt">y =</span> test_error)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> key), <span class="dt">vjust =</span> <span class="op">+</span><span class="dv">1</span>, <span class="dt">hjust =</span> <span class="st">&quot;inward&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-40-4.png" width="672" /></p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1"><span class="co"># second worst performer</span></a>
+<a class="sourceLine" id="cb324-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb324-3" data-line-number="3">worst_perf2 &lt;-<span class="st"> </span>worst_perf_rem[<span class="kw">which.max</span>(worst_perf_rem<span class="op">$</span>test_error),]</a>
+<a class="sourceLine" id="cb324-4" data-line-number="4">worst_perf2</a></code></pre></div>
+<pre><code>##    ind loc train_error test_error total_error       key
+## 79  10   8      757594     970694    812493.7 ind10loc8</code></pre>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1">worst_perf2_rem &lt;-<span class="st"> </span>worst_perf_rem[<span class="op">-</span>(<span class="kw">which.max</span>(worst_perf_rem<span class="op">$</span>test_error)),]</a>
+<a class="sourceLine" id="cb326-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb326-3" data-line-number="3"><span class="co"># industry 10 location 8, both the industries identified in understanding as having some customers with expetionaly high transaction values</span></a>
+<a class="sourceLine" id="cb326-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb326-5" data-line-number="5"><span class="co"># below that</span></a>
+<a class="sourceLine" id="cb326-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb326-7" data-line-number="7"><span class="kw">ggplot</span>(worst_perf2_rem, <span class="kw">aes</span>(<span class="dt">x =</span> key, <span class="dt">y =</span> test_error)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> key), <span class="dt">vjust =</span> <span class="op">+</span><span class="dv">1</span>, <span class="dt">hjust =</span> <span class="st">&quot;inward&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-40-5.png" width="672" /></p>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1"><span class="co"># referring to an earlier plot</span></a>
+<a class="sourceLine" id="cb327-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb327-3" data-line-number="3"><span class="kw">ggplot</span>(transactions, <span class="kw">aes</span>(<span class="dt">x=</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(<span class="dt">rows =</span> <span class="kw">vars</span>(transactions<span class="op">$</span>industry), <span class="dt">cols =</span> <span class="kw">vars</span>(transactions<span class="op">$</span>location), <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-40-6.png" width="672" /></p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1"><span class="kw">ggplot</span>(transactions, <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">25</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(<span class="dt">rows =</span> <span class="kw">vars</span>(transactions<span class="op">$</span>industry), <span class="dt">cols =</span> <span class="kw">vars</span>(transactions<span class="op">$</span>location), <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-40-7.png" width="672" /></p>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" data-line-number="1"><span class="co"># high test_error appears to corrolate with high variation in transaction amount, or when there are sudden changes to transactions e.g. Industry 3 location 9 &amp; industry 9 location 4</span></a>
+<a class="sourceLine" id="cb329-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb329-3" data-line-number="3"><span class="co"># mean by industry</span></a>
+<a class="sourceLine" id="cb329-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb329-5" data-line-number="5">mb_ind &lt;-<span class="st"> </span>grouped_errors <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb329-6" data-line-number="6"><span class="st">  </span><span class="kw">group_by</span>(ind) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb329-7" data-line-number="7"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_terror =</span> <span class="kw">mean</span>(test_error), <span class="dt">sdtest =</span> <span class="kw">sd</span>(test_error)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb329-8" data-line-number="8"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_terror))</a>
+<a class="sourceLine" id="cb329-9" data-line-number="9">mb_ind</a></code></pre></div>
+<pre><code>## # A tibble: 10 x 3
+##      ind mean_terror  sdtest
+##    &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+##  1     6   11313639.     NA 
+##  2     9     311177. 261239.
+##  3    10     282956. 459892.
+##  4     3     209455. 252845.
+##  5     8     177689. 168490.
+##  6     5      93872.  55077.
+##  7     2      71307.  41262.
+##  8     7      69219.  58710.
+##  9     4      58630.  86981.
+## 10     1      13090.   3443.</code></pre>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1"><span class="co"># mean by location</span></a>
+<a class="sourceLine" id="cb331-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb331-3" data-line-number="3">mb_loc &lt;-<span class="st"> </span>grouped_errors <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb331-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(loc) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb331-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_terror =</span> <span class="kw">mean</span>(test_error), <span class="dt">sdtest =</span> <span class="kw">sd</span>(test_error)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb331-6" data-line-number="6"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_terror))</a>
+<a class="sourceLine" id="cb331-7" data-line-number="7">mb_loc</a></code></pre></div>
+<pre><code>## # A tibble: 10 x 3
+##      loc mean_terror   sdtest
+##    &lt;dbl&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+##  1     1    1389850. 3726007.
+##  2     9     169264.  261162.
+##  3     8     166806.  327120.
+##  4     4     144193.  239466.
+##  5     6     136788.  114864.
+##  6     7     127685.  174693.
+##  7     3      95484.   96665.
+##  8     5      90720.   62400.
+##  9    10      87178.   53545.
+## 10     2      54766.   57281.</code></pre>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" data-line-number="1"><span class="co"># mean by location without industry 6</span></a>
+<a class="sourceLine" id="cb333-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb333-3" data-line-number="3">mb_loc_n6 &lt;-<span class="st"> </span>grouped_errors <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb333-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(ind <span class="op">!=</span><span class="st"> </span><span class="dv">6</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb333-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(loc) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb333-6" data-line-number="6"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_terror =</span> <span class="kw">mean</span>(test_error), <span class="dt">sdtest =</span> <span class="kw">sd</span>(test_error)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb333-7" data-line-number="7"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_terror))</a>
+<a class="sourceLine" id="cb333-8" data-line-number="8">mb_loc_n6</a></code></pre></div>
+<pre><code>## # A tibble: 10 x 3
+##      loc mean_terror  sdtest
+##    &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt;
+##  1     9     169264. 261162.
+##  2     8     166806. 327120.
+##  3     1     149377. 197571.
+##  4     4     144193. 239466.
+##  5     6     136788. 114864.
+##  6     7     127685. 174693.
+##  7     3      95484.  96665.
+##  8     5      90720.  62400.
+##  9    10      87178.  53545.
+## 10     2      54766.  57281.</code></pre>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1"><span class="co"># the model performs poorly across groups where there is alot of variation in transaction ammounts</span></a></code></pre></div>
+</div>
+<div id="improvements" class="section level2">
+<h2><span class="header-section-number">7.2</span> improvements</h2>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1"><span class="co"># would returning the transaction numbers or adding SD to the dataset improve performance for these groups?</span></a>
+<a class="sourceLine" id="cb336-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb336-3" data-line-number="3"><span class="co"># SD has been retroactivley added as a variable, but removed until this part of the process</span></a>
+<a class="sourceLine" id="cb336-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb336-5" data-line-number="5"><span class="co">#testing on two high error sets</span></a></code></pre></div>
+</div>
+<div id="industry-6-location-1-round-2" class="section level2">
+<h2><span class="header-section-number">7.3</span> Industry 6 Location 1 (round 2)</h2>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" data-line-number="1"><span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&quot;./core_data/transactions_prepd.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb337-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb337-3" data-line-number="3">industry_location_i6l1 &lt;-<span class="st"> </span>transactions_prepd <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb337-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(ndate, location, industry, mean_amount, Jan, Mar, May, Jul, Oct, Nov, Dec, allords_volume, sdtrans, ntrans)</a>
+<a class="sourceLine" id="cb337-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb337-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb337-7" data-line-number="7">output_i6l1 =<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb337-8" data-line-number="8">decpred_i6l1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ndate =</span> <span class="kw">as.numeric</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2016-12-01&quot;</span>)), <span class="dt">mean_amount =</span> <span class="ot">NA</span>, <span class="dt">Jan =</span> <span class="dv">0</span>, <span class="dt">Mar =</span> <span class="dv">0</span>, <span class="dt">May =</span> <span class="dv">0</span>, <span class="dt">Jul =</span> <span class="dv">0</span>, <span class="dt">Oct =</span> <span class="dv">0</span>, <span class="dt">Nov =</span> <span class="dv">0</span>, <span class="dt">Dec =</span> <span class="dv">1</span>, <span class="dt">allords_volume =</span>     <span class="fl">16.35e9</span>)</a>
+<a class="sourceLine" id="cb337-9" data-line-number="9">december_predict_i6l1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb337-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb337-11" data-line-number="11">i6l1 =<span class="st"> </span>industry_location_i6l1[industry_location_i6l1<span class="op">$</span>industry <span class="op">==</span><span class="st"> </span><span class="dv">6</span> <span class="op">&amp;</span></a>
+<a class="sourceLine" id="cb337-12" data-line-number="12">industry_location_i6l1<span class="op">$</span>location <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, ]</a>
+<a class="sourceLine" id="cb337-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb337-14" data-line-number="14">trainrows &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="fl">0.75</span><span class="op">*</span><span class="kw">nrow</span>(i6l1 ))</a>
+<a class="sourceLine" id="cb337-15" data-line-number="15">train_i6l1 &lt;-<span class="st"> </span>i6l1 [<span class="dv">1</span><span class="op">:</span>trainrows,]</a>
+<a class="sourceLine" id="cb337-16" data-line-number="16">test_i6l1 &lt;-<span class="st"> </span>i6l1 [(trainrows<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="kw">nrow</span>(i6l1 ),] </a>
+<a class="sourceLine" id="cb337-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb337-18" data-line-number="18">model_i6l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> <span class="kw">select</span>(train_i6l1, <span class="op">-</span>industry, <span class="op">-</span>location))</a>
+<a class="sourceLine" id="cb337-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb337-20" data-line-number="20"><span class="co"># output a prediction</span></a>
+<a class="sourceLine" id="cb337-21" data-line-number="21">train_i6l1<span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model_i6l1, train_i6l1)</a>
+<a class="sourceLine" id="cb337-22" data-line-number="22">test_i6l1<span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model_i6l1, test_i6l1)</a>
+<a class="sourceLine" id="cb337-23" data-line-number="23">i6l1 <span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model_i6l1, i6l1 )</a>
+<a class="sourceLine" id="cb337-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb337-25" data-line-number="25"><span class="co"># CALCULATE YOUR ERROR</span></a>
+<a class="sourceLine" id="cb337-26" data-line-number="26">train_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(train_i6l1<span class="op">$</span>mean_amount, train_i6l1<span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb337-27" data-line-number="27">test_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(test_i6l1<span class="op">$</span>mean_amount, test_i6l1<span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb337-28" data-line-number="28">total_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(i6l1 <span class="op">$</span>mean_amount, i6l1 <span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb337-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb337-30" data-line-number="30"><span class="co"># append your error to the output data frame, include industry and location variables</span></a>
+<a class="sourceLine" id="cb337-31" data-line-number="31">ind =<span class="st"> </span><span class="dv">6</span></a>
+<a class="sourceLine" id="cb337-32" data-line-number="32">loc =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb337-33" data-line-number="33">row &lt;-<span class="st"> </span><span class="kw">cbind</span>(ind,loc,train_error,test_error, total_error)</a>
+<a class="sourceLine" id="cb337-34" data-line-number="34">output_i6l1 =<span class="st"> </span><span class="kw">rbind</span>(output_i6l1, row)</a>
+<a class="sourceLine" id="cb337-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb337-36" data-line-number="36"><span class="co">#</span></a>
+<a class="sourceLine" id="cb337-37" data-line-number="37">i6l1_orig &lt;-<span class="st"> </span>worst_perf</a>
+<a class="sourceLine" id="cb337-38" data-line-number="38">i6l1_orig<span class="op">$</span>iteration &lt;-<span class="st"> &quot;before&quot;</span></a>
+<a class="sourceLine" id="cb337-39" data-line-number="39"></a>
+<a class="sourceLine" id="cb337-40" data-line-number="40">output_i6l1<span class="op">$</span>key &lt;-<span class="st"> &quot;ind6loc1&quot;</span></a>
+<a class="sourceLine" id="cb337-41" data-line-number="41">output_i6l1<span class="op">$</span>iteration &lt;-<span class="st"> &quot;after&quot;</span></a>
+<a class="sourceLine" id="cb337-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb337-43" data-line-number="43">i6l6_compare &lt;-<span class="st"> </span><span class="kw">rbind</span>(i6l1_orig, output_i6l1)</a>
+<a class="sourceLine" id="cb337-44" data-line-number="44">i6l6_compare</a></code></pre></div>
+<pre><code>##    ind loc train_error test_error total_error      key iteration
+## 49   6   1     3398588   11313639     6229301 ind6loc1    before
+## 1    6   1     2116380    7038670     3876327 ind6loc1     after</code></pre>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1">i6l6_perc_compare &lt;-<span class="st"> </span>(i6l6_compare[<span class="dv">1</span>,<span class="dv">4</span>]<span class="op">-</span>i6l6_compare[<span class="dv">2</span>,<span class="dv">4</span>])<span class="op">/</span>i6l6_compare[<span class="dv">1</span>,<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb339-2" data-line-number="2">i6l6_perc_compare</a></code></pre></div>
+<pre><code>## [1] 0.3778597</code></pre>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1"><span class="co">#approx 38% decrease in test error</span></a>
+<a class="sourceLine" id="cb341-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb341-3" data-line-number="3"><span class="kw">summary</span>(model_i6l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = select(train_i6l1, -industry, 
+##     -location))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -5061245  -869298   450883  1289373  4031288 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     1.237e+08  5.535e+07   2.234 0.035069 *  
+## ndate          -6.506e+03  3.246e+03  -2.004 0.056459 .  
+## Jan            -6.552e+05  2.047e+06  -0.320 0.751699    
+## Mar            -1.895e+06  1.766e+06  -1.073 0.293824    
+## May            -4.283e+05  1.685e+06  -0.254 0.801482    
+## Jul             2.077e+06  1.682e+06   1.235 0.228904    
+## Oct             7.676e+05  1.897e+06   0.405 0.689286    
+## Nov            -4.398e+05  1.833e+06  -0.240 0.812368    
+## Dec             9.706e+05  2.445e+06   0.397 0.694885    
+## allords_volume  5.059e-04  3.019e-04   1.676 0.106784    
+## sdtrans         6.123e-01  1.704e-01   3.593 0.001463 ** 
+## ntrans         -3.871e+06  8.636e+05  -4.482 0.000155 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2592000 on 24 degrees of freedom
+## Multiple R-squared:  0.8526, Adjusted R-squared:  0.785 
+## F-statistic: 12.62 on 11 and 24 DF,  p-value: 1.869e-07</code></pre>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1"><span class="kw">plot</span>(model_i6l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-42-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-42-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-42-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-42-4.png" width="672" /></p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1"><span class="co">#the model still shows some residual issues</span></a>
+<a class="sourceLine" id="cb344-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb344-3" data-line-number="3"><span class="co"># sd and ntrans would also need to be predicted producing some challenges with this method</span></a>
+<a class="sourceLine" id="cb344-4" data-line-number="4"><span class="co"># dpred &lt;- data.frame(industry = ind, location = loc, prediction = predict(model_i6l1, decpred_i6l1), acc_plu_minus = test_error)</span></a>
+<a class="sourceLine" id="cb344-5" data-line-number="5"><span class="co"># december_predict_i6l1 &lt;- rbind(december_predict_i6l1, dpred)</span></a></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1"><span class="co"># or by removing the outlier customer</span></a>
+<a class="sourceLine" id="cb345-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb345-3" data-line-number="3"><span class="kw">load</span>(<span class="dt">file =</span><span class="st">&quot;./core_data/transactions_clean.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb345-4" data-line-number="4"><span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&quot;./integrate_data/fin_mets.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb345-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb345-6" data-line-number="6"><span class="co"># this requires rebuilding the aggregated dataset</span></a>
+<a class="sourceLine" id="cb345-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb345-8" data-line-number="8">transactions_agg_i6l1 &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb345-9" data-line-number="9"><span class="st">  </span><span class="kw">filter</span>(customer_id <span class="op">!=</span><span class="st"> &quot;6c530aae768250b8d9c3c908a13ee287&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb345-10" data-line-number="10"><span class="st">  </span><span class="kw">group_by</span>(industry, location, trdate) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb345-11" data-line-number="11"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_amount =</span> <span class="kw">mean</span>(monthly_amount) , <span class="dt">ntrans =</span> <span class="kw">n</span>(), <span class="dt">sdtrans =</span> <span class="kw">sd</span>(monthly_amount)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb345-12" data-line-number="12"><span class="st">  </span><span class="kw">select</span>(trdate, <span class="kw">everything</span>())</a>
+<a class="sourceLine" id="cb345-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb345-14" data-line-number="14">transactions_agg_i6l1<span class="op">$</span>trmonth &lt;-<span class="st"> </span>lubridate<span class="op">::</span><span class="kw">month</span>(transactions_agg_i6l1<span class="op">$</span>trdate, <span class="dt">label =</span> <span class="ot">TRUE</span>, <span class="dt">abbr =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb345-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb345-16" data-line-number="16">tmonths &lt;-<span class="st"> </span><span class="kw">unique</span>(transactions_agg_i6l1<span class="op">$</span>trmonth)</a>
+<a class="sourceLine" id="cb345-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb345-18" data-line-number="18"><span class="cf">for</span> (mnth <span class="cf">in</span> tmonths) {</a>
+<a class="sourceLine" id="cb345-19" data-line-number="19"> transactions_agg_i6l1[transactions_agg_i6l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> </span>mnth, mnth] &lt;-<span class="st">  </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb345-20" data-line-number="20"> transactions_agg_i6l1[transactions_agg_i6l1<span class="op">$</span>trmonth <span class="op">!=</span><span class="st"> </span>mnth, mnth] &lt;-<span class="st">  </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb345-21" data-line-number="21">}</a>
+<a class="sourceLine" id="cb345-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb345-23" data-line-number="23">transactions_prepd_i6l1 &lt;-<span class="st"> </span><span class="kw">merge</span>(transactions_agg_i6l1, combined_external, <span class="dt">by =</span> <span class="st">&quot;trdate&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb345-24" data-line-number="24"><span class="st">  </span><span class="kw">arrange</span>(industry, location, trdate)</a>
+<a class="sourceLine" id="cb345-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb345-26" data-line-number="26"><span class="co"># not using the additonal variables for a better comparison with the original</span></a>
+<a class="sourceLine" id="cb345-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb345-28" data-line-number="28">industry_location_i6l1_cr &lt;-<span class="st"> </span>transactions_prepd_i6l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb345-29" data-line-number="29"><span class="st">  </span><span class="kw">select</span>(ndate, location, industry, mean_amount, Jan, Mar, May, Jul, Oct, Nov, Dec, allords_volume)</a>
+<a class="sourceLine" id="cb345-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb345-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb345-32" data-line-number="32">output_i6l1 =<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb345-33" data-line-number="33">decpred_i6l1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ndate =</span> <span class="kw">as.numeric</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2016-12-01&quot;</span>)), <span class="dt">mean_amount =</span> <span class="ot">NA</span>, <span class="dt">Jan =</span> <span class="dv">0</span>, <span class="dt">Mar =</span> <span class="dv">0</span>, <span class="dt">May =</span> <span class="dv">0</span>, <span class="dt">Jul =</span> <span class="dv">0</span>, <span class="dt">Oct =</span> <span class="dv">0</span>, <span class="dt">Nov =</span> <span class="dv">0</span>, <span class="dt">Dec =</span> <span class="dv">1</span>, <span class="dt">allords_volume =</span>     <span class="fl">16.35e9</span>)</a>
+<a class="sourceLine" id="cb345-34" data-line-number="34">december_predict_i6l1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb345-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb345-36" data-line-number="36">i6l1 =<span class="st"> </span>industry_location_i6l1_cr[industry_location_i6l1_cr<span class="op">$</span>industry <span class="op">==</span><span class="st"> </span><span class="dv">6</span> <span class="op">&amp;</span></a>
+<a class="sourceLine" id="cb345-37" data-line-number="37">industry_location_i6l1_cr<span class="op">$</span>location <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, ]</a>
+<a class="sourceLine" id="cb345-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb345-39" data-line-number="39">trainrows &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="fl">0.75</span><span class="op">*</span><span class="kw">nrow</span>(i6l1 ))</a>
+<a class="sourceLine" id="cb345-40" data-line-number="40">train_i6l1 &lt;-<span class="st"> </span>i6l1 [<span class="dv">1</span><span class="op">:</span>trainrows,]</a>
+<a class="sourceLine" id="cb345-41" data-line-number="41">test_i6l1 &lt;-<span class="st"> </span>i6l1 [(trainrows<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="kw">nrow</span>(i6l1 ),] </a>
+<a class="sourceLine" id="cb345-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb345-43" data-line-number="43">model_i6l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> <span class="kw">select</span>(train_i6l1, <span class="op">-</span>industry, <span class="op">-</span>location))</a>
+<a class="sourceLine" id="cb345-44" data-line-number="44"></a>
+<a class="sourceLine" id="cb345-45" data-line-number="45"><span class="co"># output a prediction</span></a>
+<a class="sourceLine" id="cb345-46" data-line-number="46">train_i6l1<span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model_i6l1, train_i6l1)</a>
+<a class="sourceLine" id="cb345-47" data-line-number="47">test_i6l1<span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model_i6l1, test_i6l1)</a>
+<a class="sourceLine" id="cb345-48" data-line-number="48">i6l1 <span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model_i6l1, i6l1 )</a>
+<a class="sourceLine" id="cb345-49" data-line-number="49"></a>
+<a class="sourceLine" id="cb345-50" data-line-number="50"><span class="co"># CALCULATE YOUR ERROR</span></a>
+<a class="sourceLine" id="cb345-51" data-line-number="51">train_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(train_i6l1<span class="op">$</span>mean_amount, train_i6l1<span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb345-52" data-line-number="52">test_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(test_i6l1<span class="op">$</span>mean_amount, test_i6l1<span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb345-53" data-line-number="53">total_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(i6l1 <span class="op">$</span>mean_amount, i6l1 <span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb345-54" data-line-number="54"></a>
+<a class="sourceLine" id="cb345-55" data-line-number="55"><span class="co"># append your error to the output data frame, include industry and location variables</span></a>
+<a class="sourceLine" id="cb345-56" data-line-number="56">ind =<span class="st"> </span><span class="dv">6</span></a>
+<a class="sourceLine" id="cb345-57" data-line-number="57">loc =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb345-58" data-line-number="58">row &lt;-<span class="st"> </span><span class="kw">cbind</span>(ind,loc,train_error,test_error, total_error)</a>
+<a class="sourceLine" id="cb345-59" data-line-number="59">output_i6l1 =<span class="st"> </span><span class="kw">rbind</span>(output_i6l1, row)</a>
+<a class="sourceLine" id="cb345-60" data-line-number="60"></a>
+<a class="sourceLine" id="cb345-61" data-line-number="61"><span class="co">#</span></a>
+<a class="sourceLine" id="cb345-62" data-line-number="62">i6l1_orig &lt;-<span class="st"> </span>worst_perf</a>
+<a class="sourceLine" id="cb345-63" data-line-number="63">i6l1_orig<span class="op">$</span>iteration &lt;-<span class="st"> &quot;before&quot;</span></a>
+<a class="sourceLine" id="cb345-64" data-line-number="64"></a>
+<a class="sourceLine" id="cb345-65" data-line-number="65">output_i6l1<span class="op">$</span>key &lt;-<span class="st"> &quot;ind6loc1&quot;</span></a>
+<a class="sourceLine" id="cb345-66" data-line-number="66">output_i6l1<span class="op">$</span>iteration &lt;-<span class="st"> &quot;after&quot;</span></a>
+<a class="sourceLine" id="cb345-67" data-line-number="67"></a>
+<a class="sourceLine" id="cb345-68" data-line-number="68">i6l6_compare &lt;-<span class="st"> </span><span class="kw">rbind</span>(i6l1_orig, output_i6l1)</a>
+<a class="sourceLine" id="cb345-69" data-line-number="69">i6l6_compare</a></code></pre></div>
+<pre><code>##    ind loc train_error test_error total_error      key iteration
+## 49   6   1     3398588   11313639     6229301 ind6loc1    before
+## 1    6   1     5860612   15937391     9260404 ind6loc1     after</code></pre>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1">i6l6_perc_compare &lt;-<span class="st"> </span>(i6l6_compare[<span class="dv">1</span>,<span class="dv">4</span>]<span class="op">-</span>i6l6_compare[<span class="dv">2</span>,<span class="dv">4</span>])<span class="op">/</span>i6l6_compare[<span class="dv">1</span>,<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb347-2" data-line-number="2">i6l6_perc_compare</a></code></pre></div>
+<pre><code>## [1] -0.4086884</code></pre>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1"><span class="co">#approx 40% increase in test error</span></a>
+<a class="sourceLine" id="cb349-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb349-3" data-line-number="3"><span class="kw">summary</span>(model_i6l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = select(train_i6l1, -industry, 
+##     -location))
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -19006125  -4137665   -239879   4980895   8451102 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -3.801e+08  6.905e+07  -5.505 8.90e-06 ***
+## ndate           2.372e+04  3.940e+03   6.021 2.33e-06 ***
+## Jan             6.903e+06  4.943e+06   1.397   0.1744    
+## Mar             5.854e+05  4.554e+06   0.129   0.8987    
+## May             1.527e+06  4.379e+06   0.349   0.7302    
+## Jul             6.069e+06  4.384e+06   1.384   0.1780    
+## Oct             5.724e+06  4.388e+06   1.304   0.2035    
+## Nov             2.951e+06  4.526e+06   0.652   0.5202    
+## Dec             1.140e+07  4.506e+06   2.531   0.0178 *  
+## allords_volume  1.417e-03  7.917e-04   1.790   0.0851 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 6896000 on 26 degrees of freedom
+## Multiple R-squared:   0.66,  Adjusted R-squared:  0.5424 
+## F-statistic: 5.609 on 9 and 26 DF,  p-value: 0.0002552</code></pre>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1"><span class="kw">plot</span>(model_i6l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-43-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-43-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-43-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-43-4.png" width="672" /></p>
+</div>
+<div id="industry-3-location-9" class="section level2">
+<h2><span class="header-section-number">7.4</span> Industry 3 location 9</h2>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1">output_i3l9 =<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb352-2" data-line-number="2">decpred_i3l9 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ndate =</span> <span class="kw">as.numeric</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2016-12-01&quot;</span>)), <span class="dt">mean_amount =</span> <span class="ot">NA</span>, <span class="dt">Jan =</span> <span class="dv">0</span>, <span class="dt">Mar =</span> <span class="dv">0</span>, <span class="dt">May =</span> <span class="dv">0</span>, <span class="dt">Jul =</span> <span class="dv">0</span>, <span class="dt">Oct =</span> <span class="dv">0</span>, <span class="dt">Nov =</span> <span class="dv">0</span>, <span class="dt">Dec =</span> <span class="dv">1</span>, <span class="dt">allords_volume =</span>     <span class="fl">16.35e9</span>)</a>
+<a class="sourceLine" id="cb352-3" data-line-number="3">december_predict_i3l9 &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb352-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb352-5" data-line-number="5"><span class="co">#i6l1 aggregated data can be used</span></a>
+<a class="sourceLine" id="cb352-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb352-7" data-line-number="7">i3l9 =<span class="st"> </span>industry_location_i6l1[industry_location_i6l1<span class="op">$</span>industry <span class="op">==</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;</span></a>
+<a class="sourceLine" id="cb352-8" data-line-number="8">industry_location_i6l1<span class="op">$</span>location <span class="op">==</span><span class="st"> </span><span class="dv">9</span>, ]</a>
+<a class="sourceLine" id="cb352-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb352-10" data-line-number="10"><span class="co">#i3l9 had a slow start, only single transactions per month during part of the first year these NA&#39;s will need to be converted to 0</span></a>
+<a class="sourceLine" id="cb352-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb352-12" data-line-number="12">i3l9[i3l9<span class="op">$</span>ntrans <span class="op">==</span><span class="st"> </span><span class="dv">1</span>,<span class="dv">13</span>] &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb352-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb352-14" data-line-number="14">trainrows &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="fl">0.75</span><span class="op">*</span><span class="kw">nrow</span>(i3l9 ))</a>
+<a class="sourceLine" id="cb352-15" data-line-number="15">train_i3l9 &lt;-<span class="st"> </span>i3l9 [<span class="dv">1</span><span class="op">:</span>trainrows,]</a>
+<a class="sourceLine" id="cb352-16" data-line-number="16">test_i3l9 &lt;-<span class="st"> </span>i3l9 [(trainrows<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="kw">nrow</span>(i3l9),] </a>
+<a class="sourceLine" id="cb352-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb352-18" data-line-number="18">model_i3l9 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> <span class="kw">select</span>(train_i3l9, <span class="op">-</span>industry, <span class="op">-</span>location))</a>
+<a class="sourceLine" id="cb352-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb352-20" data-line-number="20"><span class="co"># output a prediction</span></a>
+<a class="sourceLine" id="cb352-21" data-line-number="21">train_i3l9<span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model_i3l9, train_i3l9)</a>
+<a class="sourceLine" id="cb352-22" data-line-number="22">test_i3l9<span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model_i3l9, test_i3l9)</a>
+<a class="sourceLine" id="cb352-23" data-line-number="23">i3l9<span class="op">$</span>prediction =<span class="st"> </span><span class="kw">predict</span>(model_i3l9, i3l9 )</a>
+<a class="sourceLine" id="cb352-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb352-25" data-line-number="25"><span class="co"># CALCULATE YOUR ERROR</span></a>
+<a class="sourceLine" id="cb352-26" data-line-number="26">train_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(train_i3l9<span class="op">$</span>mean_amount, train_i3l9<span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb352-27" data-line-number="27">test_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(test_i3l9<span class="op">$</span>mean_amount, test_i3l9<span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb352-28" data-line-number="28">total_error &lt;-<span class="st"> </span><span class="kw">rmse</span>(i3l9 <span class="op">$</span>mean_amount, i3l9<span class="op">$</span>prediction)</a>
+<a class="sourceLine" id="cb352-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb352-30" data-line-number="30"><span class="co"># append your error to the output data frame, include industry and location variables</span></a>
+<a class="sourceLine" id="cb352-31" data-line-number="31">ind =<span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb352-32" data-line-number="32">loc =<span class="st"> </span><span class="dv">9</span></a>
+<a class="sourceLine" id="cb352-33" data-line-number="33">row &lt;-<span class="st"> </span><span class="kw">cbind</span>(ind,loc,train_error,test_error, total_error)</a>
+<a class="sourceLine" id="cb352-34" data-line-number="34">output_i3l9 =<span class="st"> </span><span class="kw">rbind</span>(output_i3l9, row)</a>
+<a class="sourceLine" id="cb352-35" data-line-number="35"></a>
+<a class="sourceLine" id="cb352-36" data-line-number="36"><span class="co">#</span></a>
+<a class="sourceLine" id="cb352-37" data-line-number="37">i3l9_orig &lt;-<span class="st"> </span>worst_perf</a>
+<a class="sourceLine" id="cb352-38" data-line-number="38">i3l9_orig<span class="op">$</span>iteration &lt;-<span class="st"> &quot;before&quot;</span></a>
+<a class="sourceLine" id="cb352-39" data-line-number="39"></a>
+<a class="sourceLine" id="cb352-40" data-line-number="40">output_i3l9<span class="op">$</span>key &lt;-<span class="st"> &quot;ind3loc9&quot;</span></a>
+<a class="sourceLine" id="cb352-41" data-line-number="41">output_i3l9<span class="op">$</span>iteration &lt;-<span class="st"> &quot;after&quot;</span></a>
+<a class="sourceLine" id="cb352-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb352-43" data-line-number="43">i6l6_compare &lt;-<span class="st"> </span><span class="kw">rbind</span>(i3l9_orig, output_i3l9)</a>
+<a class="sourceLine" id="cb352-44" data-line-number="44">i6l6_compare</a></code></pre></div>
+<pre><code>##    ind loc train_error test_error total_error      key iteration
+## 49   6   1   3398587.5   11313639   6229301.0 ind6loc1    before
+## 1    3   9    117452.1    1110455    546961.3 ind3loc9     after</code></pre>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1">i6l6_perc_compare &lt;-<span class="st"> </span>(i6l6_compare[<span class="dv">1</span>,<span class="dv">4</span>]<span class="op">-</span>i6l6_compare[<span class="dv">2</span>,<span class="dv">4</span>])<span class="op">/</span>i6l6_compare[<span class="dv">1</span>,<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb354-2" data-line-number="2">i6l6_perc_compare</a></code></pre></div>
+<pre><code>## [1] 0.9018481</code></pre>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" data-line-number="1"><span class="co">#approx 90% decrease in test error!</span></a>
+<a class="sourceLine" id="cb356-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb356-3" data-line-number="3"><span class="kw">summary</span>(model_i3l9)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = select(train_i3l9, -industry, 
+##     -location))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -290462  -67198   11862   81166  210404 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)     1.066e+07  5.859e+06   1.820 0.081288 .  
+## ndate          -6.212e+02  3.691e+02  -1.683 0.105376    
+## Jan             3.442e+05  1.108e+05   3.107 0.004804 ** 
+## Mar             7.244e+04  9.561e+04   0.758 0.456010    
+## May            -2.617e+04  9.330e+04  -0.280 0.781533    
+## Jul            -6.501e+04  9.463e+04  -0.687 0.498674    
+## Oct             5.377e+04  1.002e+05   0.537 0.596421    
+## Nov             7.713e+04  9.840e+04   0.784 0.440801    
+## Dec             4.577e+05  1.140e+05   4.017 0.000505 ***
+## allords_volume  2.752e-06  1.699e-05   0.162 0.872699    
+## sdtrans        -4.789e-01  1.635e-01  -2.928 0.007356 ** 
+## ntrans          5.479e+04  4.871e+04   1.125 0.271781    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 143800 on 24 degrees of freedom
+## Multiple R-squared:  0.731,  Adjusted R-squared:  0.6077 
+## F-statistic: 5.928 on 11 and 24 DF,  p-value: 0.0001366</code></pre>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" data-line-number="1"><span class="kw">plot</span>(model_i3l9)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-44-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-44-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-44-4.png" width="672" /></p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1"><span class="co"># it appears the additon of particular and SD measure of the aggregated transations would improve the outcome of the model</span></a></code></pre></div>
+</div>
+<div id="dply-deployment" class="section level2">
+<h2><span class="header-section-number">7.5</span> dply deployment</h2>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1"><span class="co"># beginnings of attempt to use dplyr for deployment on full set</span></a>
+<a class="sourceLine" id="cb360-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb360-3" data-line-number="3"><span class="co">#prepd_train &lt;- transactions_prepd %&gt;% </span></a>
+<a class="sourceLine" id="cb360-4" data-line-number="4"> <span class="co"># ungroup() %&gt;% </span></a>
+<a class="sourceLine" id="cb360-5" data-line-number="5">  <span class="co">#group_by(industry, location) %&gt;% </span></a>
+<a class="sourceLine" id="cb360-6" data-line-number="6">  <span class="co">#group_split()</span></a>
+<a class="sourceLine" id="cb360-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb360-8" data-line-number="8"><span class="co"># pi1l1 &lt;- transactions_prepd %&gt;% </span></a>
+<a class="sourceLine" id="cb360-9" data-line-number="9">  <span class="co">#filter(industry == 1, location == 1) %&gt;% </span></a>
+<a class="sourceLine" id="cb360-10" data-line-number="10">  <span class="co">#select(-industry, -location, -trdate) %&gt;% #removing trdate and switching to ndate for ease of calculation</span></a>
+<a class="sourceLine" id="cb360-11" data-line-number="11">  <span class="co">#arrange(ndate) %&gt;% </span></a>
+<a class="sourceLine" id="cb360-12" data-line-number="12">  <span class="co">#select(ndate, everything())</span></a></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modelling.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

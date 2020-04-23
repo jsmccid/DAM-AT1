@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 External Data | DAM AT1-A</title>
+  <meta name="description" content="4 External Data | DAM AT1-A" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 External Data | DAM AT1-A" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 External Data | DAM AT1-A" />
+  
+  
+  
+
+<meta name="author" content="Joshua McCarthy" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-cleaning.html"/>
+<link rel="next" href="data-preparation.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Planning</a></li>
+<li class="chapter" data-level="2" data-path="understanding.html"><a href="understanding.html"><i class="fa fa-check"></i><b>2</b> Understanding</a><ul>
+<li class="chapter" data-level="2.1" data-path="understanding.html"><a href="understanding.html#initial-import-and-data-prep"><i class="fa fa-check"></i><b>2.1</b> Initial Import and Data Prep</a></li>
+<li class="chapter" data-level="2.2" data-path="understanding.html"><a href="understanding.html#data-quality"><i class="fa fa-check"></i><b>2.2</b> Data Quality</a></li>
+<li class="chapter" data-level="2.3" data-path="understanding.html"><a href="understanding.html#initial-understanding"><i class="fa fa-check"></i><b>2.3</b> Initial Understanding</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="understanding.html"><a href="understanding.html#customers"><i class="fa fa-check"></i><b>2.3.1</b> Customers</a></li>
+<li class="chapter" data-level="2.3.2" data-path="understanding.html"><a href="understanding.html#industry"><i class="fa fa-check"></i><b>2.3.2</b> Industry</a></li>
+<li class="chapter" data-level="2.3.3" data-path="understanding.html"><a href="understanding.html#industry-6"><i class="fa fa-check"></i><b>2.3.3</b> Industry 6</a></li>
+<li class="chapter" data-level="2.3.4" data-path="understanding.html"><a href="understanding.html#industry-10"><i class="fa fa-check"></i><b>2.3.4</b> Industry 10</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="understanding.html"><a href="understanding.html#monthly-amount"><i class="fa fa-check"></i><b>2.4</b> Monthly Amount</a></li>
+<li class="chapter" data-level="2.5" data-path="understanding.html"><a href="understanding.html#target-dataset"><i class="fa fa-check"></i><b>2.5</b> Target dataset</a></li>
+<li class="chapter" data-level="2.6" data-path="understanding.html"><a href="understanding.html#aggregate-mean"><i class="fa fa-check"></i><b>2.6</b> Aggregate mean</a></li>
+<li class="chapter" data-level="2.7" data-path="understanding.html"><a href="understanding.html#conclusions"><i class="fa fa-check"></i><b>2.7</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="4" data-path="external-data.html"><a href="external-data.html"><i class="fa fa-check"></i><b>4</b> External Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="external-data.html"><a href="external-data.html#consumer-price-index"><i class="fa fa-check"></i><b>4.1</b> Consumer Price index</a></li>
+<li class="chapter" data-level="4.2" data-path="external-data.html"><a href="external-data.html#asx-data"><i class="fa fa-check"></i><b>4.2</b> ASX Data</a></li>
+<li class="chapter" data-level="4.3" data-path="external-data.html"><a href="external-data.html#comined-external-data"><i class="fa fa-check"></i><b>4.3</b> Comined external data</a></li>
+<li class="chapter" data-level="4.4" data-path="external-data.html"><a href="external-data.html#unused-aditional-ideas"><i class="fa fa-check"></i><b>4.4</b> Unused aditional ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-preparation.html"><a href="data-preparation.html"><i class="fa fa-check"></i><b>5</b> Data Preparation</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-preparation.html"><a href="data-preparation.html#constructed-variables"><i class="fa fa-check"></i><b>5.1</b> Constructed Variables</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preparation.html"><a href="data-preparation.html#integrated-variables"><i class="fa fa-check"></i><b>5.2</b> Integrated variables</a></li>
+<li class="chapter" data-level="5.3" data-path="data-preparation.html"><a href="data-preparation.html#output"><i class="fa fa-check"></i><b>5.3</b> Output</a></li>
+<li class="chapter" data-level="5.4" data-path="data-preparation.html"><a href="data-preparation.html#unused"><i class="fa fa-check"></i><b>5.4</b> unused</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="modelling.html"><a href="modelling.html"><i class="fa fa-check"></i><b>6</b> Modelling</a><ul>
+<li class="chapter" data-level="6.1" data-path="modelling.html"><a href="modelling.html#test-setup"><i class="fa fa-check"></i><b>6.1</b> Test Setup</a></li>
+<li class="chapter" data-level="6.2" data-path="modelling.html"><a href="modelling.html#initial-model"><i class="fa fa-check"></i><b>6.2</b> Initial Model</a></li>
+<li class="chapter" data-level="6.3" data-path="modelling.html"><a href="modelling.html#all-ordinaries-volume"><i class="fa fa-check"></i><b>6.3</b> All Ordinaries Volume</a></li>
+<li class="chapter" data-level="6.4" data-path="modelling.html"><a href="modelling.html#experiment"><i class="fa fa-check"></i><b>6.4</b> Experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html"><i class="fa fa-check"></i><b>7</b> Fitting to all groups</a><ul>
+<li class="chapter" data-level="7.1" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#performance"><i class="fa fa-check"></i><b>7.1</b> Performance</a></li>
+<li class="chapter" data-level="7.2" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#improvements"><i class="fa fa-check"></i><b>7.2</b> improvements</a></li>
+<li class="chapter" data-level="7.3" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#industry-6-location-1-round-2"><i class="fa fa-check"></i><b>7.3</b> Industry 6 Location 1 (round 2)</a></li>
+<li class="chapter" data-level="7.4" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#industry-3-location-9"><i class="fa fa-check"></i><b>7.4</b> Industry 3 location 9</a></li>
+<li class="chapter" data-level="7.5" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#dply-deployment"><i class="fa fa-check"></i><b>7.5</b> dply deployment</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DAM AT1-A</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="external-data" class="section level1">
+<h1><span class="header-section-number">4</span> External Data</h1>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" data-line-number="1"><span class="co"># as the data is of finanical transactions for a recent period, they may relate to other datasets that track finanical metrics, as financial metrics generally have a longer history, models can be more accuratley trained to predict them individually, increasing the accuracy of the final prediction</span></a>
+<a class="sourceLine" id="cb132-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb132-3" data-line-number="3"><span class="co"># the company is Australian so australian finanical metrics could be valid</span></a>
+<a class="sourceLine" id="cb132-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb132-5" data-line-number="5"><span class="co"># importing data from the relavant periods for potential financial metrics</span></a>
+<a class="sourceLine" id="cb132-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb132-7" data-line-number="7"><span class="co"># cpi data is recoreded quaterly by the reserve bank of australia</span></a>
+<a class="sourceLine" id="cb132-8" data-line-number="8"><span class="co"># https://www.rba.gov.au/inflation/measures-cpi.html</span></a>
+<a class="sourceLine" id="cb132-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb132-10" data-line-number="10"><span class="co">#consumer price index for australia</span></a>
+<a class="sourceLine" id="cb132-11" data-line-number="11">auscpi &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;./integrate_data/CPIdata.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Cdate = col_date(format = &quot;&quot;),
+##   index = col_double()
+## )</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">names</span>(auscpi) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;cdate&quot;</span>,<span class="st">&quot;index&quot;</span>)</a>
+<a class="sourceLine" id="cb134-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb134-3" data-line-number="3"><span class="co"># asx metrics were collected already summarised by date from</span></a>
+<a class="sourceLine" id="cb134-4" data-line-number="4"><span class="co"># https://au.investing.com/indices/all-ordinaries-historical-data</span></a>
+<a class="sourceLine" id="cb134-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb134-6" data-line-number="6"><span class="co"># asx index of top 500 companies</span></a>
+<a class="sourceLine" id="cb134-7" data-line-number="7">allords &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;./integrate_data/ASX All Ordinaries.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Date = col_date(format = &quot;&quot;),
+##   Price = col_number(),
+##   Open = col_number(),
+##   High = col_number(),
+##   Low = col_number(),
+##   Vol. = col_character(),
+##   `Change %` = col_character()
+## )</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="co"># asx index of the 200 companies after the top 100 in asx all ordinaries</span></a>
+<a class="sourceLine" id="cb136-2" data-line-number="2">smallords &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;./integrate_data/ASX Small Ordinaries.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Date = col_date(format = &quot;&quot;),
+##   Price = col_number(),
+##   Open = col_number(),
+##   High = col_number(),
+##   Low = col_number(),
+##   Vol. = col_character(),
+##   `Change %` = col_character()
+## )</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" data-line-number="1"><span class="co"># asx index of top 20 companies</span></a>
+<a class="sourceLine" id="cb138-2" data-line-number="2">asx20 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;./integrate_data/S&amp;P_ASX 20.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Date = col_date(format = &quot;&quot;),
+##   Price = col_number(),
+##   Open = col_number(),
+##   High = col_number(),
+##   Low = col_number(),
+##   Vol. = col_character(),
+##   `Change %` = col_character()
+## )</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb140-1" data-line-number="1"><span class="co"># asx index of top 200 companies</span></a>
+<a class="sourceLine" id="cb140-2" data-line-number="2">asx200 &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;./integrate_data/S&amp;P_ASX 200.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Date = col_date(format = &quot;&quot;),
+##   Price = col_number(),
+##   Open = col_number(),
+##   High = col_number(),
+##   Low = col_number(),
+##   Vol. = col_character(),
+##   `Change %` = col_character()
+## )</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb142-1" data-line-number="1"><span class="co">#import transactions data to subset out the required date range</span></a>
+<a class="sourceLine" id="cb142-2" data-line-number="2"><span class="kw">load</span>(<span class="dt">file =</span><span class="st">&quot;./core_data/transactions_clean.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb142-3" data-line-number="3">trdates_out &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">unique</span>(transactions<span class="op">$</span>trdate))</a>
+<a class="sourceLine" id="cb142-4" data-line-number="4"><span class="kw">names</span>(trdates_out) &lt;-<span class="st"> &quot;trdate&quot;</span> </a></code></pre></div>
+<div id="consumer-price-index" class="section level2">
+<h2><span class="header-section-number">4.1</span> Consumer Price index</h2>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb143-1" data-line-number="1"><span class="co">#To match the CPIdata to the dataset the additional datapoints are interpolated, the created model follows the extacted data very closely to avoid creating confusion out of the actual data</span></a>
+<a class="sourceLine" id="cb143-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb143-3" data-line-number="3"><span class="kw">summary</span>(auscpi)</a></code></pre></div>
+<pre><code>##      cdate                index      
+##  Min.   :2012-12-31   Min.   :102.0  
+##  1st Qu.:2013-12-31   1st Qu.:104.8  
+##  Median :2014-12-31   Median :106.6  
+##  Mean   :2014-12-30   Mean   :106.3  
+##  3rd Qu.:2015-12-31   3rd Qu.:108.2  
+##  Max.   :2016-12-31   Max.   :110.0</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb145-1" data-line-number="1"><span class="co"># check formatting</span></a>
+<a class="sourceLine" id="cb145-2" data-line-number="2">auscpi<span class="op">$</span>cdate &lt;-<span class="st"> </span><span class="kw">as.Date</span>(auscpi<span class="op">$</span>cdate)</a>
+<a class="sourceLine" id="cb145-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb145-4" data-line-number="4"><span class="co"># convert date to numeric value for loess modelling</span></a>
+<a class="sourceLine" id="cb145-5" data-line-number="5">auscpi<span class="op">$</span>ndate &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(auscpi<span class="op">$</span>cdate)</a>
+<a class="sourceLine" id="cb145-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb145-7" data-line-number="7"><span class="co">#transform dates from dataset similarly</span></a>
+<a class="sourceLine" id="cb145-8" data-line-number="8">trdates_out<span class="op">$</span>trdate &lt;-<span class="st"> </span><span class="kw">as.Date</span>(trdates_out<span class="op">$</span>trdate)</a>
+<a class="sourceLine" id="cb145-9" data-line-number="9">trdates_out<span class="op">$</span>ndate &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(trdates_out<span class="op">$</span>trdate)</a>
+<a class="sourceLine" id="cb145-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb145-11" data-line-number="11"><span class="co">#create loess model for data, loess can create a smoothed curve through or near each point</span></a>
+<a class="sourceLine" id="cb145-12" data-line-number="12">cpi_lm &lt;-<span class="st"> </span><span class="kw">loess</span>(index <span class="op">~</span><span class="st"> </span>ndate, <span class="dt">data =</span> auscpi, <span class="dt">span =</span> <span class="fl">0.25</span>, <span class="dt">degree =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb145-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb145-14" data-line-number="14"><span class="co"># create a prediction dataframe of predicted points for the same cpi data</span></a>
+<a class="sourceLine" id="cb145-15" data-line-number="15">cpi_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">index_predict =</span> <span class="kw">predict</span>(cpi_lm, auscpi), <span class="dt">cdate =</span> auscpi<span class="op">$</span>cdate)</a>
+<a class="sourceLine" id="cb145-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb145-17" data-line-number="17"><span class="co">#create a dataframe of predicted interpolated points to match the transaction dataset</span></a>
+<a class="sourceLine" id="cb145-18" data-line-number="18">cpi_tdates &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">trindex_predict =</span> <span class="kw">predict</span>(cpi_lm, trdates_out), <span class="dt">trdate =</span> trdates_out<span class="op">$</span>trdate)</a>
+<a class="sourceLine" id="cb145-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb145-20" data-line-number="20"><span class="co">#plot together to check if prediction outcome is as intended</span></a>
+<a class="sourceLine" id="cb145-21" data-line-number="21">cpi_predict_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(auscpi , <span class="kw">aes</span>( <span class="dt">x =</span> cdate, <span class="dt">y =</span> index)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb145-22" data-line-number="22"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb145-23" data-line-number="23"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> cpi_predict, <span class="kw">aes</span>(<span class="dt">y =</span> index_predict)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb145-24" data-line-number="24"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">data =</span> cpi_tdates, <span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> trindex_predict))</a>
+<a class="sourceLine" id="cb145-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb145-26" data-line-number="26">cpi_predict_plot </a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="asx-data" class="section level2">
+<h2><span class="header-section-number">4.2</span> ASX Data</h2>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb146-1" data-line-number="1">all_asx &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;allords&quot;</span>, <span class="st">&quot;smallords&quot;</span>, <span class="st">&quot;asx20&quot;</span>, <span class="st">&quot;asx200&quot;</span>)</a>
+<a class="sourceLine" id="cb146-2" data-line-number="2">combined_asx &lt;-<span class="st"> </span>trdates_out</a>
+<a class="sourceLine" id="cb146-3" data-line-number="3"><span class="kw">names</span>(combined_asx) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;ndate&quot;</span>)</a>
+<a class="sourceLine" id="cb146-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb146-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb146-6" data-line-number="6"><span class="cf">for</span> (index <span class="cf">in</span> all_asx) {</a>
+<a class="sourceLine" id="cb146-7" data-line-number="7"> output &lt;-<span class="st"> </span><span class="kw">eval</span>(<span class="kw">parse</span>(<span class="dt">text =</span> index)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb146-8" data-line-number="8"><span class="st">    </span><span class="kw">select</span>(<span class="st">&quot;Date&quot;</span>, <span class="st">&quot;Price&quot;</span>, <span class="st">&quot;Vol.&quot;</span>, <span class="st">&quot;Change %&quot;</span>)</a>
+<a class="sourceLine" id="cb146-9" data-line-number="9">  rename &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;date&quot;</span>, <span class="kw">paste</span>(index, <span class="st">&quot;price&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>), <span class="kw">paste</span>(index, <span class="st">&quot;volume&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>), <span class="kw">paste</span>(index, <span class="st">&quot;change_perc&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>))</a>
+<a class="sourceLine" id="cb146-10" data-line-number="10">  <span class="kw">names</span>(output) &lt;-<span class="st"> </span>rename</a>
+<a class="sourceLine" id="cb146-11" data-line-number="11">combined_asx  &lt;-<span class="st"> </span><span class="kw">merge</span>(combined_asx, output, <span class="dt">by =</span> <span class="st">&quot;date&quot;</span>, <span class="dt">all.x =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb146-12" data-line-number="12">  <span class="kw">assign</span>(index, output)</a>
+<a class="sourceLine" id="cb146-13" data-line-number="13">}</a>
+<a class="sourceLine" id="cb146-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb146-15" data-line-number="15"><span class="kw">str</span>(combined_asx)</a></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    47 obs. of  14 variables:
+##  $ date                 : Date, format: &quot;2013-01-01&quot; &quot;2013-02-01&quot; ...
+##  $ ndate                : num  15706 15737 15765 15796 15826 ...
+##  $ allords_price        : num  4901 5120 4980 5169 4914 ...
+##  $ allords_volume       : chr  &quot;15.86B&quot; &quot;17.90B&quot; &quot;18.55B&quot; &quot;18.02B&quot; ...
+##  $ allords_change_perc  : chr  &quot;5.07%&quot; &quot;4.48%&quot; &quot;-2.74%&quot; &quot;3.79%&quot; ...
+##  $ smallords_price      : num  2376 2390 2295 2186 2101 ...
+##  $ smallords_volume     : chr  &quot;6.44B&quot; &quot;6.95B&quot; &quot;7.88B&quot; &quot;8.50B&quot; ...
+##  $ smallords_change_perc: chr  &quot;4.17%&quot; &quot;0.58%&quot; &quot;-3.96%&quot; &quot;-4.74%&quot; ...
+##  $ asx20_price          : num  3009 3162 3073 3264 3059 ...
+##  $ asx20_volume         : chr  &quot;2.15B&quot; &quot;2.89B&quot; &quot;2.64B&quot; &quot;2.40B&quot; ...
+##  $ asx20_change_perc    : chr  &quot;4.96%&quot; &quot;5.10%&quot; &quot;-2.83%&quot; &quot;6.23%&quot; ...
+##  $ asx200_price         : num  4879 5104 4966 5191 4927 ...
+##  $ asx200_volume        : chr  &quot;13.14B&quot; &quot;15.11B&quot; &quot;15.31B&quot; &quot;14.58B&quot; ...
+##  $ asx200_change_perc   : chr  &quot;4.94%&quot; &quot;4.62%&quot; &quot;-2.70%&quot; &quot;4.52%&quot; ...</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1">combined_asx2 &lt;-<span class="st"> </span>combined_asx</a>
+<a class="sourceLine" id="cb148-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb148-3" data-line-number="3">combined_asx2[] &lt;-<span class="st"> </span><span class="kw">lapply</span>(combined_asx2, <span class="cf">function</span>(x) <span class="kw">gsub</span>(<span class="st">&quot;%&quot;</span>, <span class="st">&quot;e-2&quot;</span>, x))</a>
+<a class="sourceLine" id="cb148-4" data-line-number="4">combined_asx2[] &lt;-<span class="st"> </span><span class="kw">lapply</span>(combined_asx2, <span class="cf">function</span>(x) <span class="kw">gsub</span>(<span class="st">&quot;B&quot;</span>, <span class="st">&quot;e9&quot;</span>, x))</a>
+<a class="sourceLine" id="cb148-5" data-line-number="5">combined_asx2[] &lt;-<span class="st"> </span><span class="kw">lapply</span>(combined_asx2, <span class="cf">function</span>(x) <span class="kw">as.numeric</span>(x))</a></code></pre></div>
+<pre><code>## Warning in FUN(X[[i]], ...): NAs introduced by coercion</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb150-1" data-line-number="1">combined_asx2 &lt;-<span class="st"> </span>combined_asx2[,<span class="op">-</span><span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb150-2" data-line-number="2">cor_asx2 &lt;-<span class="st"> </span><span class="kw">cor</span>(combined_asx2)</a>
+<a class="sourceLine" id="cb150-3" data-line-number="3"><span class="kw">corrplot</span>(cor_asx2, <span class="dt">method =</span> <span class="st">&quot;number&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb151-1" data-line-number="1">combined_asx2 &lt;-<span class="st"> </span>combined_asx2 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb151-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>asx200_change_perc, <span class="op">-</span>asx200_volume, <span class="op">-</span>asx200_price, <span class="op">-</span>asx20_change_perc, <span class="op">-</span>smallords_change_perc, <span class="op">-</span>smallords_volume)</a>
+<a class="sourceLine" id="cb151-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb151-4" data-line-number="4">cor_asx2 &lt;-<span class="st"> </span><span class="kw">cor</span>(combined_asx2)</a>
+<a class="sourceLine" id="cb151-5" data-line-number="5"><span class="kw">corrplot</span>(cor_asx2, <span class="dt">method =</span> <span class="st">&quot;number&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb152-1" data-line-number="1">combined_asx &lt;-<span class="st"> </span><span class="kw">merge</span>(trdates_out, combined_asx2, <span class="dt">by =</span> <span class="st">&quot;ndate&quot;</span>)</a></code></pre></div>
+</div>
+<div id="comined-external-data" class="section level2">
+<h2><span class="header-section-number">4.3</span> Comined external data</h2>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb153-1" data-line-number="1"><span class="co">#correlation</span></a>
+<a class="sourceLine" id="cb153-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb153-3" data-line-number="3">combined_external &lt;-<span class="st"> </span><span class="kw">merge</span>(combined_asx, cpi_tdates, <span class="dt">by =</span> <span class="st">&quot;trdate&quot;</span>)</a>
+<a class="sourceLine" id="cb153-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb153-5" data-line-number="5">cor_ext &lt;-<span class="st"> </span><span class="kw">cor</span>(combined_external[<span class="op">-</span><span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb153-6" data-line-number="6"><span class="kw">corrplot</span>(cor_ext, <span class="dt">method =</span> <span class="st">&quot;number&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb154-1" data-line-number="1"><span class="co">#high corrolation between the cpi predictions and the date as a numerica, they likely both have y=x increases predominantly, for now the variable will remain</span></a>
+<a class="sourceLine" id="cb154-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb154-3" data-line-number="3"><span class="kw">save</span>(combined_external, <span class="dt">file =</span> <span class="st">&quot;./integrate_data/fin_mets.Rdata&quot;</span>)</a></code></pre></div>
+</div>
+<div id="unused-aditional-ideas" class="section level2">
+<h2><span class="header-section-number">4.4</span> Unused aditional ideas</h2>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb155-1" data-line-number="1"><span class="co"># School Holidays</span></a>
+<a class="sourceLine" id="cb155-2" data-line-number="2">a_i1_l1<span class="op">$</span>shols &lt;-<span class="st"> &quot;0&quot;</span></a>
+<a class="sourceLine" id="cb155-3" data-line-number="3">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Apr&quot;</span> , <span class="st">&quot;shols&quot;</span>] &lt;-<span class="st"> </span><span class="fl">2.5</span></a>
+<a class="sourceLine" id="cb155-4" data-line-number="4">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Jul&quot;</span> , <span class="st">&quot;shols&quot;</span>] &lt;-<span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb155-5" data-line-number="5">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Sep&quot;</span> , <span class="st">&quot;shols&quot;</span>] &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb155-6" data-line-number="6">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Oct&quot;</span> , <span class="st">&quot;shols&quot;</span>] &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb155-7" data-line-number="7">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Dec&quot;</span> , <span class="st">&quot;shols&quot;</span>] &lt;-<span class="st"> </span><span class="fl">2.5</span></a>
+<a class="sourceLine" id="cb155-8" data-line-number="8">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Jan&quot;</span> , <span class="st">&quot;shols&quot;</span>] &lt;-<span class="st"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb155-9" data-line-number="9">a_i1_l1<span class="op">$</span>shols &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(a_i1_l1<span class="op">$</span>shols)</a>
+<a class="sourceLine" id="cb155-10" data-line-number="10">  </a>
+<a class="sourceLine" id="cb155-11" data-line-number="11">  <span class="kw">summary</span>(a_i1_l1<span class="op">$</span>shols)</a>
+<a class="sourceLine" id="cb155-12" data-line-number="12">  </a>
+<a class="sourceLine" id="cb155-13" data-line-number="13"><span class="co"># inflation </span></a>
+<a class="sourceLine" id="cb155-14" data-line-number="14"><span class="co"># https://www.statista.com/statistics/271845/inflation-rate-in-australia/</span></a>
+<a class="sourceLine" id="cb155-15" data-line-number="15">inflation &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2014</span>, <span class="dv">2015</span>, <span class="dv">2016</span>), <span class="dt">inflperc =</span> <span class="kw">c</span>(<span class="fl">2.45</span>, <span class="fl">2.51</span>, <span class="fl">1.51</span>, <span class="fl">1.25</span>))</a>
+<a class="sourceLine" id="cb155-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb155-17" data-line-number="17"><span class="co"># gdp growth</span></a>
+<a class="sourceLine" id="cb155-18" data-line-number="18"><span class="co"># https://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG?end=2016&amp;locations=AU&amp;start=2013</span></a>
+<a class="sourceLine" id="cb155-19" data-line-number="19">gdpgrowth &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">year =</span> <span class="kw">c</span>(<span class="dv">2013</span>, <span class="dv">2014</span>, <span class="dv">2015</span>, <span class="dv">2016</span>), <span class="dt">growthperc =</span> <span class="kw">c</span>(<span class="fl">2.585</span>,<span class="fl">2.533</span>,<span class="fl">2.193</span>,<span class="fl">2.771</span>))</a>
+<a class="sourceLine" id="cb155-20" data-line-number="20">gdpgrowth &lt;-<span class="st"> </span>gdpgrowth <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb155-21" data-line-number="21"><span class="st">  </span><span class="kw">slice</span>(<span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">n</span>(), <span class="dt">each =</span> <span class="dv">12</span>))</a>
+<a class="sourceLine" id="cb155-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb155-23" data-line-number="23">gdpgrowth<span class="op">$</span>growthperc &lt;-<span class="st"> </span>gdpgrowth<span class="op">$</span>growthperc<span class="op">/</span><span class="dv">12</span><span class="op">/</span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb155-24" data-line-number="24">gdpgrowth &lt;-<span class="st"> </span>gdpgrowth[<span class="op">-</span><span class="dv">48</span>,]</a>
+<a class="sourceLine" id="cb155-25" data-line-number="25">gdpgrowth<span class="op">$</span>growthperccumul &lt;-<span class="st"> </span>gdpgrowth<span class="op">$</span>growthperc</a>
+<a class="sourceLine" id="cb155-26" data-line-number="26">gdpgrowth &lt;-<span class="st"> </span><span class="kw">data.frame</span>(gdpgrowth)</a>
+<a class="sourceLine" id="cb155-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb155-28" data-line-number="28"><span class="cf">for</span> (inter <span class="cf">in</span> <span class="dv">2</span><span class="op">:</span><span class="kw">nrow</span>(gdpgrowth)) {</a>
+<a class="sourceLine" id="cb155-29" data-line-number="29">  gdpgrowth[inter,<span class="dv">3</span>] &lt;-<span class="st"> </span>gdpgrowth[[inter,<span class="dv">2</span>]] <span class="op">+</span><span class="st"> </span>gdpgrowth[[inter<span class="dv">-1</span>,<span class="dv">3</span>]]</a>
+<a class="sourceLine" id="cb155-30" data-line-number="30">}</a>
+<a class="sourceLine" id="cb155-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb155-32" data-line-number="32"><span class="co"># Seasons</span></a>
+<a class="sourceLine" id="cb155-33" data-line-number="33">a_i1_l1<span class="op">$</span>seasons &lt;-<span class="st"> &quot;spring&quot;</span></a>
+<a class="sourceLine" id="cb155-34" data-line-number="34">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Dec&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Jan&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Feb&quot;</span> , <span class="st">&quot;seasons&quot;</span>] &lt;-<span class="st"> &quot;summer&quot;</span></a>
+<a class="sourceLine" id="cb155-35" data-line-number="35">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Mar&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Apr&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;May&quot;</span> , <span class="st">&quot;seasons&quot;</span>] &lt;-<span class="st"> &quot;autumn&quot;</span></a>
+<a class="sourceLine" id="cb155-36" data-line-number="36">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Jun&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Jul&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Aug&quot;</span> , <span class="st">&quot;seasons&quot;</span>] &lt;-<span class="st"> &quot;winter&quot;</span></a>
+<a class="sourceLine" id="cb155-37" data-line-number="37">a_i1_l1<span class="op">$</span>seasons &lt;-<span class="st"> </span><span class="kw">as.ordered</span>(a_i1_l1<span class="op">$</span>seasons)</a>
+<a class="sourceLine" id="cb155-38" data-line-number="38"></a>
+<a class="sourceLine" id="cb155-39" data-line-number="39"><span class="co"># aus fiscal quarters</span></a>
+<a class="sourceLine" id="cb155-40" data-line-number="40">a_i1_l1<span class="op">$</span>fisquarters &lt;-<span class="st"> &quot;fQ4&quot;</span></a>
+<a class="sourceLine" id="cb155-41" data-line-number="41">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Jul&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Aug&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Sep&quot;</span> , <span class="st">&quot;fisquarters&quot;</span>] &lt;-<span class="st"> &quot;fQ1&quot;</span></a>
+<a class="sourceLine" id="cb155-42" data-line-number="42">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Oct&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Nov&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Dec&quot;</span> , <span class="st">&quot;fisquarters&quot;</span>] &lt;-<span class="st"> &quot;fQ2&quot;</span></a>
+<a class="sourceLine" id="cb155-43" data-line-number="43">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Jan&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Feb&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Mar&quot;</span> , <span class="st">&quot;fisquarters&quot;</span>] &lt;-<span class="st"> &quot;fQ3&quot;</span></a>
+<a class="sourceLine" id="cb155-44" data-line-number="44">a_i1_l1<span class="op">$</span>fisquarters &lt;-<span class="st"> </span><span class="kw">as.ordered</span>(a_i1_l1<span class="op">$</span>fisquarters)  </a>
+<a class="sourceLine" id="cb155-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb155-46" data-line-number="46"><span class="co"># calendar quarters</span></a>
+<a class="sourceLine" id="cb155-47" data-line-number="47">a_i1_l1<span class="op">$</span>calquarters &lt;-<span class="st"> &quot;cQ4&quot;</span></a>
+<a class="sourceLine" id="cb155-48" data-line-number="48">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Jan&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Feb&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Mar&quot;</span> , <span class="st">&quot;calquarters&quot;</span>] &lt;-<span class="st"> &quot;cQ1&quot;</span></a>
+<a class="sourceLine" id="cb155-49" data-line-number="49">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Apr&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;May&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Jun&quot;</span> , <span class="st">&quot;calquarters&quot;</span>] &lt;-<span class="st"> &quot;cQ2&quot;</span></a>
+<a class="sourceLine" id="cb155-50" data-line-number="50">  a_i1_l1[a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Jul&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Aug&quot;</span> <span class="op">|</span><span class="st"> </span>a_i1_l1<span class="op">$</span>trmonth <span class="op">==</span><span class="st"> &quot;Sep&quot;</span> , <span class="st">&quot;calquarters&quot;</span>] &lt;-<span class="st"> &quot;cQ3&quot;</span></a>
+<a class="sourceLine" id="cb155-51" data-line-number="51">a_i1_l1<span class="op">$</span>calquarters &lt;-<span class="st"> </span><span class="kw">as.ordered</span>(a_i1_l1<span class="op">$</span>calquarters) </a></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-cleaning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-preparation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

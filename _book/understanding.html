@@ -137,8 +137,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.4" data-path="understanding.html"><a href="understanding.html#industry-10"><i class="fa fa-check"></i><b>2.3.4</b> Industry 10</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="understanding.html"><a href="understanding.html#monthly-amount"><i class="fa fa-check"></i><b>2.4</b> Monthly Amount</a></li>
+<li class="chapter" data-level="2.5" data-path="understanding.html"><a href="understanding.html#target-dataset"><i class="fa fa-check"></i><b>2.5</b> Target dataset</a></li>
+<li class="chapter" data-level="2.6" data-path="understanding.html"><a href="understanding.html#aggregate-mean"><i class="fa fa-check"></i><b>2.6</b> Aggregate mean</a></li>
+<li class="chapter" data-level="2.7" data-path="understanding.html"><a href="understanding.html#conclusions"><i class="fa fa-check"></i><b>2.7</b> Conclusions</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="4" data-path="external-data.html"><a href="external-data.html"><i class="fa fa-check"></i><b>4</b> External Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="external-data.html"><a href="external-data.html#consumer-price-index"><i class="fa fa-check"></i><b>4.1</b> Consumer Price index</a></li>
+<li class="chapter" data-level="4.2" data-path="external-data.html"><a href="external-data.html#asx-data"><i class="fa fa-check"></i><b>4.2</b> ASX Data</a></li>
+<li class="chapter" data-level="4.3" data-path="external-data.html"><a href="external-data.html#comined-external-data"><i class="fa fa-check"></i><b>4.3</b> Comined external data</a></li>
+<li class="chapter" data-level="4.4" data-path="external-data.html"><a href="external-data.html#unused-aditional-ideas"><i class="fa fa-check"></i><b>4.4</b> Unused aditional ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-preparation.html"><a href="data-preparation.html"><i class="fa fa-check"></i><b>5</b> Data Preparation</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-preparation.html"><a href="data-preparation.html#constructed-variables"><i class="fa fa-check"></i><b>5.1</b> Constructed Variables</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preparation.html"><a href="data-preparation.html#integrated-variables"><i class="fa fa-check"></i><b>5.2</b> Integrated variables</a></li>
+<li class="chapter" data-level="5.3" data-path="data-preparation.html"><a href="data-preparation.html#output"><i class="fa fa-check"></i><b>5.3</b> Output</a></li>
+<li class="chapter" data-level="5.4" data-path="data-preparation.html"><a href="data-preparation.html#unused"><i class="fa fa-check"></i><b>5.4</b> unused</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="modelling.html"><a href="modelling.html"><i class="fa fa-check"></i><b>6</b> Modelling</a><ul>
+<li class="chapter" data-level="6.1" data-path="modelling.html"><a href="modelling.html#test-setup"><i class="fa fa-check"></i><b>6.1</b> Test Setup</a></li>
+<li class="chapter" data-level="6.2" data-path="modelling.html"><a href="modelling.html#initial-model"><i class="fa fa-check"></i><b>6.2</b> Initial Model</a></li>
+<li class="chapter" data-level="6.3" data-path="modelling.html"><a href="modelling.html#all-ordinaries-volume"><i class="fa fa-check"></i><b>6.3</b> All Ordinaries Volume</a></li>
+<li class="chapter" data-level="6.4" data-path="modelling.html"><a href="modelling.html#experiment"><i class="fa fa-check"></i><b>6.4</b> Experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html"><i class="fa fa-check"></i><b>7</b> Fitting to all groups</a><ul>
+<li class="chapter" data-level="7.1" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#performance"><i class="fa fa-check"></i><b>7.1</b> Performance</a></li>
+<li class="chapter" data-level="7.2" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#improvements"><i class="fa fa-check"></i><b>7.2</b> improvements</a></li>
+<li class="chapter" data-level="7.3" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#industry-6-location-1-round-2"><i class="fa fa-check"></i><b>7.3</b> Industry 6 Location 1 (round 2)</a></li>
+<li class="chapter" data-level="7.4" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#industry-3-location-9"><i class="fa fa-check"></i><b>7.4</b> Industry 3 location 9</a></li>
+<li class="chapter" data-level="7.5" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#dply-deployment"><i class="fa fa-check"></i><b>7.5</b> dply deployment</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -160,13 +188,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">2</span> Understanding</h1>
 <div id="initial-import-and-data-prep" class="section level2">
 <h2><span class="header-section-number">2.1</span> Initial Import and Data Prep</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># import dataset</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#list of common NA substitution terms</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co"># 0 is not included intentionally</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">pot_nas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="st">&quot;  &quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;NaN&quot;</span>, <span class="st">&quot;NAN&quot;</span>, <span class="st">&quot;nan&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;na&quot;</span>, <span class="st">&quot;N/A&quot;</span>, <span class="st">&quot;n/a&quot;</span>)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co"># To make checking for missing values, including the read_csv(,na) argument allows us to assign all missing values defined in pot_nas as NA </span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">transactions &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;./core_data/transactions.csv&quot;</span>, <span class="dt">na =</span> pot_nas)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># import dataset</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="co">#list of common NA substitution terms</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="co"># 0 is not included intentionally</span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">pot_nas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="st">&quot;  &quot;</span>, <span class="st">&quot;.&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;NaN&quot;</span>, <span class="st">&quot;NAN&quot;</span>, <span class="st">&quot;nan&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;na&quot;</span>, <span class="st">&quot;N/A&quot;</span>, <span class="st">&quot;n/a&quot;</span>)</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="co"># To make checking for missing values, including the read_csv(,na) argument allows us to assign all missing values defined in pot_nas as NA </span></a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">transactions &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;./core_data/transactions.csv&quot;</span>, <span class="dt">na =</span> pot_nas)</a></code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   date = col_character(),
@@ -175,26 +203,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   location = col_double(),
 ##   monthly_amount = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># check names match dictionary</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">names</span>(transactions)</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># check names match dictionary</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="kw">names</span>(transactions)</a></code></pre></div>
 <pre><code>## [1] &quot;date&quot;           &quot;customer_id&quot;    &quot;industry&quot;       &quot;location&quot;      
 ## [5] &quot;monthly_amount&quot;</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># rename date to trdate due to potential issues with R date function</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">tname &lt;-<span class="st"> </span><span class="kw">names</span>(transactions)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">tname[<span class="dv">1</span>] &lt;-<span class="st"> &quot;trdate&quot;</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="kw">names</span>(transactions) &lt;-<span class="st"> </span>tname</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="co">#check for NA values</span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="cf">if</span> (<span class="kw">nrow</span>(transactions) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(<span class="kw">na.omit</span>(transactions))){</a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">  <span class="kw">print</span>(<span class="st">&quot;no missing values&quot;</span>)</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9">} <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">  <span class="kw">print</span>(<span class="st">&quot;missing values present&quot;</span>)</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">}</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># rename date to trdate due to potential issues with R date function</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2">tname &lt;-<span class="st"> </span><span class="kw">names</span>(transactions)</a>
+<a class="sourceLine" id="cb21-3" data-line-number="3">tname[<span class="dv">1</span>] &lt;-<span class="st"> &quot;trdate&quot;</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="kw">names</span>(transactions) &lt;-<span class="st"> </span>tname</a>
+<a class="sourceLine" id="cb21-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="co">#check for NA values</span></a>
+<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="cf">if</span> (<span class="kw">nrow</span>(transactions) <span class="op">==</span><span class="st"> </span><span class="kw">nrow</span>(<span class="kw">na.omit</span>(transactions))){</a>
+<a class="sourceLine" id="cb21-8" data-line-number="8">  <span class="kw">print</span>(<span class="st">&quot;no missing values&quot;</span>)</a>
+<a class="sourceLine" id="cb21-9" data-line-number="9">} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb21-10" data-line-number="10">  <span class="kw">print</span>(<span class="st">&quot;missing values present&quot;</span>)</a>
+<a class="sourceLine" id="cb21-11" data-line-number="11">}</a></code></pre></div>
 <pre><code>## [1] &quot;no missing values&quot;</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">#data does not appear to have any missing values</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="co"># check data structure</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="kw">str</span>(transactions)</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co">#data does not appear to have any missing values</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="co"># check data structure</span></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="kw">str</span>(transactions)</a></code></pre></div>
 <pre><code>## Classes &#39;spec_tbl_df&#39;, &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;: 94248 obs. of  5 variables:
 ##  $ trdate        : chr  &quot;1/1/13&quot; &quot;1/2/13&quot; &quot;1/3/13&quot; &quot;1/4/13&quot; ...
 ##  $ customer_id   : chr  &quot;70efdf2ec9b086079795c442636b55fb&quot; &quot;70efdf2ec9b086079795c442636b55fb&quot; &quot;70efdf2ec9b086079795c442636b55fb&quot; &quot;70efdf2ec9b086079795c442636b55fb&quot; ...
@@ -209,16 +237,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   ..   location = col_double(),
 ##   ..   monthly_amount = col_double()
 ##   .. )</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co"># date variable not returned in date format</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">transactions<span class="op">$</span>trdate &lt;-<span class="st"> </span><span class="kw">as.Date</span>(transactions<span class="op">$</span>trdate, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%y&quot;</span>)</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="co"># update industry, customer and location as they are all factors</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">transactions<span class="op">$</span>customer_id &lt;-<span class="st"> </span><span class="kw">as.factor</span>(transactions<span class="op">$</span>customer_id)</a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">transactions<span class="op">$</span>industry &lt;-<span class="st"> </span><span class="kw">as.factor</span>(transactions<span class="op">$</span>industry)</a>
-<a class="sourceLine" id="cb13-7" data-line-number="7">transactions<span class="op">$</span>location &lt;-<span class="st"> </span><span class="kw">as.factor</span>(transactions<span class="op">$</span>location)</a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="co"># double check formatting</span></a>
-<a class="sourceLine" id="cb13-10" data-line-number="10"><span class="kw">str</span>(transactions)</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># date variable not returned in date format</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2">transactions<span class="op">$</span>trdate &lt;-<span class="st"> </span><span class="kw">as.Date</span>(transactions<span class="op">$</span>trdate, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%y&quot;</span>)</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="co"># update industry, customer and location as they are all factors</span></a>
+<a class="sourceLine" id="cb25-5" data-line-number="5">transactions<span class="op">$</span>customer_id &lt;-<span class="st"> </span><span class="kw">as.factor</span>(transactions<span class="op">$</span>customer_id)</a>
+<a class="sourceLine" id="cb25-6" data-line-number="6">transactions<span class="op">$</span>industry &lt;-<span class="st"> </span><span class="kw">as.factor</span>(transactions<span class="op">$</span>industry)</a>
+<a class="sourceLine" id="cb25-7" data-line-number="7">transactions<span class="op">$</span>location &lt;-<span class="st"> </span><span class="kw">as.factor</span>(transactions<span class="op">$</span>location)</a>
+<a class="sourceLine" id="cb25-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb25-9" data-line-number="9"><span class="co"># double check formatting</span></a>
+<a class="sourceLine" id="cb25-10" data-line-number="10"><span class="kw">str</span>(transactions)</a></code></pre></div>
 <pre><code>## Classes &#39;spec_tbl_df&#39;, &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;: 94248 obs. of  5 variables:
 ##  $ trdate        : Date, format: &quot;2013-01-01&quot; &quot;2013-02-01&quot; ...
 ##  $ customer_id   : Factor w/ 4464 levels &quot;000a91f3e374e6147d58ed1814247508&quot;,..: 1970 1970 1970 1970 1970 1970 1970 1970 1970 1970 ...
@@ -233,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   ..   location = col_double(),
 ##   ..   monthly_amount = col_double()
 ##   .. )</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">summary</span>(transactions)</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">summary</span>(transactions)</a></code></pre></div>
 <pre><code>##      trdate                                     customer_id       industry    
 ##  Min.   :2013-01-01   0023a1e3447fdb31836536cc903f1310:   47   1      :44901  
 ##  1st Qu.:2014-05-01   006c64491cb8acf2092ce0e0341797fe:   47   2      :22043  
@@ -266,11 +294,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.3</span> Initial Understanding</h2>
 <div id="customers" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Customers</h3>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># Do all customer have equal numbers of transactions?</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="co">## counts transactions by customer_id, formats as a table</span></a>
-<a class="sourceLine" id="cb17-4" data-line-number="4">number_of_transactions_per_customer &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(transactions<span class="op">$</span>customer_id))</a>
-<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="kw">summary</span>(number_of_transactions_per_customer)</a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="co"># Do all customer have equal numbers of transactions?</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="co">## counts transactions by customer_id, formats as a table</span></a>
+<a class="sourceLine" id="cb29-4" data-line-number="4">number_of_transactions_per_customer &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(transactions<span class="op">$</span>customer_id))</a>
+<a class="sourceLine" id="cb29-5" data-line-number="5"><span class="kw">summary</span>(number_of_transactions_per_customer)</a></code></pre></div>
 <pre><code>##                                Var1           Freq      
 ##  000a91f3e374e6147d58ed1814247508:   1   Min.   : 1.00  
 ##  0014fcb3db4c8459d26309b177005b10:   1   1st Qu.: 8.00  
@@ -279,98 +307,98 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  0029f088c57ad3b6ec589f9ba4f7a057:   1   3rd Qu.:33.00  
 ##  003af5a042e00ac9b489153a81d676ca:   1   Max.   :47.00  
 ##  (Other)                         :4458</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co"># Answer - No</span></a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="co"># Do any customers have duplicate transactions on the same date?</span></a>
-<a class="sourceLine" id="cb19-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb19-5" data-line-number="5"><span class="co">## creates a dataframe of the trdate and customer_id columns</span></a>
-<a class="sourceLine" id="cb19-6" data-line-number="6">duplicate_check &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb19-7" data-line-number="7"><span class="st">  </span><span class="kw">select</span>(trdate, customer_id)</a>
-<a class="sourceLine" id="cb19-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="co">## appends a column to the dataframe if there is a duplicate transaction</span></a>
-<a class="sourceLine" id="cb19-10" data-line-number="10">duplicate_check<span class="op">$</span>dup &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb19-11" data-line-number="11"><span class="st">  </span><span class="kw">select</span>(trdate, customer_id) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb19-12" data-line-number="12"><span class="st">  </span><span class="kw">duplicated</span>()</a>
-<a class="sourceLine" id="cb19-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb19-14" data-line-number="14"><span class="co">## creates a table of rows that are duplicates</span></a>
-<a class="sourceLine" id="cb19-15" data-line-number="15">dup_check_sum &lt;-<span class="st"> </span>duplicate_check <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb19-16" data-line-number="16"><span class="st">  </span><span class="kw">filter</span>(duplicate_check<span class="op">$</span>dup <span class="op">==</span><span class="st"> &quot;TRUE&quot;</span>)</a>
-<a class="sourceLine" id="cb19-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb19-18" data-line-number="18"><span class="co">## if there are no entries, therefore no duplicates in the new table prints &quot;no duplicates</span></a>
-<a class="sourceLine" id="cb19-19" data-line-number="19"><span class="cf">if</span> (<span class="kw">nrow</span>(dup_check_sum) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb19-20" data-line-number="20">  <span class="kw">print</span> (<span class="st">&quot;No duplicates&quot;</span>)</a>
-<a class="sourceLine" id="cb19-21" data-line-number="21">} <span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb19-22" data-line-number="22">  <span class="kw">print</span>(<span class="st">&quot;Yes duplicates&quot;</span>)</a>
-<a class="sourceLine" id="cb19-23" data-line-number="23">}</a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co"># Answer - No</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="co"># Do any customers have duplicate transactions on the same date?</span></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb31-5" data-line-number="5"><span class="co">## creates a dataframe of the trdate and customer_id columns</span></a>
+<a class="sourceLine" id="cb31-6" data-line-number="6">duplicate_check &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb31-7" data-line-number="7"><span class="st">  </span><span class="kw">select</span>(trdate, customer_id)</a>
+<a class="sourceLine" id="cb31-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb31-9" data-line-number="9"><span class="co">## appends a column to the dataframe if there is a duplicate transaction</span></a>
+<a class="sourceLine" id="cb31-10" data-line-number="10">duplicate_check<span class="op">$</span>dup &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb31-11" data-line-number="11"><span class="st">  </span><span class="kw">select</span>(trdate, customer_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb31-12" data-line-number="12"><span class="st">  </span><span class="kw">duplicated</span>()</a>
+<a class="sourceLine" id="cb31-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb31-14" data-line-number="14"><span class="co">## creates a table of rows that are duplicates</span></a>
+<a class="sourceLine" id="cb31-15" data-line-number="15">dup_check_sum &lt;-<span class="st"> </span>duplicate_check <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-16" data-line-number="16"><span class="st">  </span><span class="kw">filter</span>(duplicate_check<span class="op">$</span>dup <span class="op">==</span><span class="st"> &quot;TRUE&quot;</span>)</a>
+<a class="sourceLine" id="cb31-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb31-18" data-line-number="18"><span class="co">## if there are no entries, therefore no duplicates in the new table prints &quot;no duplicates</span></a>
+<a class="sourceLine" id="cb31-19" data-line-number="19"><span class="cf">if</span> (<span class="kw">nrow</span>(dup_check_sum) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb31-20" data-line-number="20">  <span class="kw">print</span> (<span class="st">&quot;No duplicates&quot;</span>)</a>
+<a class="sourceLine" id="cb31-21" data-line-number="21">} <span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb31-22" data-line-number="22">  <span class="kw">print</span>(<span class="st">&quot;Yes duplicates&quot;</span>)</a>
+<a class="sourceLine" id="cb31-23" data-line-number="23">}</a></code></pre></div>
 <pre><code>## [1] &quot;No duplicates&quot;</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co"># Answer - No</span></a>
-<a class="sourceLine" id="cb21-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="co"># Do any customers operate across industries?</span></a>
-<a class="sourceLine" id="cb21-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="co">## selects the columns customer_id and industry and then writes unique entries to dataframe</span></a>
-<a class="sourceLine" id="cb21-6" data-line-number="6">industry_check &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="st">  </span><span class="kw">select</span>(industry, customer_id) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="st">  </span><span class="kw">distinct</span>()</a>
-<a class="sourceLine" id="cb21-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="co">## selects only the customer id and checks for duplicates</span></a>
-<a class="sourceLine" id="cb21-11" data-line-number="11">industry_check<span class="op">$</span>multi_industry &lt;-<span class="st"> </span>industry_check <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb21-12" data-line-number="12"><span class="st">  </span><span class="kw">select</span>(customer_id) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb21-13" data-line-number="13"><span class="st">  </span><span class="kw">duplicated</span>()</a>
-<a class="sourceLine" id="cb21-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb21-15" data-line-number="15"><span class="co">## if the customer id is duplicated, that means that it appeared in more than one industry</span></a>
-<a class="sourceLine" id="cb21-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb21-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb21-18" data-line-number="18"><span class="co">## same as duplicate check for dates</span></a>
-<a class="sourceLine" id="cb21-19" data-line-number="19">industry_checksum &lt;-<span class="st"> </span>industry_check <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb21-20" data-line-number="20"><span class="st">  </span><span class="kw">filter</span>(multi_industry <span class="op">==</span><span class="st"> &quot;TRUE&quot;</span>)</a>
-<a class="sourceLine" id="cb21-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb21-22" data-line-number="22"><span class="cf">if</span> (<span class="kw">nrow</span>(industry_checksum) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb21-23" data-line-number="23">  <span class="kw">print</span> (<span class="st">&quot;No duplicate&quot;</span>)</a>
-<a class="sourceLine" id="cb21-24" data-line-number="24">} <span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb21-25" data-line-number="25">  <span class="kw">print</span>(<span class="st">&quot;Yes duplicates&quot;</span>)</a>
-<a class="sourceLine" id="cb21-26" data-line-number="26">}</a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="co"># Answer - No</span></a>
+<a class="sourceLine" id="cb33-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb33-3" data-line-number="3"><span class="co"># Do any customers operate across industries?</span></a>
+<a class="sourceLine" id="cb33-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb33-5" data-line-number="5"><span class="co">## selects the columns customer_id and industry and then writes unique entries to dataframe</span></a>
+<a class="sourceLine" id="cb33-6" data-line-number="6">industry_check &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb33-7" data-line-number="7"><span class="st">  </span><span class="kw">select</span>(industry, customer_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb33-8" data-line-number="8"><span class="st">  </span><span class="kw">distinct</span>()</a>
+<a class="sourceLine" id="cb33-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb33-10" data-line-number="10"><span class="co">## selects only the customer id and checks for duplicates</span></a>
+<a class="sourceLine" id="cb33-11" data-line-number="11">industry_check<span class="op">$</span>multi_industry &lt;-<span class="st"> </span>industry_check <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb33-12" data-line-number="12"><span class="st">  </span><span class="kw">select</span>(customer_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb33-13" data-line-number="13"><span class="st">  </span><span class="kw">duplicated</span>()</a>
+<a class="sourceLine" id="cb33-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb33-15" data-line-number="15"><span class="co">## if the customer id is duplicated, that means that it appeared in more than one industry</span></a>
+<a class="sourceLine" id="cb33-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb33-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb33-18" data-line-number="18"><span class="co">## same as duplicate check for dates</span></a>
+<a class="sourceLine" id="cb33-19" data-line-number="19">industry_checksum &lt;-<span class="st"> </span>industry_check <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb33-20" data-line-number="20"><span class="st">  </span><span class="kw">filter</span>(multi_industry <span class="op">==</span><span class="st"> &quot;TRUE&quot;</span>)</a>
+<a class="sourceLine" id="cb33-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb33-22" data-line-number="22"><span class="cf">if</span> (<span class="kw">nrow</span>(industry_checksum) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb33-23" data-line-number="23">  <span class="kw">print</span> (<span class="st">&quot;No duplicate&quot;</span>)</a>
+<a class="sourceLine" id="cb33-24" data-line-number="24">} <span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb33-25" data-line-number="25">  <span class="kw">print</span>(<span class="st">&quot;Yes duplicates&quot;</span>)</a>
+<a class="sourceLine" id="cb33-26" data-line-number="26">}</a></code></pre></div>
 <pre><code>## [1] &quot;No duplicate&quot;</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># Answer - No</span></a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="co"># Do any customers operate across locations?</span></a>
-<a class="sourceLine" id="cb23-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb23-5" data-line-number="5"><span class="co">## same process as industry but for location</span></a>
-<a class="sourceLine" id="cb23-6" data-line-number="6">location_check &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-7" data-line-number="7"><span class="st">  </span><span class="kw">select</span>(location, customer_id) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-8" data-line-number="8"><span class="st">  </span><span class="kw">distinct</span>()</a>
-<a class="sourceLine" id="cb23-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb23-10" data-line-number="10">location_check<span class="op">$</span>multi_location &lt;-<span class="st"> </span>location_check <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-11" data-line-number="11"><span class="st">  </span><span class="kw">select</span>(customer_id) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb23-12" data-line-number="12"><span class="st">  </span><span class="kw">duplicated</span>()</a>
-<a class="sourceLine" id="cb23-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb23-14" data-line-number="14">location_checksum&lt;-<span class="st"> </span>location_check <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb23-15" data-line-number="15"><span class="st">  </span><span class="kw">filter</span>(multi_location <span class="op">==</span><span class="st"> &quot;TRUE&quot;</span>)</a>
-<a class="sourceLine" id="cb23-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb23-17" data-line-number="17"><span class="cf">if</span> (<span class="kw">nrow</span>(location_checksum) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb23-18" data-line-number="18">  <span class="kw">print</span> (<span class="st">&quot;No&quot;</span>)</a>
-<a class="sourceLine" id="cb23-19" data-line-number="19">} <span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb23-20" data-line-number="20">  <span class="kw">print</span>(<span class="st">&quot;Yes&quot;</span>)</a>
-<a class="sourceLine" id="cb23-21" data-line-number="21">}</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="co"># Answer - No</span></a>
+<a class="sourceLine" id="cb35-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb35-3" data-line-number="3"><span class="co"># Do any customers operate across locations?</span></a>
+<a class="sourceLine" id="cb35-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb35-5" data-line-number="5"><span class="co">## same process as industry but for location</span></a>
+<a class="sourceLine" id="cb35-6" data-line-number="6">location_check &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb35-7" data-line-number="7"><span class="st">  </span><span class="kw">select</span>(location, customer_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb35-8" data-line-number="8"><span class="st">  </span><span class="kw">distinct</span>()</a>
+<a class="sourceLine" id="cb35-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb35-10" data-line-number="10">location_check<span class="op">$</span>multi_location &lt;-<span class="st"> </span>location_check <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb35-11" data-line-number="11"><span class="st">  </span><span class="kw">select</span>(customer_id) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb35-12" data-line-number="12"><span class="st">  </span><span class="kw">duplicated</span>()</a>
+<a class="sourceLine" id="cb35-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb35-14" data-line-number="14">location_checksum&lt;-<span class="st"> </span>location_check <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb35-15" data-line-number="15"><span class="st">  </span><span class="kw">filter</span>(multi_location <span class="op">==</span><span class="st"> &quot;TRUE&quot;</span>)</a>
+<a class="sourceLine" id="cb35-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb35-17" data-line-number="17"><span class="cf">if</span> (<span class="kw">nrow</span>(location_checksum) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb35-18" data-line-number="18">  <span class="kw">print</span> (<span class="st">&quot;No&quot;</span>)</a>
+<a class="sourceLine" id="cb35-19" data-line-number="19">} <span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb35-20" data-line-number="20">  <span class="kw">print</span>(<span class="st">&quot;Yes&quot;</span>)</a>
+<a class="sourceLine" id="cb35-21" data-line-number="21">}</a></code></pre></div>
 <pre><code>## [1] &quot;No&quot;</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># Answer - No</span></a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># Answer - No</span></a></code></pre></div>
 </div>
 <div id="industry" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Industry</h3>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="co"># Number of transactons per industry</span></a>
-<a class="sourceLine" id="cb26-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="co">## using only customer_id and industry, creates a bar plot, counting how many times each industry appeared</span></a>
-<a class="sourceLine" id="cb26-4" data-line-number="4">transactions <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(customer_id, industry) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> industry)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># Number of transactons per industry</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="co">## using only customer_id and industry, creates a bar plot, counting how many times each industry appeared</span></a>
+<a class="sourceLine" id="cb38-4" data-line-number="4">transactions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(customer_id, industry) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> industry)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/Initial_Queries_Industry-1.png" width="672" /></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="co"># Industries 1 &amp; 2 have a much larger number of transactions, similarly industries 6 &amp; 10 appear quite low</span></a>
-<a class="sourceLine" id="cb27-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="co">## create a summary of transactions per industry in a table</span></a>
-<a class="sourceLine" id="cb27-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb27-5" data-line-number="5">number_of_transactions_per_industry &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(transactions<span class="op">$</span>industry))</a>
-<a class="sourceLine" id="cb27-6" data-line-number="6"><span class="co">## give the columns readable names</span></a>
-<a class="sourceLine" id="cb27-7" data-line-number="7"><span class="kw">names</span>(number_of_transactions_per_industry) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;industry&quot;</span>, <span class="st">&quot;count&quot;</span>)</a>
-<a class="sourceLine" id="cb27-8" data-line-number="8">number_of_transactions_per_industry</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># Industries 1 &amp; 2 have a much larger number of transactions, similarly industries 6 &amp; 10 appear quite low</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb39-3" data-line-number="3"><span class="co">## create a summary of transactions per industry in a table</span></a>
+<a class="sourceLine" id="cb39-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb39-5" data-line-number="5">number_of_transactions_per_industry &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(transactions<span class="op">$</span>industry))</a>
+<a class="sourceLine" id="cb39-6" data-line-number="6"><span class="co">## give the columns readable names</span></a>
+<a class="sourceLine" id="cb39-7" data-line-number="7"><span class="kw">names</span>(number_of_transactions_per_industry) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;industry&quot;</span>, <span class="st">&quot;count&quot;</span>)</a>
+<a class="sourceLine" id="cb39-8" data-line-number="8">number_of_transactions_per_industry</a></code></pre></div>
 <pre><code>##    industry count
 ## 1         1 44901
 ## 2         2 22043
@@ -382,13 +410,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 8         8  2815
 ## 9         9  2090
 ## 10       10   719</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="co"># calculates mean of transactions per industry</span></a>
-<a class="sourceLine" id="cb29-2" data-line-number="2">ntpi_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(number_of_transactions_per_industry<span class="op">$</span>count)</a>
-<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="co">## calculates standard deviation of transactions per industry </span></a>
-<a class="sourceLine" id="cb29-4" data-line-number="4">ntpi_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(number_of_transactions_per_industry<span class="op">$</span>count)</a>
-<a class="sourceLine" id="cb29-5" data-line-number="5"><span class="co">## calculates standard deviations from mean for each count</span></a>
-<a class="sourceLine" id="cb29-6" data-line-number="6">number_of_transactions_per_industry<span class="op">$</span>SDs &lt;-<span class="st"> </span>(number_of_transactions_per_industry<span class="op">$</span>count <span class="op">-</span><span class="st"> </span>ntpi_mean)<span class="op">/</span>ntpi_sd </a>
-<a class="sourceLine" id="cb29-7" data-line-number="7">number_of_transactions_per_industry</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="co"># calculates mean of transactions per industry</span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">ntpi_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(number_of_transactions_per_industry<span class="op">$</span>count)</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3"><span class="co">## calculates standard deviation of transactions per industry </span></a>
+<a class="sourceLine" id="cb41-4" data-line-number="4">ntpi_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(number_of_transactions_per_industry<span class="op">$</span>count)</a>
+<a class="sourceLine" id="cb41-5" data-line-number="5"><span class="co">## calculates standard deviations from mean for each count</span></a>
+<a class="sourceLine" id="cb41-6" data-line-number="6">number_of_transactions_per_industry<span class="op">$</span>SDs &lt;-<span class="st"> </span>(number_of_transactions_per_industry<span class="op">$</span>count <span class="op">-</span><span class="st"> </span>ntpi_mean)<span class="op">/</span>ntpi_sd </a>
+<a class="sourceLine" id="cb41-7" data-line-number="7">number_of_transactions_per_industry</a></code></pre></div>
 <pre><code>##    industry count         SDs
 ## 1         1 44901  2.53884748
 ## 2         2 22043  0.90301908
@@ -400,27 +428,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 8         8  2815 -0.47302908
 ## 9         9  2090 -0.52491356
 ## 10       10   719 -0.62302892</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co"># industry 1 is 2.5 standard deviations from the mean however industry 2 is within 1 standard deviation</span></a>
-<a class="sourceLine" id="cb31-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="co"># number of customer per industry</span></a>
-<a class="sourceLine" id="cb31-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb31-5" data-line-number="5"><span class="co">## creates a bar plot, counting how many times each industry appeared</span></a>
-<a class="sourceLine" id="cb31-6" data-line-number="6">transactions <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-7" data-line-number="7"><span class="st">  </span><span class="co">## selects only unique customer id&#39;s per industry so each customer is only counted once</span></a>
-<a class="sourceLine" id="cb31-8" data-line-number="8"><span class="st">  </span><span class="kw">distinct</span>(customer_id, industry) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb31-9" data-line-number="9"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> industry)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="co"># industry 1 is 2.5 standard deviations from the mean however industry 2 is within 1 standard deviation</span></a>
+<a class="sourceLine" id="cb43-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb43-3" data-line-number="3"><span class="co"># number of customer per industry</span></a>
+<a class="sourceLine" id="cb43-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb43-5" data-line-number="5"><span class="co">## creates a bar plot, counting how many times each industry appeared</span></a>
+<a class="sourceLine" id="cb43-6" data-line-number="6">transactions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb43-7" data-line-number="7"><span class="st">  </span><span class="co">## selects only unique customer id&#39;s per industry so each customer is only counted once</span></a>
+<a class="sourceLine" id="cb43-8" data-line-number="8"><span class="st">  </span><span class="kw">distinct</span>(customer_id, industry) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb43-9" data-line-number="9"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> industry)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/Initial_Queries_Industry-2.png" width="672" /></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="co"># a similar trend appears in the number of customers, likely as each customer can have a maximum of 47 transactions</span></a>
-<a class="sourceLine" id="cb32-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="co">## creates a table summarising each customer into a single entry, keeping other information</span></a>
-<a class="sourceLine" id="cb32-4" data-line-number="4">number_of_customers_per_industry &lt;-<span class="st"> </span><span class="kw">group_by</span>(transactions, customer_id, industry) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb32-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_amount =</span> <span class="kw">mean</span>(monthly_amount))</a>
-<a class="sourceLine" id="cb32-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb32-7" data-line-number="7"><span class="co">## organises counts into a dataframe</span></a>
-<a class="sourceLine" id="cb32-8" data-line-number="8">number_of_customers_per_industry &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(number_of_customers_per_industry<span class="op">$</span>industry))</a>
-<a class="sourceLine" id="cb32-9" data-line-number="9"><span class="co">## readable column headers</span></a>
-<a class="sourceLine" id="cb32-10" data-line-number="10"><span class="kw">names</span>(number_of_customers_per_industry) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;industry&quot;</span>, <span class="st">&quot;count&quot;</span>)</a>
-<a class="sourceLine" id="cb32-11" data-line-number="11">number_of_customers_per_industry</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="co"># a similar trend appears in the number of customers, likely as each customer can have a maximum of 47 transactions</span></a>
+<a class="sourceLine" id="cb44-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb44-3" data-line-number="3"><span class="co">## creates a table summarising each customer into a single entry, keeping other information</span></a>
+<a class="sourceLine" id="cb44-4" data-line-number="4">number_of_customers_per_industry &lt;-<span class="st"> </span><span class="kw">group_by</span>(transactions, customer_id, industry) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb44-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_amount =</span> <span class="kw">mean</span>(monthly_amount))</a>
+<a class="sourceLine" id="cb44-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb44-7" data-line-number="7"><span class="co">## organises counts into a dataframe</span></a>
+<a class="sourceLine" id="cb44-8" data-line-number="8">number_of_customers_per_industry &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(number_of_customers_per_industry<span class="op">$</span>industry))</a>
+<a class="sourceLine" id="cb44-9" data-line-number="9"><span class="co">## readable column headers</span></a>
+<a class="sourceLine" id="cb44-10" data-line-number="10"><span class="kw">names</span>(number_of_customers_per_industry) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;industry&quot;</span>, <span class="st">&quot;count&quot;</span>)</a>
+<a class="sourceLine" id="cb44-11" data-line-number="11">number_of_customers_per_industry</a></code></pre></div>
 <pre><code>##    industry count
 ## 1         1  1953
 ## 2         2  1364
@@ -432,11 +460,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 8         8   109
 ## 9         9    90
 ## 10       10    32</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="co">## deviations from mean count</span></a>
-<a class="sourceLine" id="cb34-2" data-line-number="2">ncpi_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(number_of_customers_per_industry<span class="op">$</span>count)</a>
-<a class="sourceLine" id="cb34-3" data-line-number="3">ncpi_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(number_of_customers_per_industry<span class="op">$</span>count)</a>
-<a class="sourceLine" id="cb34-4" data-line-number="4">number_of_customers_per_industry<span class="op">$</span>SDs &lt;-<span class="st"> </span>(number_of_customers_per_industry<span class="op">$</span>count <span class="op">-</span><span class="st"> </span>ncpi_mean)<span class="op">/</span>ncpi_sd </a>
-<a class="sourceLine" id="cb34-5" data-line-number="5">number_of_customers_per_industry</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="co">## deviations from mean count</span></a>
+<a class="sourceLine" id="cb46-2" data-line-number="2">ncpi_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(number_of_customers_per_industry<span class="op">$</span>count)</a>
+<a class="sourceLine" id="cb46-3" data-line-number="3">ncpi_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(number_of_customers_per_industry<span class="op">$</span>count)</a>
+<a class="sourceLine" id="cb46-4" data-line-number="4">number_of_customers_per_industry<span class="op">$</span>SDs &lt;-<span class="st"> </span>(number_of_customers_per_industry<span class="op">$</span>count <span class="op">-</span><span class="st"> </span>ncpi_mean)<span class="op">/</span>ncpi_sd </a>
+<a class="sourceLine" id="cb46-5" data-line-number="5">number_of_customers_per_industry</a></code></pre></div>
 <pre><code>##    industry count         SDs
 ## 1         1  1953  2.27363548
 ## 2         2  1364  1.38476564
@@ -448,13 +476,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 8         8   109 -0.50917603
 ## 9         9    90 -0.53784925
 ## 10       10    32 -0.62537803</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="co"># industry 1 has 2.2 standard deviation higher customer count, this skews the sd count for other industries</span></a>
-<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="co"># industry 7 only has a total of 7 customers</span></a>
-<a class="sourceLine" id="cb36-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb36-4" data-line-number="4"><span class="co">## subset data for industry 6</span></a>
-<a class="sourceLine" id="cb36-5" data-line-number="5">industry_<span class="dv">6</span> &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb36-6" data-line-number="6"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">==</span><span class="st"> </span><span class="dv">6</span>)</a>
-<a class="sourceLine" id="cb36-7" data-line-number="7"><span class="kw">summary</span>(industry_<span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="co"># industry 1 has 2.2 standard deviation higher customer count, this skews the sd count for other industries</span></a>
+<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="co"># industry 7 only has a total of 7 customers</span></a>
+<a class="sourceLine" id="cb48-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb48-4" data-line-number="4"><span class="co">## subset data for industry 6</span></a>
+<a class="sourceLine" id="cb48-5" data-line-number="5">industry_<span class="dv">6</span> &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-6" data-line-number="6"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">==</span><span class="st"> </span><span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb48-7" data-line-number="7"><span class="kw">summary</span>(industry_<span class="dv">6</span>)</a></code></pre></div>
 <pre><code>##      trdate                                     customer_id    industry  
 ##  Min.   :2013-01-01   6c530aae768250b8d9c3c908a13ee287:47   6      :195  
 ##  1st Qu.:2013-10-01   d278df4919453195d221030324127a0e:47   1      :  0  
@@ -471,18 +499,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  5      :  0   3rd Qu.: 47028767  
 ##  6      :  0   Max.   :100000000  
 ##  (Other):  0</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">nrow</span>(industry_<span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">nrow</span>(industry_<span class="dv">6</span>)</a></code></pre></div>
 <pre><code>## [1] 195</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="co"># 195 total entries for industry 6</span></a>
-<a class="sourceLine" id="cb40-2" data-line-number="2"><span class="co"># all 7 customers in industry 6 operate in location 1</span></a>
-<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="co"># the range is still 0-100M meaning both values exist in industry 6</span></a>
-<a class="sourceLine" id="cb40-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="co">#try removing the industry  subset and checking table summary</span></a>
-<a class="sourceLine" id="cb40-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb40-7" data-line-number="7"><span class="co">## subset data without industry 6</span></a>
-<a class="sourceLine" id="cb40-8" data-line-number="8">industry_no_<span class="dv">6</span> &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb40-9" data-line-number="9"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">!=</span><span class="st"> </span><span class="dv">6</span>)</a>
-<a class="sourceLine" id="cb40-10" data-line-number="10"><span class="kw">summary</span>(industry_no_<span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="co"># 195 total entries for industry 6</span></a>
+<a class="sourceLine" id="cb52-2" data-line-number="2"><span class="co"># all 7 customers in industry 6 operate in location 1</span></a>
+<a class="sourceLine" id="cb52-3" data-line-number="3"><span class="co"># the range is still 0-100M meaning both values exist in industry 6</span></a>
+<a class="sourceLine" id="cb52-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb52-5" data-line-number="5"><span class="co">#try removing the industry  subset and checking table summary</span></a>
+<a class="sourceLine" id="cb52-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb52-7" data-line-number="7"><span class="co">## subset data without industry 6</span></a>
+<a class="sourceLine" id="cb52-8" data-line-number="8">industry_no_<span class="dv">6</span> &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb52-9" data-line-number="9"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">!=</span><span class="st"> </span><span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb52-10" data-line-number="10"><span class="kw">summary</span>(industry_no_<span class="dv">6</span>)</a></code></pre></div>
 <pre><code>##      trdate                                     customer_id       industry    
 ##  Min.   :2013-01-01   0023a1e3447fdb31836536cc903f1310:   47   1      :44901  
 ##  1st Qu.:2014-05-01   006c64491cb8acf2092ce0e0341797fe:   47   2      :22043  
@@ -499,39 +527,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  6      : 7446   3rd Qu.:  373432  
 ##  7      : 7317   Max.   :64935696  
 ##  (Other):21361</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="co"># the lowest value is now $45k and highest is $64M</span></a>
-<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="co"># Meaning industry 6 contains both the lowest and highest monthly_amounts in the dataset</span></a>
-<a class="sourceLine" id="cb42-3" data-line-number="3"><span class="co"># industry 6&#39;s data looks questionable</span></a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="co"># the lowest value is now $45k and highest is $64M</span></a>
+<a class="sourceLine" id="cb54-2" data-line-number="2"><span class="co"># Meaning industry 6 contains both the lowest and highest monthly_amounts in the dataset</span></a>
+<a class="sourceLine" id="cb54-3" data-line-number="3"><span class="co"># industry 6&#39;s data looks questionable</span></a></code></pre></div>
 </div>
 <div id="industry-6" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> Industry 6</h3>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="co"># if all zero values in the dataset are in industry 6, are zero values common?</span></a>
-<a class="sourceLine" id="cb43-2" data-line-number="2">industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb43-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(monthly_amount <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="co"># if all zero values in the dataset are in industry 6, are zero values common?</span></a>
+<a class="sourceLine" id="cb55-2" data-line-number="2">industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb55-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(monthly_amount <span class="op">==</span><span class="st"> </span><span class="dv">0</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 5
 ##   trdate     customer_id                      industry location monthly_amount
 ##   &lt;date&gt;     &lt;fct&gt;                            &lt;fct&gt;    &lt;fct&gt;             &lt;dbl&gt;
 ## 1 2015-03-01 23755432da68528f115c9633c0d7834f 6        1                     0</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="co">#only one monthly amount of 0, and the next lowest is 45k in the dataset indicates its inclusion is likely and error</span></a>
-<a class="sourceLine" id="cb45-2" data-line-number="2"><span class="co"># remove this value from industry_6 subset and main dataset</span></a>
-<a class="sourceLine" id="cb45-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb45-4" data-line-number="4">industry_<span class="dv">6</span> &lt;-<span class="st"> </span>industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb45-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(monthly_amount <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb45-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb45-7" data-line-number="7">transactions &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb45-8" data-line-number="8"><span class="st">  </span><span class="kw">filter</span>(monthly_amount <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb45-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb45-10" data-line-number="10"><span class="co">## plotting monlthy amount against date, colouring the plot by customer_id</span></a>
-<a class="sourceLine" id="cb45-11" data-line-number="11"><span class="kw">ggplot</span>(industry_<span class="dv">6</span>, <span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount, <span class="dt">color =</span> customer_id)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb45-12" data-line-number="12"><span class="st">  </span><span class="co">#changes the opacity of each point so overlapping points are easier to differentiate</span></a>
-<a class="sourceLine" id="cb45-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb45-14" data-line-number="14"><span class="st">  </span><span class="kw">facet_wrap</span>(industry_<span class="dv">6</span><span class="op">$</span>customer_id)</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="co">#only one monthly amount of 0, and the next lowest is 45k in the dataset indicates its inclusion is likely and error</span></a>
+<a class="sourceLine" id="cb57-2" data-line-number="2"><span class="co"># remove this value from industry_6 subset and main dataset</span></a>
+<a class="sourceLine" id="cb57-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb57-4" data-line-number="4">industry_<span class="dv">6</span> &lt;-<span class="st"> </span>industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb57-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(monthly_amount <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb57-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb57-7" data-line-number="7">transactions &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb57-8" data-line-number="8"><span class="st">  </span><span class="kw">filter</span>(monthly_amount <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb57-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb57-10" data-line-number="10"><span class="co">## plotting monlthy amount against date, colouring the plot by customer_id</span></a>
+<a class="sourceLine" id="cb57-11" data-line-number="11"><span class="kw">ggplot</span>(industry_<span class="dv">6</span>, <span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount, <span class="dt">color =</span> customer_id)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb57-12" data-line-number="12"><span class="st">  </span><span class="co">#changes the opacity of each point so overlapping points are easier to differentiate</span></a>
+<a class="sourceLine" id="cb57-13" data-line-number="13"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb57-14" data-line-number="14"><span class="st">  </span><span class="kw">facet_wrap</span>(industry_<span class="dv">6</span><span class="op">$</span>customer_id)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="co">#mean of each customer&#39;s monthly payments in industry_6</span></a>
-<a class="sourceLine" id="cb46-2" data-line-number="2">i6_customer_summary &lt;-<span class="st"> </span>industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb46-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(customer_id) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb46-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_amount =</span> <span class="kw">mean</span>(monthly_amount))</a>
-<a class="sourceLine" id="cb46-5" data-line-number="5">i6_customer_summary</a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="co">#mean of each customer&#39;s monthly payments in industry_6</span></a>
+<a class="sourceLine" id="cb58-2" data-line-number="2">i6_customer_summary &lt;-<span class="st"> </span>industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb58-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(customer_id) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb58-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean_amount =</span> <span class="kw">mean</span>(monthly_amount))</a>
+<a class="sourceLine" id="cb58-5" data-line-number="5">i6_customer_summary</a></code></pre></div>
 <pre><code>## # A tibble: 7 x 2
 ##   customer_id                      mean_amount
 ##   &lt;fct&gt;                                  &lt;dbl&gt;
@@ -542,30 +570,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 5 bd853b475d59821e100d3d24303d7747   15806921.
 ## 6 d278df4919453195d221030324127a0e   35334792.
 ## 7 ecf4afbea9a7f57c4c6da70593361d67   69219425.</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="co"># it appears the 100M ammount is correct from the plot if it belongs to customer ecf</span></a>
-<a class="sourceLine" id="cb48-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb48-3" data-line-number="3">industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb48-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(monthly_amount <span class="op">==</span><span class="st"> </span><span class="dv">100000000</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># it appears the 100M ammount is correct from the plot if it belongs to customer ecf</span></a>
+<a class="sourceLine" id="cb60-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb60-3" data-line-number="3">industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb60-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(monthly_amount <span class="op">==</span><span class="st"> </span><span class="dv">100000000</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 5
 ##   trdate     customer_id                      industry location monthly_amount
 ##   &lt;date&gt;     &lt;fct&gt;                            &lt;fct&gt;    &lt;fct&gt;             &lt;dbl&gt;
 ## 1 2016-10-01 ecf4afbea9a7f57c4c6da70593361d67 6        1             100000000</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="co"># it does, it will remain in the dataset</span></a>
-<a class="sourceLine" id="cb50-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb50-3" data-line-number="3"><span class="co"># check the distribution of the main dataset with and without industry 6</span></a>
-<a class="sourceLine" id="cb50-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb50-5" data-line-number="5"><span class="co"># with industry 6 (the large spread indicated a need for more bins)</span></a>
-<a class="sourceLine" id="cb50-6" data-line-number="6"><span class="kw">ggplot</span>(transactions, <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">1000</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># it does, it will remain in the dataset</span></a>
+<a class="sourceLine" id="cb62-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb62-3" data-line-number="3"><span class="co"># check the distribution of the main dataset with and without industry 6</span></a>
+<a class="sourceLine" id="cb62-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb62-5" data-line-number="5"><span class="co"># with industry 6 (the large spread indicated a need for more bins)</span></a>
+<a class="sourceLine" id="cb62-6" data-line-number="6"><span class="kw">ggplot</span>(transactions, <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">1000</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="co">#the data is heavily skewed industry 6&#39;s high amounts for customer 6c530aae768250b8d9c3c908a13ee287 appear to be outliers</span></a>
-<a class="sourceLine" id="cb51-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb51-3" data-line-number="3"><span class="co"># without industry 6</span></a>
-<a class="sourceLine" id="cb51-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb51-5" data-line-number="5"><span class="co">## remake industry_no_6 subset due to removal of 0 transactions</span></a>
-<a class="sourceLine" id="cb51-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb51-7" data-line-number="7">industry_no_<span class="dv">6</span> &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb51-8" data-line-number="8"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">!=</span><span class="st"> </span><span class="dv">6</span>)</a>
-<a class="sourceLine" id="cb51-9" data-line-number="9"><span class="kw">summary</span>(industry_no_<span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="co">#the data is heavily skewed industry 6&#39;s high amounts for customer 6c530aae768250b8d9c3c908a13ee287 appear to be outliers</span></a>
+<a class="sourceLine" id="cb63-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb63-3" data-line-number="3"><span class="co"># without industry 6</span></a>
+<a class="sourceLine" id="cb63-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb63-5" data-line-number="5"><span class="co">## remake industry_no_6 subset due to removal of 0 transactions</span></a>
+<a class="sourceLine" id="cb63-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb63-7" data-line-number="7">industry_no_<span class="dv">6</span> &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb63-8" data-line-number="8"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">!=</span><span class="st"> </span><span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb63-9" data-line-number="9"><span class="kw">summary</span>(industry_no_<span class="dv">6</span>)</a></code></pre></div>
 <pre><code>##      trdate                                     customer_id       industry    
 ##  Min.   :2013-01-01   0023a1e3447fdb31836536cc903f1310:   47   1      :44901  
 ##  1st Qu.:2014-05-01   006c64491cb8acf2092ce0e0341797fe:   47   2      :22043  
@@ -582,33 +610,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  6      : 7446   3rd Qu.:  373432  
 ##  7      : 7317   Max.   :64935696  
 ##  (Other):21361</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="kw">ggplot</span>(industry_no_<span class="dv">6</span>, <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">1000</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="kw">ggplot</span>(industry_no_<span class="dv">6</span>, <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">1000</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"><span class="co"># the data is still quite skewed this will need to be addressed later</span></a>
-<a class="sourceLine" id="cb54-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb54-3" data-line-number="3"><span class="co"># the plots for the customer in industry 6 except 6c530aae768250b8d9c3c908a13ee287 and a2a7902052d85a18a7b564d8872f1ff6 appear legitimate at this scale a closer inspection of those two customers is needed to reduce the issues with scaling</span></a>
-<a class="sourceLine" id="cb54-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb54-5" data-line-number="5"><span class="co"># customer 6c530aae768250b8d9c3c908a13ee287</span></a>
-<a class="sourceLine" id="cb54-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb54-7" data-line-number="7">industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb54-8" data-line-number="8"><span class="st">  </span><span class="kw">filter</span>(customer_id <span class="op">==</span><span class="st"> &quot;6c530aae768250b8d9c3c908a13ee287&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb54-9" data-line-number="9"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="co"># the data is still quite skewed this will need to be addressed later</span></a>
+<a class="sourceLine" id="cb66-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb66-3" data-line-number="3"><span class="co"># the plots for the customer in industry 6 except 6c530aae768250b8d9c3c908a13ee287 and a2a7902052d85a18a7b564d8872f1ff6 appear legitimate at this scale a closer inspection of those two customers is needed to reduce the issues with scaling</span></a>
+<a class="sourceLine" id="cb66-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb66-5" data-line-number="5"><span class="co"># customer 6c530aae768250b8d9c3c908a13ee287</span></a>
+<a class="sourceLine" id="cb66-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb66-7" data-line-number="7">industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb66-8" data-line-number="8"><span class="st">  </span><span class="kw">filter</span>(customer_id <span class="op">==</span><span class="st"> &quot;6c530aae768250b8d9c3c908a13ee287&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb66-9" data-line-number="9"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-2-4.png" width="672" /></p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="co"># customer a2a7902052d85a18a7b564d8872f1ff6</span></a>
-<a class="sourceLine" id="cb55-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb55-3" data-line-number="3">industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb55-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(customer_id <span class="op">==</span><span class="st"> &quot;a2a7902052d85a18a7b564d8872f1ff6&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb55-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="co"># customer a2a7902052d85a18a7b564d8872f1ff6</span></a>
+<a class="sourceLine" id="cb67-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb67-3" data-line-number="3">industry_<span class="dv">6</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb67-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(customer_id <span class="op">==</span><span class="st"> &quot;a2a7902052d85a18a7b564d8872f1ff6&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb67-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-2-5.png" width="672" /></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="co"># at their own scales both customers transactions do not look suspicious, though still quite low</span></a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="co"># at their own scales both customers transactions do not look suspicious, though still quite low</span></a></code></pre></div>
 </div>
 <div id="industry-10" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> Industry 10</h3>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"><span class="co"># A look into industry 10</span></a>
-<a class="sourceLine" id="cb57-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb57-3" data-line-number="3">industry_<span class="dv">10</span> &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb57-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">==</span><span class="st"> </span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb57-5" data-line-number="5"><span class="kw">summary</span>(industry_<span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="co"># A look into industry 10</span></a>
+<a class="sourceLine" id="cb69-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb69-3" data-line-number="3">industry_<span class="dv">10</span> &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb69-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">==</span><span class="st"> </span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb69-5" data-line-number="5"><span class="kw">summary</span>(industry_<span class="dv">10</span>)</a></code></pre></div>
 <pre><code>##      trdate                                     customer_id     industry  
 ##  Min.   :2013-01-01   0079e3e6d496ad07cee7fd63d3d7c9b2: 47   10     :719  
 ##  1st Qu.:2013-10-01   6410bb923bcf940b7c57331f7b7db3c6: 47   1      :  0  
@@ -625,16 +653,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  4      : 29   3rd Qu.:  246281  
 ##  9      : 21   Max.   :64935696  
 ##  (Other): 32</code></pre>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="kw">ggplot</span>(industry_<span class="dv">10</span>, <span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb59-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb59-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(industry_<span class="dv">10</span><span class="op">$</span>location)</a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="kw">ggplot</span>(industry_<span class="dv">10</span>, <span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb71-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(industry_<span class="dv">10</span><span class="op">$</span>location)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># the number of transactions by location within industry 10 appear quite inconsistent</span></a>
-<a class="sourceLine" id="cb60-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb60-3" data-line-number="3">industry_<span class="dv">10</span>_locations &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(industry_<span class="dv">10</span><span class="op">$</span>location))</a>
-<a class="sourceLine" id="cb60-4" data-line-number="4"><span class="co">## give the columns readable names</span></a>
-<a class="sourceLine" id="cb60-5" data-line-number="5"><span class="kw">names</span>(industry_<span class="dv">10</span>_locations) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;location&quot;</span>, <span class="st">&quot;count&quot;</span>)</a>
-<a class="sourceLine" id="cb60-6" data-line-number="6">industry_<span class="dv">10</span>_locations</a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="co"># the number of transactions by location within industry 10 appear quite inconsistent</span></a>
+<a class="sourceLine" id="cb72-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb72-3" data-line-number="3">industry_<span class="dv">10</span>_locations &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(industry_<span class="dv">10</span><span class="op">$</span>location))</a>
+<a class="sourceLine" id="cb72-4" data-line-number="4"><span class="co">## give the columns readable names</span></a>
+<a class="sourceLine" id="cb72-5" data-line-number="5"><span class="kw">names</span>(industry_<span class="dv">10</span>_locations) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;location&quot;</span>, <span class="st">&quot;count&quot;</span>)</a>
+<a class="sourceLine" id="cb72-6" data-line-number="6">industry_<span class="dv">10</span>_locations</a></code></pre></div>
 <pre><code>##    location count
 ## 1         1    16
 ## 2         2   167
@@ -646,121 +674,473 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 8         8    94
 ## 9         9    21
 ## 10       10     4</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># industry 10 is missing location 6</span></a>
-<a class="sourceLine" id="cb62-2" data-line-number="2"><span class="co"># is it possible industry 6 in location 1 corresponds to industry 10 location 6?</span></a>
-<a class="sourceLine" id="cb62-3" data-line-number="3"><span class="co"># industry 10 location 10 only has 4 entires</span></a>
-<a class="sourceLine" id="cb62-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb62-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="kw">filter</span>(industry_<span class="dv">10</span>, location <span class="op">==</span><span class="st"> </span><span class="dv">10</span>), <span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb62-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="co"># industry 10 is missing location 6</span></a>
+<a class="sourceLine" id="cb74-2" data-line-number="2"><span class="co"># is it possible industry 6 in location 1 corresponds to industry 10 location 6?</span></a>
+<a class="sourceLine" id="cb74-3" data-line-number="3"><span class="co"># industry 10 location 10 only has 4 entires</span></a>
+<a class="sourceLine" id="cb74-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb74-5" data-line-number="5"><span class="kw">ggplot</span>(<span class="kw">filter</span>(industry_<span class="dv">10</span>, location <span class="op">==</span><span class="st"> </span><span class="dv">10</span>), <span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb74-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>)</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="co"># the values are low but do not appear illigitimate</span></a>
-<a class="sourceLine" id="cb63-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb63-3" data-line-number="3"><span class="co"># industry 10 location 8 has a large difference between 2 sets of transactions</span></a>
-<a class="sourceLine" id="cb63-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb63-5" data-line-number="5">industry_<span class="dv">10</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb63-6" data-line-number="6"><span class="st">  </span><span class="kw">filter</span>(location <span class="op">==</span><span class="st"> </span><span class="dv">8</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb63-7" data-line-number="7"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount, <span class="dt">color =</span> customer_id)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="co"># the values are low but do not appear illigitimate</span></a>
+<a class="sourceLine" id="cb75-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb75-3" data-line-number="3"><span class="co"># industry 10 location 8 has a large difference between 2 sets of transactions</span></a>
+<a class="sourceLine" id="cb75-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb75-5" data-line-number="5">industry_<span class="dv">10</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb75-6" data-line-number="6"><span class="st">  </span><span class="kw">filter</span>(location <span class="op">==</span><span class="st"> </span><span class="dv">8</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb75-7" data-line-number="7"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount, <span class="dt">color =</span> customer_id)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-3-3.png" width="672" /></p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="co">## only two customers in industry 10 location 8</span></a>
-<a class="sourceLine" id="cb64-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb64-3" data-line-number="3">i10_l8 &lt;-industry_<span class="dv">10</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb64-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(location <span class="op">==</span><span class="st"> </span><span class="dv">8</span>) </a>
-<a class="sourceLine" id="cb64-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb64-6" data-line-number="6"><span class="co"># customer d714d2c5a796d5814c565d78dd16188d</span></a>
-<a class="sourceLine" id="cb64-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb64-8" data-line-number="8">i10_l8 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb64-9" data-line-number="9"><span class="st">  </span><span class="kw">filter</span>(customer_id <span class="op">==</span><span class="st"> &quot;d714d2c5a796d5814c565d78dd16188d&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb64-10" data-line-number="10"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="co">## only two customers in industry 10 location 8</span></a>
+<a class="sourceLine" id="cb76-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb76-3" data-line-number="3">i10_l8 &lt;-industry_<span class="dv">10</span> <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb76-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(location <span class="op">==</span><span class="st"> </span><span class="dv">8</span>) </a>
+<a class="sourceLine" id="cb76-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb76-6" data-line-number="6"><span class="co"># customer d714d2c5a796d5814c565d78dd16188d</span></a>
+<a class="sourceLine" id="cb76-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb76-8" data-line-number="8">i10_l8 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb76-9" data-line-number="9"><span class="st">  </span><span class="kw">filter</span>(customer_id <span class="op">==</span><span class="st"> &quot;d714d2c5a796d5814c565d78dd16188d&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb76-10" data-line-number="10"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-3-4.png" width="672" /></p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="co"># transactions are very cyclic and high</span></a>
-<a class="sourceLine" id="cb65-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb65-3" data-line-number="3"><span class="co"># customer db8e1af0cb3aca1ae2d0018624204529</span></a>
-<a class="sourceLine" id="cb65-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb65-5" data-line-number="5">i10_l8 <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb65-6" data-line-number="6"><span class="st">  </span><span class="kw">filter</span>(customer_id <span class="op">==</span><span class="st"> &quot;db8e1af0cb3aca1ae2d0018624204529&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb65-7" data-line-number="7"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="co"># transactions are very cyclic and high</span></a>
+<a class="sourceLine" id="cb77-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb77-3" data-line-number="3"><span class="co"># customer db8e1af0cb3aca1ae2d0018624204529</span></a>
+<a class="sourceLine" id="cb77-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb77-5" data-line-number="5">i10_l8 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb77-6" data-line-number="6"><span class="st">  </span><span class="kw">filter</span>(customer_id <span class="op">==</span><span class="st"> &quot;db8e1af0cb3aca1ae2d0018624204529&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb77-7" data-line-number="7"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-3-5.png" width="672" /></p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="co"># transactions are quite random</span></a></code></pre></div>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="co"># Number of transactions per location</span></a>
-<a class="sourceLine" id="cb67-2" data-line-number="2">number_of_transactions_per_location &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(transactions<span class="op">$</span>location))</a>
-<a class="sourceLine" id="cb67-3" data-line-number="3"><span class="kw">names</span>(number_of_transactions_per_location) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;location&quot;</span>, count)</a>
-<a class="sourceLine" id="cb67-4" data-line-number="4">number_of_transactions_per_location</a></code></pre></div>
-<pre><code>##    location
-## 1         1
-## 2         2
-## 3         3
-## 4         4
-## 5         5
-## 6         6
-## 7         7
-## 8         8
-## 9         9
-## 10       10
-##    function (x, ..., wt = NULL, sort = FALSE, name = &quot;n&quot;, .drop = group_by_drop_default(x)) \n{\n    groups &lt;- group_vars(x)\n    if (dots_n(...)) {\n        x &lt;- .group_by_static_drop(x, ..., add = TRUE, .drop = .drop)\n    }\n    x &lt;- tally(x, wt = !!enquo( ...
-## 1                                                                                                                                                                                                                                                                 17659
-## 2                                                                                                                                                                                                                                                                 21410
-## 3                                                                                                                                                                                                                                                                  6740
-## 4                                                                                                                                                                                                                                                                  9351
-## 5                                                                                                                                                                                                                                                                  9703
-## 6                                                                                                                                                                                                                                                                  7446
-## 7                                                                                                                                                                                                                                                                  7317
-## 8                                                                                                                                                                                                                                                                  3478
-## 9                                                                                                                                                                                                                                                                  4629
-## 10                                                                                                                                                                                                                                                                 6514</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="kw">sd</span>(number_of_transactions_per_location<span class="op">$</span>count)</a></code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="co"># number of customers per location</span></a></code></pre></div>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="co">#Import new function for managing large plots</span></a>
-<a class="sourceLine" id="cb72-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb72-3" data-line-number="3"><span class="co"># Multiple plot function</span></a>
-<a class="sourceLine" id="cb72-4" data-line-number="4"><span class="co">#</span></a>
-<a class="sourceLine" id="cb72-5" data-line-number="5"><span class="co"># ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)</span></a>
-<a class="sourceLine" id="cb72-6" data-line-number="6"><span class="co"># - cols:   Number of columns in layout</span></a>
-<a class="sourceLine" id="cb72-7" data-line-number="7"><span class="co"># - layout: A matrix specifying the layout. If present, &#39;cols&#39; is ignored.</span></a>
-<a class="sourceLine" id="cb72-8" data-line-number="8"><span class="co">#</span></a>
-<a class="sourceLine" id="cb72-9" data-line-number="9"><span class="co"># If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),</span></a>
-<a class="sourceLine" id="cb72-10" data-line-number="10"><span class="co"># then plot 1 will go in the upper left, 2 will go in the upper right, and</span></a>
-<a class="sourceLine" id="cb72-11" data-line-number="11"><span class="co"># 3 will go all the way across the bottom.</span></a>
-<a class="sourceLine" id="cb72-12" data-line-number="12"><span class="co">#</span></a>
-<a class="sourceLine" id="cb72-13" data-line-number="13">multiplot &lt;-<span class="st"> </span><span class="cf">function</span>(..., <span class="dt">plotlist=</span><span class="ot">NULL</span>, file, <span class="dt">cols=</span><span class="dv">1</span>, <span class="dt">layout=</span><span class="ot">NULL</span>) {</a>
-<a class="sourceLine" id="cb72-14" data-line-number="14">  <span class="kw">library</span>(grid)</a>
-<a class="sourceLine" id="cb72-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb72-16" data-line-number="16">  <span class="co"># Make a list from the ... arguments and plotlist</span></a>
-<a class="sourceLine" id="cb72-17" data-line-number="17">  plots &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">list</span>(...), plotlist)</a>
-<a class="sourceLine" id="cb72-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb72-19" data-line-number="19">  numPlots =<span class="st"> </span><span class="kw">length</span>(plots)</a>
-<a class="sourceLine" id="cb72-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb72-21" data-line-number="21">  <span class="co"># If layout is NULL, then use &#39;cols&#39; to determine layout</span></a>
-<a class="sourceLine" id="cb72-22" data-line-number="22">  <span class="cf">if</span> (<span class="kw">is.null</span>(layout)) {</a>
-<a class="sourceLine" id="cb72-23" data-line-number="23">    <span class="co"># Make the panel</span></a>
-<a class="sourceLine" id="cb72-24" data-line-number="24">    <span class="co"># ncol: Number of columns of plots</span></a>
-<a class="sourceLine" id="cb72-25" data-line-number="25">    <span class="co"># nrow: Number of rows needed, calculated from # of cols</span></a>
-<a class="sourceLine" id="cb72-26" data-line-number="26">    layout &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">seq</span>(<span class="dv">1</span>, cols <span class="op">*</span><span class="st"> </span><span class="kw">ceiling</span>(numPlots<span class="op">/</span>cols)),</a>
-<a class="sourceLine" id="cb72-27" data-line-number="27">                    <span class="dt">ncol =</span> cols, <span class="dt">nrow =</span> <span class="kw">ceiling</span>(numPlots<span class="op">/</span>cols))</a>
-<a class="sourceLine" id="cb72-28" data-line-number="28">  }</a>
-<a class="sourceLine" id="cb72-29" data-line-number="29"></a>
-<a class="sourceLine" id="cb72-30" data-line-number="30"> <span class="cf">if</span> (numPlots<span class="op">==</span><span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb72-31" data-line-number="31">    <span class="kw">print</span>(plots[[<span class="dv">1</span>]])</a>
-<a class="sourceLine" id="cb72-32" data-line-number="32"></a>
-<a class="sourceLine" id="cb72-33" data-line-number="33">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb72-34" data-line-number="34">    <span class="co"># Set up the page</span></a>
-<a class="sourceLine" id="cb72-35" data-line-number="35">    <span class="kw">grid.newpage</span>()</a>
-<a class="sourceLine" id="cb72-36" data-line-number="36">    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">layout =</span> <span class="kw">grid.layout</span>(<span class="kw">nrow</span>(layout), <span class="kw">ncol</span>(layout))))</a>
-<a class="sourceLine" id="cb72-37" data-line-number="37"></a>
-<a class="sourceLine" id="cb72-38" data-line-number="38">    <span class="co"># Make each plot, in the correct location</span></a>
-<a class="sourceLine" id="cb72-39" data-line-number="39">    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numPlots) {</a>
-<a class="sourceLine" id="cb72-40" data-line-number="40">      <span class="co"># Get the i,j matrix positions of the regions that contain this subplot</span></a>
-<a class="sourceLine" id="cb72-41" data-line-number="41">      matchidx &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">which</span>(layout <span class="op">==</span><span class="st"> </span>i, <span class="dt">arr.ind =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb72-42" data-line-number="42"></a>
-<a class="sourceLine" id="cb72-43" data-line-number="43">      <span class="kw">print</span>(plots[[i]], <span class="dt">vp =</span> <span class="kw">viewport</span>(<span class="dt">layout.pos.row =</span> matchidx<span class="op">$</span>row,</a>
-<a class="sourceLine" id="cb72-44" data-line-number="44">                                      <span class="dt">layout.pos.col =</span> matchidx<span class="op">$</span>col))</a>
-<a class="sourceLine" id="cb72-45" data-line-number="45">    }</a>
-<a class="sourceLine" id="cb72-46" data-line-number="46">  }</a>
-<a class="sourceLine" id="cb72-47" data-line-number="47">}</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="co"># transactions are quite random</span></a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="co"># Number of transactons per location</span></a>
+<a class="sourceLine" id="cb79-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb79-3" data-line-number="3"><span class="co">## using only customer_id and location, creates a bar plot, counting how many times each location appeared</span></a>
+<a class="sourceLine" id="cb79-4" data-line-number="4">transactions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb79-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(customer_id, location) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb79-6" data-line-number="6"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> location)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/Initial%20Queries%20-%20Location-1.png" width="672" /></p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="co"># Locations 1 and 2 mirroring industries 1 and 2 have a higher representation, however no single location has such an obviously small number of represetnation as indstury 6 or 10</span></a>
+<a class="sourceLine" id="cb80-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb80-3" data-line-number="3"><span class="co">## create a summary of transactions per location in a table</span></a>
+<a class="sourceLine" id="cb80-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb80-5" data-line-number="5">number_of_transactions_per_location &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">table</span>(transactions<span class="op">$</span>location))</a>
+<a class="sourceLine" id="cb80-6" data-line-number="6"><span class="co">## give the columns readable names</span></a>
+<a class="sourceLine" id="cb80-7" data-line-number="7"><span class="kw">names</span>(number_of_transactions_per_location) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;location&quot;</span>, <span class="st">&quot;count&quot;</span>)</a>
+<a class="sourceLine" id="cb80-8" data-line-number="8">number_of_transactions_per_location</a></code></pre></div>
+<pre><code>##    location count
+## 1         1 17659
+## 2         2 21410
+## 3         3  6740
+## 4         4  9351
+## 5         5  9703
+## 6         6  7446
+## 7         7  7317
+## 8         8  3478
+## 9         9  4629
+## 10       10  6514</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="co"># calculates mean of transactions per location</span></a>
+<a class="sourceLine" id="cb82-2" data-line-number="2">ntpl_mean &lt;-<span class="st"> </span><span class="kw">mean</span>(number_of_transactions_per_location<span class="op">$</span>count)</a>
+<a class="sourceLine" id="cb82-3" data-line-number="3"><span class="co">## calculates standard deviation of transactions per location </span></a>
+<a class="sourceLine" id="cb82-4" data-line-number="4">ntpl_sd &lt;-<span class="st"> </span><span class="kw">sd</span>(number_of_transactions_per_location<span class="op">$</span>count)</a>
+<a class="sourceLine" id="cb82-5" data-line-number="5"><span class="co">## calculates standard deviations from mean for each count</span></a>
+<a class="sourceLine" id="cb82-6" data-line-number="6">number_of_transactions_per_location<span class="op">$</span>SDs &lt;-<span class="st"> </span>(number_of_transactions_per_location<span class="op">$</span>count <span class="op">-</span><span class="st"> </span>ntpl_mean)<span class="op">/</span>ntpl_sd </a>
+<a class="sourceLine" id="cb82-7" data-line-number="7">number_of_transactions_per_location</a></code></pre></div>
+<pre><code>##    location count         SDs
+## 1         1 17659  1.44086555
+## 2         2 21410  2.09722817
+## 3         3  6740 -0.46977785
+## 4         4  9351 -0.01289627
+## 5         5  9703  0.04869787
+## 6         6  7446 -0.34623959
+## 7         7  7317 -0.36881245
+## 8         8  3478 -1.04057360
+## 9         9  4629 -0.83916774
+## 10       10  6514 -0.50932409</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="co"># location 2 is ~2 standard deviations outside of the mean</span></a>
+<a class="sourceLine" id="cb84-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb84-3" data-line-number="3"><span class="co"># number of customer per location</span></a>
+<a class="sourceLine" id="cb84-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb84-5" data-line-number="5"><span class="co">## creates a bar plot, counting how many times each location appeared</span></a>
+<a class="sourceLine" id="cb84-6" data-line-number="6">transactions <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb84-7" data-line-number="7"><span class="st">  </span><span class="co">## selects only unique customer id&#39;s per location so each customer is only counted once</span></a>
+<a class="sourceLine" id="cb84-8" data-line-number="8"><span class="st">  </span><span class="kw">distinct</span>(customer_id, location) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb84-9" data-line-number="9"><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> location)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/Initial%20Queries%20-%20Location-2.png" width="672" /></p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="co"># a similar trend appears in the number of customers, likely as each customer can have a maximum of 47 transactions</span></a>
+<a class="sourceLine" id="cb85-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb85-3" data-line-number="3"><span class="co"># Further investigation into location would be challenging</span></a></code></pre></div>
 </div>
 </div>
 <div id="monthly-amount" class="section level2">
 <h2><span class="header-section-number">2.4</span> Monthly Amount</h2>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="co"># coming back to distribution</span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb86-3" data-line-number="3"><span class="kw">ggplot</span>(transactions, <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1"><span class="co"># the transactions are focused in a small range</span></a>
+<a class="sourceLine" id="cb87-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb87-3" data-line-number="3"><span class="co">#create a subset within 1sd of the mean</span></a>
+<a class="sourceLine" id="cb87-4" data-line-number="4">tmean &lt;-<span class="st"> </span><span class="kw">mean</span>(transactions<span class="op">$</span>monthly_amount)</a>
+<a class="sourceLine" id="cb87-5" data-line-number="5">tsd &lt;-<span class="st"> </span><span class="kw">sd</span>(transactions<span class="op">$</span>monthly_amount)</a>
+<a class="sourceLine" id="cb87-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb87-7" data-line-number="7">transactions_1sd &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb87-8" data-line-number="8"><span class="st">  </span><span class="kw">filter</span>(monthly_amount <span class="op">&gt;=</span><span class="st"> </span>tmean <span class="op">-</span><span class="st"> </span>tsd <span class="op">&amp;</span><span class="st"> </span>monthly_amount <span class="op">&lt;=</span><span class="st"> </span>tmean <span class="op">+</span><span class="st"> </span>tsd)</a>
+<a class="sourceLine" id="cb87-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb87-10" data-line-number="10"><span class="kw">range</span>(transactions_1sd<span class="op">$</span>monthly_amount)</a></code></pre></div>
+<pre><code>## [1]   45986.23 2371479.06</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="kw">ggplot</span>(transactions_1sd, <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..),<span class="dt">bins =</span> <span class="dv">30</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="kw">density</span>(transactions_1sd<span class="op">$</span>monthly_amount)</a></code></pre></div>
+<pre><code>## 
+## Call:
+##  density.default(x = transactions_1sd$monthly_amount)
+## 
+## Data: transactions_1sd$monthly_amount (93495 obs.);  Bandwidth &#39;bw&#39; = 1.856e+04
+## 
+##        x                 y            
+##  Min.   :  -9698   Min.   :1.900e-11  
+##  1st Qu.: 599517   1st Qu.:1.911e-08  
+##  Median :1208733   Median :6.353e-08  
+##  Mean   :1208733   Mean   :4.099e-07  
+##  3rd Qu.:1817948   3rd Qu.:3.039e-07  
+##  Max.   :2427163   Max.   :5.546e-06</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">which.max</span>(<span class="kw">density</span>(transactions_1sd<span class="op">$</span>monthly_amount, <span class="dt">n =</span> <span class="dv">2056</span>)<span class="op">$</span>y)</a></code></pre></div>
+<pre><code>## [1] 78</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">tr_densityhigh &lt;-<span class="st"> </span><span class="kw">density</span>(transactions_1sd<span class="op">$</span>monthly_amount, <span class="dt">n =</span> <span class="dv">2056</span>)<span class="op">$</span>x[<span class="kw">which.max</span>(<span class="kw">density</span>(transactions_1sd<span class="op">$</span>monthly_amount, <span class="dt">n =</span> <span class="dv">2056</span>)<span class="op">$</span>y)]</a>
+<a class="sourceLine" id="cb94-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb94-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb94-4" data-line-number="4">transactions_focus &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb94-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(monthly_amount <span class="op">&gt;=</span><span class="st"> </span>tr_densityhigh <span class="op">-</span><span class="st"> </span>(tsd<span class="op">/</span><span class="dv">75</span>) <span class="op">&amp;</span><span class="st"> </span>monthly_amount <span class="op">&lt;=</span><span class="st"> </span>tr_densityhigh <span class="op">+</span><span class="st"> </span>tsd<span class="op">/</span><span class="dv">75</span>)</a>
+<a class="sourceLine" id="cb94-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb94-7" data-line-number="7"><span class="kw">ggplot</span>(transactions_focus, <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..),<span class="dt">bins =</span> <span class="dv">30</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-3.png" width="672" /></p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1"><span class="kw">range</span>(transactions_focus<span class="op">$</span>monthly_amount)</a></code></pre></div>
+<pre><code>## [1]  58896.45 107982.14</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="co"># subset down again by sd</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb97-3" data-line-number="3">tmean2 &lt;-<span class="st"> </span><span class="kw">mean</span>(transactions_1sd<span class="op">$</span>monthly_amount)</a>
+<a class="sourceLine" id="cb97-4" data-line-number="4">tsd2 &lt;-<span class="st"> </span><span class="kw">sd</span>(transactions_1sd<span class="op">$</span>monthly_amount)</a>
+<a class="sourceLine" id="cb97-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb97-6" data-line-number="6">transactions_1sd2 &lt;-<span class="st"> </span>transactions_1sd <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb97-7" data-line-number="7"><span class="st">  </span><span class="kw">filter</span>(monthly_amount <span class="op">&gt;=</span><span class="st"> </span>tmean2 <span class="op">-</span><span class="st"> </span>tsd2 <span class="op">&amp;</span><span class="st"> </span>monthly_amount <span class="op">&lt;=</span><span class="st"> </span>tmean2 <span class="op">+</span><span class="st"> </span>tsd2)</a>
+<a class="sourceLine" id="cb97-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb97-9" data-line-number="9"><span class="kw">ggplot</span>(transactions_1sd2, <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y=</span>..density..),<span class="dt">bins =</span> <span class="dv">30</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-4.png" width="672" /></p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="co"># transaction distributions broken down by location and industry</span></a>
+<a class="sourceLine" id="cb98-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb98-3" data-line-number="3"><span class="kw">ggplot</span>(transactions, <span class="kw">aes</span>(<span class="dt">x=</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(<span class="dt">rows =</span> <span class="kw">vars</span>(transactions<span class="op">$</span>industry), <span class="dt">cols =</span> <span class="kw">vars</span>(transactions<span class="op">$</span>location))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-5.png" width="672" /></p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="co"># we can see that industry 6 location 1 and industry 8 location 10 have exceptionally high values</span></a>
+<a class="sourceLine" id="cb99-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb99-3" data-line-number="3"><span class="co"># removing those two</span></a>
+<a class="sourceLine" id="cb99-4" data-line-number="4">transactions_rm &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb99-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">!=</span><span class="st"> </span><span class="dv">6</span>, location <span class="op">!=</span><span class="st"> </span><span class="dv">10</span> <span class="op">&amp;</span><span class="st"> </span>location <span class="op">!=</span><span class="st"> </span><span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb99-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb99-7" data-line-number="7"><span class="kw">ggplot</span>(transactions_rm, <span class="kw">aes</span>(<span class="dt">x=</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(<span class="dt">rows =</span> <span class="kw">vars</span>(transactions_rm<span class="op">$</span>industry), <span class="dt">cols =</span> <span class="kw">vars</span>(transactions_rm<span class="op">$</span>location))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-6.png" width="672" /></p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">ggplot</span>(transactions, <span class="kw">aes</span>(<span class="dt">x=</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(<span class="dt">rows =</span> <span class="kw">vars</span>(transactions<span class="op">$</span>industry), <span class="dt">cols =</span> <span class="kw">vars</span>(transactions<span class="op">$</span>location), <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-7.png" width="672" /></p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">ggplot</span>(transactions, <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">25</span>) <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(<span class="dt">rows =</span> <span class="kw">vars</span>(transactions<span class="op">$</span>industry), <span class="dt">cols =</span> <span class="kw">vars</span>(transactions<span class="op">$</span>location), <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-8.png" width="672" /></p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="co"># a slight limitation with facet_grid, attempt to show density plots of each individually</span></a></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="co">#Import new function for managing large plots</span></a>
+<a class="sourceLine" id="cb103-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb103-3" data-line-number="3"><span class="co"># Multiple plot function</span></a>
+<a class="sourceLine" id="cb103-4" data-line-number="4"><span class="co">#</span></a>
+<a class="sourceLine" id="cb103-5" data-line-number="5"><span class="co"># ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)</span></a>
+<a class="sourceLine" id="cb103-6" data-line-number="6"><span class="co"># - cols:   Number of columns in layout</span></a>
+<a class="sourceLine" id="cb103-7" data-line-number="7"><span class="co"># - layout: A matrix specifying the layout. If present, &#39;cols&#39; is ignored.</span></a>
+<a class="sourceLine" id="cb103-8" data-line-number="8"><span class="co">#</span></a>
+<a class="sourceLine" id="cb103-9" data-line-number="9"><span class="co"># If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),</span></a>
+<a class="sourceLine" id="cb103-10" data-line-number="10"><span class="co"># then plot 1 will go in the upper left, 2 will go in the upper right, and</span></a>
+<a class="sourceLine" id="cb103-11" data-line-number="11"><span class="co"># 3 will go all the way across the bottom.</span></a>
+<a class="sourceLine" id="cb103-12" data-line-number="12"><span class="co">#</span></a>
+<a class="sourceLine" id="cb103-13" data-line-number="13">multiplot &lt;-<span class="st"> </span><span class="cf">function</span>(..., <span class="dt">plotlist=</span><span class="ot">NULL</span>, file, <span class="dt">cols=</span><span class="dv">1</span>, <span class="dt">layout=</span><span class="ot">NULL</span>) {</a>
+<a class="sourceLine" id="cb103-14" data-line-number="14">  <span class="kw">library</span>(grid)</a>
+<a class="sourceLine" id="cb103-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb103-16" data-line-number="16">  <span class="co"># Make a list from the ... arguments and plotlist</span></a>
+<a class="sourceLine" id="cb103-17" data-line-number="17">  plots &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">list</span>(...), plotlist)</a>
+<a class="sourceLine" id="cb103-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb103-19" data-line-number="19">  numPlots =<span class="st"> </span><span class="kw">length</span>(plots)</a>
+<a class="sourceLine" id="cb103-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb103-21" data-line-number="21">  <span class="co"># If layout is NULL, then use &#39;cols&#39; to determine layout</span></a>
+<a class="sourceLine" id="cb103-22" data-line-number="22">  <span class="cf">if</span> (<span class="kw">is.null</span>(layout)) {</a>
+<a class="sourceLine" id="cb103-23" data-line-number="23">    <span class="co"># Make the panel</span></a>
+<a class="sourceLine" id="cb103-24" data-line-number="24">    <span class="co"># ncol: Number of columns of plots</span></a>
+<a class="sourceLine" id="cb103-25" data-line-number="25">    <span class="co"># nrow: Number of rows needed, calculated from # of cols</span></a>
+<a class="sourceLine" id="cb103-26" data-line-number="26">    layout &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">seq</span>(<span class="dv">1</span>, cols <span class="op">*</span><span class="st"> </span><span class="kw">ceiling</span>(numPlots<span class="op">/</span>cols)),</a>
+<a class="sourceLine" id="cb103-27" data-line-number="27">                    <span class="dt">ncol =</span> cols, <span class="dt">nrow =</span> <span class="kw">ceiling</span>(numPlots<span class="op">/</span>cols))</a>
+<a class="sourceLine" id="cb103-28" data-line-number="28">  }</a>
+<a class="sourceLine" id="cb103-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb103-30" data-line-number="30"> <span class="cf">if</span> (numPlots<span class="op">==</span><span class="dv">1</span>) {</a>
+<a class="sourceLine" id="cb103-31" data-line-number="31">    <span class="kw">print</span>(plots[[<span class="dv">1</span>]])</a>
+<a class="sourceLine" id="cb103-32" data-line-number="32"></a>
+<a class="sourceLine" id="cb103-33" data-line-number="33">  } <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb103-34" data-line-number="34">    <span class="co"># Set up the page</span></a>
+<a class="sourceLine" id="cb103-35" data-line-number="35">    <span class="kw">grid.newpage</span>()</a>
+<a class="sourceLine" id="cb103-36" data-line-number="36">    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">layout =</span> <span class="kw">grid.layout</span>(<span class="kw">nrow</span>(layout), <span class="kw">ncol</span>(layout))))</a>
+<a class="sourceLine" id="cb103-37" data-line-number="37"></a>
+<a class="sourceLine" id="cb103-38" data-line-number="38">    <span class="co"># Make each plot, in the correct location</span></a>
+<a class="sourceLine" id="cb103-39" data-line-number="39">    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>numPlots) {</a>
+<a class="sourceLine" id="cb103-40" data-line-number="40">      <span class="co"># Get the i,j matrix positions of the regions that contain this subplot</span></a>
+<a class="sourceLine" id="cb103-41" data-line-number="41">      matchidx &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">which</span>(layout <span class="op">==</span><span class="st"> </span>i, <span class="dt">arr.ind =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb103-42" data-line-number="42"></a>
+<a class="sourceLine" id="cb103-43" data-line-number="43">      <span class="kw">print</span>(plots[[i]], <span class="dt">vp =</span> <span class="kw">viewport</span>(<span class="dt">layout.pos.row =</span> matchidx<span class="op">$</span>row,</a>
+<a class="sourceLine" id="cb103-44" data-line-number="44">                                      <span class="dt">layout.pos.col =</span> matchidx<span class="op">$</span>col))</a>
+<a class="sourceLine" id="cb103-45" data-line-number="45">    }</a>
+<a class="sourceLine" id="cb103-46" data-line-number="46">  }</a>
+<a class="sourceLine" id="cb103-47" data-line-number="47">}</a></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="co"># we will the custom &#39;multiplot&#39; function to make our plots</span></a>
+<a class="sourceLine" id="cb104-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb104-3" data-line-number="3"><span class="co"># modified code from CANVAS Announcement</span></a>
+<a class="sourceLine" id="cb104-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb104-5" data-line-number="5"><span class="co">#initialise dataframes</span></a>
+<a class="sourceLine" id="cb104-6" data-line-number="6">plotlist_loc_ind &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb104-7" data-line-number="7">combo_obs &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb104-8" data-line-number="8">combo_row &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb104-9" data-line-number="9"><span class="co">#create list of locations and industries</span></a>
+<a class="sourceLine" id="cb104-10" data-line-number="10">industries =<span class="st"> </span><span class="kw">unique</span>(transactions<span class="op">$</span>industry)</a>
+<a class="sourceLine" id="cb104-11" data-line-number="11">locations =<span class="st"> </span><span class="kw">unique</span>(transactions<span class="op">$</span>location)</a>
+<a class="sourceLine" id="cb104-12" data-line-number="12"><span class="co"># work through groups in sequence</span></a>
+<a class="sourceLine" id="cb104-13" data-line-number="13"><span class="cf">for</span> (ind <span class="cf">in</span> industries) {</a>
+<a class="sourceLine" id="cb104-14" data-line-number="14"><span class="cf">for</span> (loc <span class="cf">in</span> locations) {</a>
+<a class="sourceLine" id="cb104-15" data-line-number="15">  <span class="co"># create a name for each group</span></a>
+<a class="sourceLine" id="cb104-16" data-line-number="16">  temp_name &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;industry&quot;</span>, ind, <span class="st">&quot;location&quot;</span>, loc, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</a>
+<a class="sourceLine" id="cb104-17" data-line-number="17"><span class="co"># create a subset of the data for each unique group</span></a>
+<a class="sourceLine" id="cb104-18" data-line-number="18">temp =<span class="st"> </span>transactions[transactions<span class="op">$</span>industry <span class="op">==</span><span class="st"> </span>ind <span class="op">&amp;</span></a>
+<a class="sourceLine" id="cb104-19" data-line-number="19">transactions<span class="op">$</span>location <span class="op">==</span><span class="st"> </span>loc, ]</a>
+<a class="sourceLine" id="cb104-20" data-line-number="20"><span class="co"># create a row of the name and the number of observations in the group</span></a>
+<a class="sourceLine" id="cb104-21" data-line-number="21">combo_row &lt;-<span class="st"> </span><span class="kw">cbind</span>(temp_name, <span class="kw">nrow</span>(temp))</a>
+<a class="sourceLine" id="cb104-22" data-line-number="22"><span class="co"># add row to list, outputting list of all groups and observations per group</span></a>
+<a class="sourceLine" id="cb104-23" data-line-number="23">combo_obs &lt;-<span class="st"> </span><span class="kw">rbind</span>(combo_obs, combo_row)</a>
+<a class="sourceLine" id="cb104-24" data-line-number="24"><span class="co"># rename the temp data frame to the name of the group</span></a>
+<a class="sourceLine" id="cb104-25" data-line-number="25"><span class="kw">assign</span>(temp_name, temp)</a>
+<a class="sourceLine" id="cb104-26" data-line-number="26"><span class="co"># create a vector of all group dataframe names</span></a>
+<a class="sourceLine" id="cb104-27" data-line-number="27">row &lt;-<span class="st"> </span><span class="kw">cbind</span>(temp_name)</a>
+<a class="sourceLine" id="cb104-28" data-line-number="28">plotlist_loc_ind &lt;-<span class="st"> </span><span class="kw">rbind</span>(plotlist_loc_ind, row)</a>
+<a class="sourceLine" id="cb104-29" data-line-number="29">}</a>
+<a class="sourceLine" id="cb104-30" data-line-number="30">}</a>
+<a class="sourceLine" id="cb104-31" data-line-number="31"></a>
+<a class="sourceLine" id="cb104-32" data-line-number="32"><span class="co"># transform into a list</span></a>
+<a class="sourceLine" id="cb104-33" data-line-number="33">plotlist_loc_ind &lt;-<span class="st"> </span><span class="kw">as.list</span>(<span class="kw">as.character</span>(plotlist_loc_ind<span class="op">$</span>temp_name))</a>
+<a class="sourceLine" id="cb104-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb104-35" data-line-number="35"><span class="co">#create a list of plots for all groupings (caution large file)</span></a>
+<a class="sourceLine" id="cb104-36" data-line-number="36">plotlist_loc_ind &lt;-<span class="st"> </span><span class="kw">lapply</span>(plotlist_loc_ind, <span class="cf">function</span>(plotlist_loc_ind){</a>
+<a class="sourceLine" id="cb104-37" data-line-number="37">  <span class="kw">ggplot</span>(<span class="kw">eval</span>(<span class="kw">as.symbol</span>(<span class="kw">paste</span>(plotlist_loc_ind))), <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_void</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span> (<span class="dt">title =</span> <span class="kw">paste</span>(plotlist_loc_ind))</a>
+<a class="sourceLine" id="cb104-38" data-line-number="38">  })</a></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="co">#uses multiplot function to plot all listed plots</span></a>
+<a class="sourceLine" id="cb105-2" data-line-number="2"><span class="kw">multiplot</span>(<span class="dt">plotlist =</span> plotlist_loc_ind, <span class="dt">cols =</span> <span class="dv">3</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="co"># not very ordered but the distributions of each group can be visualised</span></a>
+<a class="sourceLine" id="cb106-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb106-3" data-line-number="3"><span class="co"># additonally the function created a list of how many observations per grouping</span></a>
+<a class="sourceLine" id="cb106-4" data-line-number="4">str</a></code></pre></div>
+<pre><code>## function (object, ...) 
+## UseMethod(&quot;str&quot;)
+## &lt;bytecode: 0x55ff2c0bc5b0&gt;
+## &lt;environment: namespace:utils&gt;</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1"><span class="kw">names</span>(combo_obs) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;group&quot;</span>, <span class="st">&quot;obs&quot;</span>)</a>
+<a class="sourceLine" id="cb108-2" data-line-number="2">combo_obs<span class="op">$</span>obs &lt;-<span class="st"> </span><span class="kw">as.character</span>(combo_obs<span class="op">$</span>obs)</a>
+<a class="sourceLine" id="cb108-3" data-line-number="3">combo_obs<span class="op">$</span>obs &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(combo_obs<span class="op">$</span>obs)</a>
+<a class="sourceLine" id="cb108-4" data-line-number="4">combo_obs</a></code></pre></div>
+<pre><code>##                       group  obs
+## 1     industry_8_location_9  627
+## 2     industry_8_location_4  248
+## 3     industry_8_location_2  432
+## 4     industry_8_location_5  438
+## 5    industry_8_location_10  200
+## 6     industry_8_location_6  190
+## 7     industry_8_location_1  148
+## 8     industry_8_location_3  132
+## 9     industry_8_location_8  260
+## 10    industry_8_location_7  140
+## 11    industry_1_location_9 1528
+## 12    industry_1_location_4 5879
+## 13    industry_1_location_2 8939
+## 14    industry_1_location_5 6093
+## 15   industry_1_location_10 4136
+## 16    industry_1_location_6 5578
+## 17    industry_1_location_1 4601
+## 18    industry_1_location_3 3441
+## 19    industry_1_location_8 1429
+## 20    industry_1_location_7 3277
+## 21    industry_9_location_9   38
+## 22    industry_9_location_4   85
+## 23    industry_9_location_2 1271
+## 24    industry_9_location_5   25
+## 25   industry_9_location_10   22
+## 26    industry_9_location_6   54
+## 27    industry_9_location_1  296
+## 28    industry_9_location_3  183
+## 29    industry_9_location_8    0
+## 30    industry_9_location_7  116
+## 31   industry_10_location_9   21
+## 32   industry_10_location_4   29
+## 33   industry_10_location_2  167
+## 34   industry_10_location_5  315
+## 35  industry_10_location_10    4
+## 36   industry_10_location_6    0
+## 37   industry_10_location_1   16
+## 38   industry_10_location_3   12
+## 39   industry_10_location_8   94
+## 40   industry_10_location_7   61
+## 41    industry_2_location_9 1046
+## 42    industry_2_location_4 1251
+## 43    industry_2_location_2 5940
+## 44    industry_2_location_5  805
+## 45   industry_2_location_10 1160
+## 46    industry_2_location_6  710
+## 47    industry_2_location_1 7046
+## 48    industry_2_location_3 1700
+## 49    industry_2_location_8  435
+## 50    industry_2_location_7 1950
+## 51    industry_5_location_9  393
+## 52    industry_5_location_4  501
+## 53    industry_5_location_2  462
+## 54    industry_5_location_5  131
+## 55   industry_5_location_10   95
+## 56    industry_5_location_6  437
+## 57    industry_5_location_1  676
+## 58    industry_5_location_3  241
+## 59    industry_5_location_8  272
+## 60    industry_5_location_7  133
+## 61    industry_4_location_9  483
+## 62    industry_4_location_4  500
+## 63    industry_4_location_2  809
+## 64    industry_4_location_5 1081
+## 65   industry_4_location_10  472
+## 66    industry_4_location_6   88
+## 67    industry_4_location_1  833
+## 68    industry_4_location_3  241
+## 69    industry_4_location_8  701
+## 70    industry_4_location_7  688
+## 71    industry_6_location_9    0
+## 72    industry_6_location_4    0
+## 73    industry_6_location_2    0
+## 74    industry_6_location_5    0
+## 75   industry_6_location_10    0
+## 76    industry_6_location_6    0
+## 77    industry_6_location_1  194
+## 78    industry_6_location_3    0
+## 79    industry_6_location_8    0
+## 80    industry_6_location_7    0
+## 81    industry_7_location_9  265
+## 82    industry_7_location_4  255
+## 83    industry_7_location_2  737
+## 84    industry_7_location_5  564
+## 85   industry_7_location_10  201
+## 86    industry_7_location_6  182
+## 87    industry_7_location_1  860
+## 88    industry_7_location_3  233
+## 89    industry_7_location_8  153
+## 90    industry_7_location_7  462
+## 91    industry_3_location_9  228
+## 92    industry_3_location_4  603
+## 93    industry_3_location_2 2653
+## 94    industry_3_location_5  251
+## 95   industry_3_location_10  224
+## 96    industry_3_location_6  207
+## 97    industry_3_location_1 2989
+## 98    industry_3_location_3  557
+## 99    industry_3_location_8  134
+## 100   industry_3_location_7  490</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">combo_obs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb110-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(obs <span class="op">&lt;=</span><span class="st"> </span><span class="dv">20</span>)</a></code></pre></div>
+<pre><code>##                      group obs
+## 1    industry_9_location_8   0
+## 2  industry_10_location_10   4
+## 3   industry_10_location_6   0
+## 4   industry_10_location_1  16
+## 5   industry_10_location_3  12
+## 6    industry_6_location_9   0
+## 7    industry_6_location_4   0
+## 8    industry_6_location_2   0
+## 9    industry_6_location_5   0
+## 10  industry_6_location_10   0
+## 11   industry_6_location_6   0
+## 12   industry_6_location_3   0
+## 13   industry_6_location_8   0
+## 14   industry_6_location_7   0</code></pre>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="co"># We also pickup the previously unnoticed unreprestented group of industry 9 in location 8</span></a></code></pre></div>
+</div>
+<div id="target-dataset" class="section level2">
+<h2><span class="header-section-number">2.5</span> Target dataset</h2>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="co"># The brief specifies to train on industry 1, location 1 taking a closer look a the dataset</span></a>
+<a class="sourceLine" id="cb113-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb113-3" data-line-number="3">i1_l1 &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb113-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">==</span><span class="dv">1</span>, location <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb113-5" data-line-number="5"><span class="kw">summary</span>(i1_l1)</a></code></pre></div>
+<pre><code>##      trdate                                     customer_id      industry   
+##  Min.   :2013-01-01   0397758f8990c1b41b81b43ac389ab9f:  47   1      :4601  
+##  1st Qu.:2014-04-01   0a93091da5efb0d9d5649e7f6b2ad9d7:  47   2      :   0  
+##  Median :2015-04-01   11953163dd7fb12669b41a48f78a29b6:  47   3      :   0  
+##  Mean   :2015-02-20   16a4d8f9442ec82c5d390079cad8f194:  47   4      :   0  
+##  3rd Qu.:2016-02-01   17446a8ae7dbf7e2c2535ba49340b4b9:  47   5      :   0  
+##  Max.   :2016-11-01   25daeb9b3072e9c53f66a2196a92a011:  47   6      :   0  
+##                       (Other)                         :4319   (Other):   0  
+##     location    monthly_amount   
+##  1      :4601   Min.   :  63716  
+##  2      :   0   1st Qu.:  74763  
+##  3      :   0   Median : 100240  
+##  4      :   0   Mean   : 168998  
+##  5      :   0   3rd Qu.: 168299  
+##  6      :   0   Max.   :1509922  
+##  (Other):   0</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="kw">ggplot</span>(i1_l1, <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" data-line-number="1"><span class="co"># the data is again heavily skewed</span></a>
+<a class="sourceLine" id="cb116-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb116-3" data-line-number="3"><span class="kw">ggplot</span>(i1_l1, <span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+</div>
+<div id="aggregate-mean" class="section level2">
+<h2><span class="header-section-number">2.6</span> Aggregate mean</h2>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="co"># The brief also specifies to use an aggregated mean dataset</span></a>
+<a class="sourceLine" id="cb117-2" data-line-number="2">transactions_agg  &lt;-<span class="st">  </span><span class="kw">aggregate</span>(.<span class="op">~</span>trdate <span class="op">+</span><span class="st"> </span>location <span class="op">+</span><span class="st"> </span>industry, transactions[<span class="op">-</span><span class="dv">2</span>], <span class="dt">FUN =</span> mean)</a>
+<a class="sourceLine" id="cb117-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb117-4" data-line-number="4">transactions_agg <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb117-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>location <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb117-6" data-line-number="6"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" data-line-number="1"><span class="co">#this helps with the distribution but is it actual</span></a>
+<a class="sourceLine" id="cb118-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb118-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb118-4" data-line-number="4">transactions_agg <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb118-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;</span><span class="st"> </span>location <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb118-6" data-line-number="6"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> trdate, <span class="dt">y =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1"><span class="co"># Using a similar method to visualise the distributions of the aggregated groupings</span></a>
+<a class="sourceLine" id="cb119-2" data-line-number="2">plotlist_loc_ind_agg &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb119-3" data-line-number="3">combo_obs &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb119-4" data-line-number="4">combo_row &lt;-<span class="st"> </span><span class="kw">data.frame</span>()</a>
+<a class="sourceLine" id="cb119-5" data-line-number="5">industries =<span class="st"> </span><span class="kw">unique</span>(transactions_agg<span class="op">$</span>industry)</a>
+<a class="sourceLine" id="cb119-6" data-line-number="6">locations =<span class="st"> </span><span class="kw">unique</span>(transactions_agg<span class="op">$</span>location)</a>
+<a class="sourceLine" id="cb119-7" data-line-number="7"><span class="cf">for</span> (ind <span class="cf">in</span> industries) {</a>
+<a class="sourceLine" id="cb119-8" data-line-number="8"><span class="cf">for</span> (loc <span class="cf">in</span> locations) {</a>
+<a class="sourceLine" id="cb119-9" data-line-number="9">  temp_name &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;industrya&quot;</span>, ind, <span class="st">&quot;locationa&quot;</span>, loc, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)</a>
+<a class="sourceLine" id="cb119-10" data-line-number="10"><span class="co"># create a subset of the data</span></a>
+<a class="sourceLine" id="cb119-11" data-line-number="11">temp =<span class="st"> </span>transactions_agg[transactions_agg<span class="op">$</span>industry <span class="op">==</span><span class="st"> </span>ind <span class="op">&amp;</span></a>
+<a class="sourceLine" id="cb119-12" data-line-number="12">transactions_agg<span class="op">$</span>location <span class="op">==</span><span class="st"> </span>loc, ]</a>
+<a class="sourceLine" id="cb119-13" data-line-number="13">combo_row &lt;-<span class="st"> </span><span class="kw">cbind</span>(temp_name, <span class="kw">nrow</span>(temp))</a>
+<a class="sourceLine" id="cb119-14" data-line-number="14">combo_obs &lt;-<span class="st"> </span><span class="kw">rbind</span>(combo_obs, combo_row)</a>
+<a class="sourceLine" id="cb119-15" data-line-number="15"><span class="kw">assign</span>(temp_name, temp)</a>
+<a class="sourceLine" id="cb119-16" data-line-number="16">row &lt;-<span class="st"> </span><span class="kw">cbind</span>(temp_name)</a>
+<a class="sourceLine" id="cb119-17" data-line-number="17">plotlist_loc_ind_agg &lt;-<span class="st"> </span><span class="kw">rbind</span>(plotlist_loc_ind_agg, row)</a>
+<a class="sourceLine" id="cb119-18" data-line-number="18">}</a>
+<a class="sourceLine" id="cb119-19" data-line-number="19">}</a>
+<a class="sourceLine" id="cb119-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb119-21" data-line-number="21">plotlist_loc_ind_agg &lt;-<span class="st"> </span><span class="kw">as.list</span>(<span class="kw">as.character</span>(plotlist_loc_ind_agg<span class="op">$</span>temp_name))</a>
+<a class="sourceLine" id="cb119-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb119-23" data-line-number="23">plotlist_loc_ind_agg &lt;-<span class="st"> </span><span class="kw">lapply</span>(plotlist_loc_ind_agg, <span class="cf">function</span>(plotlist_loc_ind){</a>
+<a class="sourceLine" id="cb119-24" data-line-number="24">  <span class="kw">ggplot</span>(<span class="kw">eval</span>(<span class="kw">as.symbol</span>(<span class="kw">paste</span>(plotlist_loc_ind))), <span class="kw">aes</span>(<span class="dt">x =</span> monthly_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_density</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_void</span>() <span class="op">+</span><span class="st"> </span><span class="kw">labs</span> (<span class="dt">title =</span> <span class="kw">paste</span>(plotlist_loc_ind))</a>
+<a class="sourceLine" id="cb119-25" data-line-number="25">  })</a>
+<a class="sourceLine" id="cb119-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb119-27" data-line-number="27"><span class="kw">multiplot</span>(<span class="dt">plotlist =</span> plotlist_loc_ind_agg, <span class="dt">cols =</span> <span class="dv">5</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" data-line-number="1"><span class="co">#this improves the distributions for some of the groupings</span></a></code></pre></div>
+</div>
+<div id="conclusions" class="section level2">
+<h2><span class="header-section-number">2.7</span> Conclusions</h2>
+<p>A great deal is learnt about the data however the dataset appears to have been previously cleaned and treated for the intended use i.e. mean_amount modelling.</p>
+<p>There is skewness in all underlying datasets, however taking a mean of the transactions per month renders the distribution of the target dataset’s distribution more toward the normal distribution useful for regression.</p>
+<p>Little additional cleaning will be undertaken at this stage of the process.</p>
 
 </div>
 </div>

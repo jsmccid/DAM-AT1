@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Modelling | DAM AT1-A</title>
+  <meta name="description" content="6 Modelling | DAM AT1-A" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Modelling | DAM AT1-A" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Modelling | DAM AT1-A" />
+  
+  
+  
+
+<meta name="author" content="Joshua McCarthy" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-preparation.html"/>
+<link rel="next" href="fitting-to-all-groups.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Planning</a></li>
+<li class="chapter" data-level="2" data-path="understanding.html"><a href="understanding.html"><i class="fa fa-check"></i><b>2</b> Understanding</a><ul>
+<li class="chapter" data-level="2.1" data-path="understanding.html"><a href="understanding.html#initial-import-and-data-prep"><i class="fa fa-check"></i><b>2.1</b> Initial Import and Data Prep</a></li>
+<li class="chapter" data-level="2.2" data-path="understanding.html"><a href="understanding.html#data-quality"><i class="fa fa-check"></i><b>2.2</b> Data Quality</a></li>
+<li class="chapter" data-level="2.3" data-path="understanding.html"><a href="understanding.html#initial-understanding"><i class="fa fa-check"></i><b>2.3</b> Initial Understanding</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="understanding.html"><a href="understanding.html#customers"><i class="fa fa-check"></i><b>2.3.1</b> Customers</a></li>
+<li class="chapter" data-level="2.3.2" data-path="understanding.html"><a href="understanding.html#industry"><i class="fa fa-check"></i><b>2.3.2</b> Industry</a></li>
+<li class="chapter" data-level="2.3.3" data-path="understanding.html"><a href="understanding.html#industry-6"><i class="fa fa-check"></i><b>2.3.3</b> Industry 6</a></li>
+<li class="chapter" data-level="2.3.4" data-path="understanding.html"><a href="understanding.html#industry-10"><i class="fa fa-check"></i><b>2.3.4</b> Industry 10</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="understanding.html"><a href="understanding.html#monthly-amount"><i class="fa fa-check"></i><b>2.4</b> Monthly Amount</a></li>
+<li class="chapter" data-level="2.5" data-path="understanding.html"><a href="understanding.html#target-dataset"><i class="fa fa-check"></i><b>2.5</b> Target dataset</a></li>
+<li class="chapter" data-level="2.6" data-path="understanding.html"><a href="understanding.html#aggregate-mean"><i class="fa fa-check"></i><b>2.6</b> Aggregate mean</a></li>
+<li class="chapter" data-level="2.7" data-path="understanding.html"><a href="understanding.html#conclusions"><i class="fa fa-check"></i><b>2.7</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-cleaning.html"><a href="data-cleaning.html"><i class="fa fa-check"></i><b>3</b> Data Cleaning</a></li>
+<li class="chapter" data-level="4" data-path="external-data.html"><a href="external-data.html"><i class="fa fa-check"></i><b>4</b> External Data</a><ul>
+<li class="chapter" data-level="4.1" data-path="external-data.html"><a href="external-data.html#consumer-price-index"><i class="fa fa-check"></i><b>4.1</b> Consumer Price index</a></li>
+<li class="chapter" data-level="4.2" data-path="external-data.html"><a href="external-data.html#asx-data"><i class="fa fa-check"></i><b>4.2</b> ASX Data</a></li>
+<li class="chapter" data-level="4.3" data-path="external-data.html"><a href="external-data.html#comined-external-data"><i class="fa fa-check"></i><b>4.3</b> Comined external data</a></li>
+<li class="chapter" data-level="4.4" data-path="external-data.html"><a href="external-data.html#unused-aditional-ideas"><i class="fa fa-check"></i><b>4.4</b> Unused aditional ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-preparation.html"><a href="data-preparation.html"><i class="fa fa-check"></i><b>5</b> Data Preparation</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-preparation.html"><a href="data-preparation.html#constructed-variables"><i class="fa fa-check"></i><b>5.1</b> Constructed Variables</a></li>
+<li class="chapter" data-level="5.2" data-path="data-preparation.html"><a href="data-preparation.html#integrated-variables"><i class="fa fa-check"></i><b>5.2</b> Integrated variables</a></li>
+<li class="chapter" data-level="5.3" data-path="data-preparation.html"><a href="data-preparation.html#output"><i class="fa fa-check"></i><b>5.3</b> Output</a></li>
+<li class="chapter" data-level="5.4" data-path="data-preparation.html"><a href="data-preparation.html#unused"><i class="fa fa-check"></i><b>5.4</b> unused</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="modelling.html"><a href="modelling.html"><i class="fa fa-check"></i><b>6</b> Modelling</a><ul>
+<li class="chapter" data-level="6.1" data-path="modelling.html"><a href="modelling.html#test-setup"><i class="fa fa-check"></i><b>6.1</b> Test Setup</a></li>
+<li class="chapter" data-level="6.2" data-path="modelling.html"><a href="modelling.html#initial-model"><i class="fa fa-check"></i><b>6.2</b> Initial Model</a></li>
+<li class="chapter" data-level="6.3" data-path="modelling.html"><a href="modelling.html#all-ordinaries-volume"><i class="fa fa-check"></i><b>6.3</b> All Ordinaries Volume</a></li>
+<li class="chapter" data-level="6.4" data-path="modelling.html"><a href="modelling.html#experiment"><i class="fa fa-check"></i><b>6.4</b> Experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html"><i class="fa fa-check"></i><b>7</b> Fitting to all groups</a><ul>
+<li class="chapter" data-level="7.1" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#performance"><i class="fa fa-check"></i><b>7.1</b> Performance</a></li>
+<li class="chapter" data-level="7.2" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#improvements"><i class="fa fa-check"></i><b>7.2</b> improvements</a></li>
+<li class="chapter" data-level="7.3" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#industry-6-location-1-round-2"><i class="fa fa-check"></i><b>7.3</b> Industry 6 Location 1 (round 2)</a></li>
+<li class="chapter" data-level="7.4" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#industry-3-location-9"><i class="fa fa-check"></i><b>7.4</b> Industry 3 location 9</a></li>
+<li class="chapter" data-level="7.5" data-path="fitting-to-all-groups.html"><a href="fitting-to-all-groups.html#dply-deployment"><i class="fa fa-check"></i><b>7.5</b> dply deployment</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">DAM AT1-A</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modelling" class="section level1">
+<h1><span class="header-section-number">6</span> Modelling</h1>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" data-line-number="1"><span class="co"># import prepped data</span></a>
+<a class="sourceLine" id="cb165-2" data-line-number="2"><span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&quot;./core_data/transactions_prepd.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb165-3" data-line-number="3">transactions_prepd &lt;-<span class="st"> </span>transactions_prepd <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb165-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>sdtrans)</a></code></pre></div>
+<div id="test-setup" class="section level2">
+<h2><span class="header-section-number">6.1</span> Test Setup</h2>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1">pi1l1 &lt;-<span class="st"> </span>transactions_prepd <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb166-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, location <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb166-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>industry, <span class="op">-</span>location, <span class="op">-</span>trdate) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#removing trdate and switching to ndate for ease of calculation</span></a>
+<a class="sourceLine" id="cb166-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(ndate) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb166-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(ndate, <span class="kw">everything</span>())</a>
+<a class="sourceLine" id="cb166-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb166-7" data-line-number="7">trainrows &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="fl">0.75</span><span class="op">*</span><span class="kw">nrow</span>(pi1l1))</a>
+<a class="sourceLine" id="cb166-8" data-line-number="8">train_i1l1 &lt;-<span class="st"> </span>pi1l1[<span class="dv">1</span><span class="op">:</span>trainrows,]</a>
+<a class="sourceLine" id="cb166-9" data-line-number="9">test_i1l1 &lt;-<span class="st"> </span>pi1l1[(trainrows<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="kw">nrow</span>(pi1l1),]</a></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1">baseplot_train_i1l1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(train_i1l1, <span class="kw">aes</span>(<span class="dt">x =</span>  ndate, <span class="dt">y =</span> mean_amount)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb167-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb167-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> trmonth, <span class="dt">vjust=</span><span class="op">-</span><span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb167-4" data-line-number="4">baseplot_train_i1l1</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+</div>
+<div id="initial-model" class="section level2">
+<h2><span class="header-section-number">6.2</span> Initial Model</h2>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1"><span class="co">#remove trmonth as we have dummy variables in place</span></a>
+<a class="sourceLine" id="cb168-2" data-line-number="2">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb168-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>trmonth) </a></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb169-2" data-line-number="2"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = train_i1l1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4848.4 -1493.8   198.9  1899.1  5118.7 
+## 
+## Coefficients: (1 not defined because of singularities)
+##                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         -7.343e+05  2.834e+05  -2.591 0.020459 *  
+## ndate                1.110e+02  5.288e+01   2.099 0.053111 .  
+## ntrans              -3.719e+02  3.852e+02  -0.965 0.349673    
+## Jan                  2.215e+01  4.046e+03   0.005 0.995704    
+## Feb                  2.145e+04  4.502e+03   4.765 0.000251 ***
+## Mar                  1.976e+04  4.865e+03   4.061 0.001025 ** 
+## Apr                  9.349e+03  3.839e+03   2.435 0.027845 *  
+## May                  1.731e+04  4.228e+03   4.094 0.000958 ***
+## Jun                  4.862e+03  4.541e+03   1.071 0.301279    
+## Jul                  1.779e+04  3.714e+03   4.791 0.000238 ***
+## Aug                  1.354e+04  4.097e+03   3.305 0.004809 ** 
+## Sep                  5.375e+03  4.205e+03   1.278 0.220561    
+## Oct                  2.398e+04  4.020e+03   5.966 2.59e-05 ***
+## Nov                  1.428e+04  3.899e+03   3.662 0.002310 ** 
+## Dec                         NA         NA      NA       NA    
+## allords_price       -6.994e+01  4.079e+01  -1.715 0.106948    
+## allords_volume       1.443e-06  1.021e-06   1.413 0.177994    
+## allords_change_perc -5.944e+04  3.880e+04  -1.532 0.146411    
+## smallords_price      1.903e+01  2.563e+01   0.742 0.469341    
+## asx20_price          7.543e+01  4.564e+01   1.652 0.119217    
+## asx20_volume        -2.657e-06  6.040e-06  -0.440 0.666245    
+## trindex_predict     -7.799e+03  5.913e+03  -1.319 0.206972    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3959 on 15 degrees of freedom
+## Multiple R-squared:  0.9452, Adjusted R-squared:  0.8722 
+## F-statistic: 12.94 on 20 and 15 DF,  p-value: 3.733e-06</code></pre>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-24-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-24-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-24-4.png" width="672" /></p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a></code></pre></div>
+<pre><code>## Warning in predict.lm(lm_train_i1l1, train_i1l1): prediction from a rank-
+## deficient fit may be misleading</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-5.png" width="672" /></p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1"><span class="co">#AR^2 of 0.8722 but with some issues</span></a></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1">cor_train_i1l1 &lt;-<span class="st"> </span><span class="kw">cor</span>(train_i1l1)</a>
+<a class="sourceLine" id="cb176-2" data-line-number="2"><span class="kw">corrplot</span>(cor_train_i1l1, <span class="dt">method =</span> <span class="st">&quot;number&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1"><span class="co"># highlights an unnoticed corrolation between transactions and date</span></a>
+<a class="sourceLine" id="cb177-2" data-line-number="2"><span class="kw">load</span>(<span class="dt">file =</span> <span class="st">&quot;./core_data/transactions_clean.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb177-3" data-line-number="3">t11 &lt;-<span class="st"> </span>transactions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb177-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(industry <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, location <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb177-5" data-line-number="5"><span class="kw">as.data.frame</span>(<span class="kw">table</span>(t11<span class="op">$</span>trdate))</a></code></pre></div>
+<pre><code>##          Var1 Freq
+## 1  2013-01-01   66
+## 2  2013-02-01   70
+## 3  2013-03-01   72
+## 4  2013-04-01   71
+## 5  2013-05-01   72
+## 6  2013-06-01   73
+## 7  2013-07-01   79
+## 8  2013-08-01   74
+## 9  2013-09-01   75
+## 10 2013-10-01   77
+## 11 2013-11-01   77
+## 12 2013-12-01   76
+## 13 2014-01-01   77
+## 14 2014-02-01   80
+## 15 2014-03-01   76
+## 16 2014-04-01   79
+## 17 2014-05-01   78
+## 18 2014-06-01   77
+## 19 2014-07-01   86
+## 20 2014-08-01   95
+## 21 2014-09-01   90
+## 22 2014-10-01   98
+## 23 2014-11-01  100
+## 24 2014-12-01   99
+## 25 2015-01-01  104
+## 26 2015-02-01  110
+## 27 2015-03-01  111
+## 28 2015-04-01  110
+## 29 2015-05-01  116
+## 30 2015-06-01  116
+## 31 2015-07-01  116
+## 32 2015-08-01  118
+## 33 2015-09-01  120
+## 34 2015-10-01  116
+## 35 2015-11-01  115
+## 36 2015-12-01  112
+## 37 2016-01-01  112
+## 38 2016-02-01  113
+## 39 2016-03-01  112
+## 40 2016-04-01  112
+## 41 2016-05-01  115
+## 42 2016-06-01  121
+## 43 2016-07-01  126
+## 44 2016-08-01  124
+## 45 2016-09-01  127
+## 46 2016-10-01  126
+## 47 2016-11-01  132</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1"><span class="co"># this verifies the correlation, this shows as the company has grown and the number of customers has increased,</span></a>
+<a class="sourceLine" id="cb179-2" data-line-number="2"><span class="co"># so has the mean spend per customer, or newer customers are spending more</span></a>
+<a class="sourceLine" id="cb179-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb179-4" data-line-number="4"><span class="co"># reducing variables with high correllation &amp; irrelevant months</span></a>
+<a class="sourceLine" id="cb179-5" data-line-number="5"><span class="co"># ntrans - ndate, </span></a>
+<a class="sourceLine" id="cb179-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb179-7" data-line-number="7">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb179-8" data-line-number="8"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>trindex_predict, <span class="op">-</span>asx20_price, <span class="op">-</span>Jun, <span class="op">-</span>Sep)</a></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1"><span class="co"># compare between ndate and ntrans</span></a>
+<a class="sourceLine" id="cb180-2" data-line-number="2">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>. <span class="op">-</span>ndate, <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb180-3" data-line-number="3"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ . - ndate, data = train_i1l1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7443.4 -2551.8   148.2  3296.3  6315.6 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)          1.736e+05  5.070e+04   3.424 0.002846 ** 
+## ntrans               4.541e+02  1.081e+02   4.202 0.000483 ***
+## Jan                 -1.119e+04  4.990e+03  -2.242 0.037071 *  
+## Feb                  1.153e+04  4.771e+03   2.418 0.025842 *  
+## Mar                  1.130e+04  4.385e+03   2.576 0.018503 *  
+## Apr                 -3.450e+02  4.386e+03  -0.079 0.938135    
+## May                  9.114e+03  3.741e+03   2.436 0.024850 *  
+## Jul                  8.579e+03  4.677e+03   1.834 0.082341 .  
+## Aug                  6.348e+03  3.673e+03   1.728 0.100171    
+## Oct                  1.486e+04  4.479e+03   3.318 0.003612 ** 
+## Nov                  5.054e+03  4.195e+03   1.205 0.243090    
+## Dec                 -4.862e+03  4.220e+03  -1.152 0.263500    
+## allords_price       -5.691e+00  5.559e+00  -1.024 0.318745    
+## allords_volume       1.627e-06  9.402e-07   1.730 0.099762 .  
+## allords_change_perc -4.714e+04  4.416e+04  -1.068 0.299118    
+## smallords_price     -1.482e+01  1.467e+01  -1.010 0.325000    
+## asx20_volume        -9.352e-06  4.795e-06  -1.951 0.066024 .  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4880 on 19 degrees of freedom
+## Multiple R-squared:  0.8946, Adjusted R-squared:  0.8059 
+## F-statistic: 10.08 on 16 and 19 DF,  p-value: 3.875e-06</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-4.png" width="672" /></p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb183-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb183-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-5.png" width="672" /></p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1"><span class="co">#AR^2 0.8059</span></a>
+<a class="sourceLine" id="cb184-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb184-3" data-line-number="3">lm_train_i1l1_high &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>. <span class="op">-</span>ntrans, <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb184-4" data-line-number="4"><span class="kw">summary</span>(lm_train_i1l1_high)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ . - ntrans, data = train_i1l1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -6398.0 -1591.3  -423.4  2054.8  5275.9 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         -2.275e+05  8.016e+04  -2.838 0.010511 *  
+## ndate                2.637e+01  4.360e+00   6.049  8.1e-06 ***
+## Jan                 -7.212e+03  3.942e+03  -1.830 0.083045 .  
+## Feb                  1.294e+04  3.885e+03   3.330 0.003516 ** 
+## Mar                  1.289e+04  3.529e+03   3.654 0.001689 ** 
+## Apr                  3.341e+03  3.547e+03   0.942 0.358041    
+## May                  1.043e+04  3.031e+03   3.442 0.002734 ** 
+## Jul                  1.136e+04  3.768e+03   3.016 0.007099 ** 
+## Aug                  7.556e+03  2.953e+03   2.559 0.019208 *  
+## Oct                  1.587e+04  3.603e+03   4.406 0.000304 ***
+## Nov                  7.335e+03  3.254e+03   2.254 0.036167 *  
+## Dec                 -5.159e+03  3.421e+03  -1.508 0.147994    
+## allords_price       -7.721e+00  4.460e+00  -1.731 0.099613 .  
+## allords_volume       1.689e-06  7.538e-07   2.241 0.037174 *  
+## allords_change_perc -4.289e+04  3.584e+04  -1.197 0.246118    
+## smallords_price     -1.039e+01  1.181e+01  -0.880 0.389959    
+## asx20_volume        -4.224e-06  3.020e-06  -1.399 0.178006    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3962 on 19 degrees of freedom
+## Multiple R-squared:  0.9305, Adjusted R-squared:  0.872 
+## F-statistic:  15.9 on 16 and 19 DF,  p-value: 9.484e-08</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1_high)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-6.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-7.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-8.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-9.png" width="672" /></p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1_high, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb187-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb187-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-10.png" width="672" /></p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="co">#AR^2 0.872</span></a>
+<a class="sourceLine" id="cb188-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb188-3" data-line-number="3"><span class="co"># removing ntrans</span></a>
+<a class="sourceLine" id="cb188-4" data-line-number="4">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb188-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>ntrans)</a>
+<a class="sourceLine" id="cb188-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb188-7" data-line-number="7"><span class="co"># checking corroloation once again</span></a>
+<a class="sourceLine" id="cb188-8" data-line-number="8">cor_train_i1l1 &lt;-<span class="st"> </span><span class="kw">cor</span>(train_i1l1)</a>
+<a class="sourceLine" id="cb188-9" data-line-number="9"><span class="kw">corrplot</span>(cor_train_i1l1, <span class="dt">method =</span> <span class="st">&quot;number&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-11.png" width="672" /></p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" data-line-number="1"><span class="co"># test between as20_volume and allords_volume</span></a>
+<a class="sourceLine" id="cb189-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb189-3" data-line-number="3">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>. <span class="op">-</span>asx20_volume, <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb189-4" data-line-number="4"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ . - asx20_volume, data = train_i1l1)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+##  -8016  -1486   -206   1578   5984 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         -1.755e+05  7.271e+04  -2.414 0.025470 *  
+## ndate                2.290e+01  3.671e+00   6.239  4.3e-06 ***
+## Jan                 -6.266e+03  3.975e+03  -1.576 0.130648    
+## Feb                  1.205e+04  3.923e+03   3.071 0.006033 ** 
+## Mar                  1.355e+04  3.579e+03   3.786 0.001159 ** 
+## Apr                  3.996e+03  3.599e+03   1.110 0.279999    
+## May                  1.074e+04  3.094e+03   3.472 0.002404 ** 
+## Jul                  1.149e+04  3.856e+03   2.979 0.007419 ** 
+## Aug                  7.643e+03  3.022e+03   2.529 0.019963 *  
+## Oct                  1.600e+04  3.687e+03   4.340 0.000318 ***
+## Nov                  8.716e+03  3.174e+03   2.747 0.012440 *  
+## Dec                 -4.567e+03  3.475e+03  -1.314 0.203646    
+## allords_price       -6.042e+00  4.397e+00  -1.374 0.184572    
+## allords_volume       1.280e-06  7.112e-07   1.800 0.086938 .  
+## allords_change_perc -3.540e+04  3.627e+04  -0.976 0.340828    
+## smallords_price     -1.427e+01  1.176e+01  -1.213 0.239085    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4056 on 20 degrees of freedom
+## Multiple R-squared:  0.9234, Adjusted R-squared:  0.8659 
+## F-statistic: 16.06 on 15 and 20 DF,  p-value: 5.52e-08</code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-12.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-13.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-14.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-15.png" width="672" /></p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb192-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb192-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-16.png" width="672" /></p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" data-line-number="1"><span class="co">#0.8659</span></a>
+<a class="sourceLine" id="cb193-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb193-3" data-line-number="3">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>. <span class="op">-</span>allords_volume, <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb193-4" data-line-number="4"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ . - allords_volume, data = train_i1l1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -7330.6 -1691.6  -253.5  2189.1  6051.3 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         -1.114e+05  6.703e+04  -1.662  0.11213    
+## ndate                2.324e+01  4.526e+00   5.135 5.04e-05 ***
+## Jan                 -1.129e+04  3.833e+03  -2.945  0.00801 ** 
+## Feb                  1.337e+04  4.253e+03   3.143  0.00513 ** 
+## Mar                  1.662e+04  3.410e+03   4.876 9.15e-05 ***
+## Apr                  6.890e+02  3.664e+03   0.188  0.85275    
+## May                  1.181e+04  3.253e+03   3.629  0.00167 ** 
+## Jul                  9.808e+03  4.058e+03   2.417  0.02534 *  
+## Aug                  8.767e+03  3.182e+03   2.755  0.01221 *  
+## Oct                  1.504e+04  3.927e+03   3.829  0.00105 ** 
+## Nov                  5.575e+03  3.460e+03   1.611  0.12285    
+## Dec                 -7.226e+03  3.610e+03  -2.002  0.05906 .  
+## allords_price       -1.034e+01  4.717e+00  -2.191  0.04045 *  
+## allords_change_perc -1.667e+04  3.712e+04  -0.449  0.65831    
+## smallords_price     -2.316e+01  1.134e+01  -2.042  0.05457 .  
+## asx20_volume        -1.600e-06  3.051e-06  -0.524  0.60573    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4343 on 20 degrees of freedom
+## Multiple R-squared:  0.9121, Adjusted R-squared:  0.8463 
+## F-statistic: 13.84 on 15 and 20 DF,  p-value: 2.013e-07</code></pre>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-17.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-18.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-19.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-20.png" width="672" /></p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb196-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb196-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-21.png" width="672" /></p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1"><span class="co">#0.8463</span></a>
+<a class="sourceLine" id="cb197-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb197-3" data-line-number="3">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb197-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>asx20_volume)</a>
+<a class="sourceLine" id="cb197-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb197-6" data-line-number="6">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb197-7" data-line-number="7"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = train_i1l1)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+##  -8016  -1486   -206   1578   5984 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         -1.755e+05  7.271e+04  -2.414 0.025470 *  
+## ndate                2.290e+01  3.671e+00   6.239  4.3e-06 ***
+## Jan                 -6.266e+03  3.975e+03  -1.576 0.130648    
+## Feb                  1.205e+04  3.923e+03   3.071 0.006033 ** 
+## Mar                  1.355e+04  3.579e+03   3.786 0.001159 ** 
+## Apr                  3.996e+03  3.599e+03   1.110 0.279999    
+## May                  1.074e+04  3.094e+03   3.472 0.002404 ** 
+## Jul                  1.149e+04  3.856e+03   2.979 0.007419 ** 
+## Aug                  7.643e+03  3.022e+03   2.529 0.019963 *  
+## Oct                  1.600e+04  3.687e+03   4.340 0.000318 ***
+## Nov                  8.716e+03  3.174e+03   2.747 0.012440 *  
+## Dec                 -4.567e+03  3.475e+03  -1.314 0.203646    
+## allords_price       -6.042e+00  4.397e+00  -1.374 0.184572    
+## allords_volume       1.280e-06  7.112e-07   1.800 0.086938 .  
+## allords_change_perc -3.540e+04  3.627e+04  -0.976 0.340828    
+## smallords_price     -1.427e+01  1.176e+01  -1.213 0.239085    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4056 on 20 degrees of freedom
+## Multiple R-squared:  0.9234, Adjusted R-squared:  0.8659 
+## F-statistic: 16.06 on 15 and 20 DF,  p-value: 5.52e-08</code></pre>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-22.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-23.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-24.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-25.png" width="672" /></p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb200-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb200-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-26.png" width="672" /></p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1"><span class="co"># the adjusted r-squared is decreasing as variables that correlated with ndate are removed, ndate could be related as a polynomial</span></a>
+<a class="sourceLine" id="cb201-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb201-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb201-4" data-line-number="4">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb201-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>allords_change_perc, <span class="op">-</span>smallords_price)</a>
+<a class="sourceLine" id="cb201-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb201-7" data-line-number="7">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb201-8" data-line-number="8"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = train_i1l1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -9830.9 -2048.1   412.5  2021.8  6260.8 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -2.583e+05  4.583e+04  -5.637 1.14e-05 ***
+## ndate           2.682e+01  3.139e+00   8.542 1.95e-08 ***
+## Jan            -7.968e+03  3.714e+03  -2.145  0.04321 *  
+## Feb             7.760e+03  3.361e+03   2.309  0.03072 *  
+## Mar             1.181e+04  3.425e+03   3.447  0.00230 ** 
+## Apr             2.830e+03  3.514e+03   0.805  0.42934    
+## May             9.750e+03  3.142e+03   3.103  0.00519 ** 
+## Jul             8.627e+03  3.159e+03   2.731  0.01219 *  
+## Aug             6.505e+03  3.039e+03   2.141  0.04362 *  
+## Oct             1.271e+04  3.064e+03   4.149  0.00042 ***
+## Nov             8.527e+03  3.263e+03   2.613  0.01587 *  
+## Dec            -6.692e+03  3.182e+03  -2.103  0.04712 *  
+## allords_price  -8.681e+00  4.344e+00  -1.998  0.05818 .  
+## allords_volume  1.506e-06  6.598e-07   2.282  0.03251 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4231 on 22 degrees of freedom
+## Multiple R-squared:  0.9083, Adjusted R-squared:  0.854 
+## F-statistic: 16.75 on 13 and 22 DF,  p-value: 1.782e-08</code></pre>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-27.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-28.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-29.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-30.png" width="672" /></p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb204-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb204-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-31.png" width="672" /></p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1"><span class="co"># 0.854</span></a>
+<a class="sourceLine" id="cb205-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb205-3" data-line-number="3">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb205-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Apr)</a>
+<a class="sourceLine" id="cb205-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb205-6" data-line-number="6">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb205-7" data-line-number="7"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = train_i1l1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10060.5  -2060.6    377.3   2434.5   5783.6 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -2.451e+05  4.247e+04  -5.772 7.03e-06 ***
+## ndate           2.614e+01  3.001e+00   8.711 9.66e-09 ***
+## Jan            -9.456e+03  3.197e+03  -2.957 0.007059 ** 
+## Feb             6.789e+03  3.113e+03   2.181 0.039667 *  
+## Mar             1.115e+04  3.301e+03   3.377 0.002597 ** 
+## May             8.906e+03  2.940e+03   3.029 0.005963 ** 
+## Jul             7.581e+03  2.857e+03   2.654 0.014190 *  
+## Aug             5.779e+03  2.879e+03   2.007 0.056636 .  
+## Oct             1.183e+04  2.839e+03   4.166 0.000372 ***
+## Nov             7.447e+03  2.952e+03   2.523 0.019009 *  
+## Dec            -7.752e+03  2.875e+03  -2.696 0.012883 *  
+## allords_price  -8.241e+00  4.276e+00  -1.927 0.066410 .  
+## allords_volume  1.306e-06  6.064e-07   2.153 0.042062 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4199 on 23 degrees of freedom
+## Multiple R-squared:  0.9056, Adjusted R-squared:  0.8563 
+## F-statistic: 18.38 on 12 and 23 DF,  p-value: 5.428e-09</code></pre>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-32.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-33.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-34.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-26-35.png" width="672" /></p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb208-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb208-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-36.png" width="672" /></p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1"><span class="co">#0.8563</span></a>
+<a class="sourceLine" id="cb209-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb209-3" data-line-number="3">train_i1l1_ok &lt;-<span class="st"> </span>train_i1l1</a></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>. <span class="op">+</span><span class="st"> </span><span class="kw">sin</span>(<span class="dv">2</span><span class="op">*</span>pi<span class="op">*</span>ndate), <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb210-2" data-line-number="2"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ . + sin(2 * pi * ndate), data = train_i1l1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10134.2  -2092.0    339.9   2384.7   5845.0 
+## 
+## Coefficients:
+##                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         -2.412e+05  4.491e+04  -5.370 2.16e-05 ***
+## ndate                2.589e+01  3.150e+00   8.219 3.76e-08 ***
+## Jan                 -9.865e+03  3.483e+03  -2.832 0.009693 ** 
+## Feb                  6.106e+03  3.775e+03   1.618 0.120004    
+## Mar                  1.079e+04  3.536e+03   3.050 0.005870 ** 
+## May                  8.611e+03  3.125e+03   2.755 0.011551 *  
+## Jul                  7.357e+03  2.989e+03   2.462 0.022148 *  
+## Aug                  5.727e+03  2.941e+03   1.947 0.064355 .  
+## Oct                  1.184e+04  2.896e+03   4.090 0.000485 ***
+## Nov                  7.264e+03  3.060e+03   2.373 0.026779 *  
+## Dec                 -7.672e+03  2.942e+03  -2.608 0.016063 *  
+## allords_price       -8.327e+00  4.369e+00  -1.906 0.069808 .  
+## allords_volume       1.330e-06  6.228e-07   2.136 0.044099 *  
+## sin(2 * pi * ndate) -8.928e+13  2.669e+14  -0.334 0.741208    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4282 on 22 degrees of freedom
+## Multiple R-squared:  0.906,  Adjusted R-squared:  0.8505 
+## F-statistic: 16.32 on 13 and 22 DF,  p-value: 2.292e-08</code></pre>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-27-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-27-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-27-4.png" width="672" /></p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb213-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb213-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-5.png" width="672" /></p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>. <span class="op">+</span><span class="st"> </span>allords_volume<span class="op">*</span>ndate<span class="op">*</span>Dec, <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb214-2" data-line-number="2"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ . + allords_volume * ndate * Dec, 
+##     data = train_i1l1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -9879.9 -1327.5   473.9  2186.7  6231.0 
+## 
+## Coefficients: (1 not defined because of singularities)
+##                            Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)              -5.160e+05  4.913e+05  -1.050 0.306121    
+## ndate                     4.321e+01  3.050e+01   1.417 0.171877    
+## Jan                      -9.290e+03  3.416e+03  -2.720 0.013193 *  
+## Feb                       7.236e+03  3.309e+03   2.187 0.040797 *  
+## Mar                       1.165e+04  3.508e+03   3.320 0.003420 ** 
+## May                       8.644e+03  3.181e+03   2.717 0.013263 *  
+## Jul                       7.445e+03  3.027e+03   2.460 0.023145 *  
+## Aug                       5.905e+03  3.028e+03   1.950 0.065357 .  
+## Oct                       1.184e+04  2.982e+03   3.972 0.000751 ***
+## Nov                       7.258e+03  3.107e+03   2.336 0.030038 *  
+## Dec                       8.704e+04  1.594e+05   0.546 0.591142    
+## allords_price            -9.023e+00  4.599e+00  -1.962 0.063807 .  
+## allords_volume            1.597e-05  2.697e-05   0.592 0.560402    
+## ndate:allords_volume     -9.114e-10  1.668e-09  -0.546 0.590820    
+## Dec:allords_volume        2.802e-06  4.041e-06   0.694 0.495918    
+## ndate:Dec                -8.643e+00  1.126e+01  -0.768 0.451687    
+## ndate:Dec:allords_volume         NA         NA      NA       NA    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4408 on 20 degrees of freedom
+## Multiple R-squared:  0.9095, Adjusted R-squared:  0.8416 
+## F-statistic:  13.4 on 15 and 20 DF,  p-value: 2.669e-07</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## Warning: not plotting observations with leverage one:
+##   12, 24, 36</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-28-2.png" width="672" /></p>
+<pre><code>## Warning: not plotting observations with leverage one:
+##   12, 24, 36</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-28-4.png" width="672" /></p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a></code></pre></div>
+<pre><code>## Warning in predict.lm(lm_train_i1l1, train_i1l1): prediction from a rank-
+## deficient fit may be misleading</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-5.png" width="672" /></p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb222-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Aug, <span class="op">-</span>allords_price)</a>
+<a class="sourceLine" id="cb222-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb222-4" data-line-number="4">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb222-5" data-line-number="5"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = train_i1l1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10850.8  -1751.8    -71.1   1739.0   7622.6 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -2.531e+05  4.610e+04  -5.490 1.06e-05 ***
+## ndate           2.310e+01  2.632e+00   8.775 4.18e-09 ***
+## Jan            -8.622e+03  3.332e+03  -2.588 0.015865 *  
+## Feb             3.020e+03  2.984e+03   1.012 0.321186    
+## Mar             6.862e+03  3.098e+03   2.215 0.036089 *  
+## May             6.041e+03  2.974e+03   2.031 0.052989 .  
+## Jul             5.331e+03  2.968e+03   1.796 0.084527 .  
+## Oct             9.858e+03  2.968e+03   3.321 0.002757 ** 
+## Nov             7.776e+03  3.050e+03   2.549 0.017307 *  
+## Dec            -8.189e+03  3.036e+03  -2.697 0.012336 *  
+## allords_volume  2.148e-06  5.266e-07   4.079 0.000405 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4581 on 25 degrees of freedom
+## Multiple R-squared:  0.8778, Adjusted R-squared:  0.8289 
+## F-statistic: 17.95 on 10 and 25 DF,  p-value: 5.018e-09</code></pre>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-4.png" width="672" /></p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb225-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb225-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-5.png" width="672" /></p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1"><span class="co"># 0.8289, </span></a>
+<a class="sourceLine" id="cb226-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb226-3" data-line-number="3">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb226-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Feb)</a>
+<a class="sourceLine" id="cb226-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb226-6" data-line-number="6">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb226-7" data-line-number="7"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = train_i1l1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10706.7  -1791.3     82.8   2242.9   7118.8 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -2.484e+05  4.589e+04  -5.414 1.13e-05 ***
+## ndate           2.282e+01  2.619e+00   8.713 3.44e-09 ***
+## Jan            -9.193e+03  3.285e+03  -2.798 0.009547 ** 
+## Mar             6.187e+03  3.027e+03   2.044 0.051183 .  
+## May             5.416e+03  2.911e+03   1.861 0.074119 .  
+## Jul             4.753e+03  2.914e+03   1.631 0.114872    
+## Oct             9.294e+03  2.917e+03   3.186 0.003726 ** 
+## Nov             7.258e+03  3.008e+03   2.413 0.023186 *  
+## Dec            -8.703e+03  2.995e+03  -2.906 0.007380 ** 
+## allords_volume  2.175e-06  5.262e-07   4.134 0.000329 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4584 on 26 degrees of freedom
+## Multiple R-squared:  0.8728, Adjusted R-squared:  0.8287 
+## F-statistic: 19.82 on 9 and 26 DF,  p-value: 1.745e-09</code></pre>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-6.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-7.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-8.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-9.png" width="672" /></p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb229-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb229-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-10.png" width="672" /></p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1"><span class="co"># 0.8287</span></a>
+<a class="sourceLine" id="cb230-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb230-3" data-line-number="3">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb230-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Jul)</a>
+<a class="sourceLine" id="cb230-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb230-6" data-line-number="6">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb230-7" data-line-number="7"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = train_i1l1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -11051.5  -1682.9    193.3   2181.3   7929.8 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -2.465e+05  4.727e+04  -5.215 1.71e-05 ***
+## ndate           2.284e+01  2.698e+00   8.464 4.46e-09 ***
+## Jan            -1.019e+04  3.325e+03  -3.066  0.00489 ** 
+## Mar             5.546e+03  3.092e+03   1.794  0.08408 .  
+## May             4.674e+03  2.962e+03   1.578  0.12617    
+## Oct             8.494e+03  2.962e+03   2.867  0.00793 ** 
+## Nov             6.345e+03  3.045e+03   2.083  0.04681 *  
+## Dec            -9.602e+03  3.033e+03  -3.166  0.00381 ** 
+## allords_volume  2.093e-06  5.396e-07   3.879  0.00061 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4722 on 27 degrees of freedom
+## Multiple R-squared:  0.8597, Adjusted R-squared:  0.8182 
+## F-statistic: 20.69 on 8 and 27 DF,  p-value: 1.237e-09</code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-11.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-12.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-13.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-14.png" width="672" /></p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb233-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb233-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-15.png" width="672" /></p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1"><span class="co">#0.8182</span></a>
+<a class="sourceLine" id="cb234-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb234-3" data-line-number="3">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb234-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>May)</a>
+<a class="sourceLine" id="cb234-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb234-6" data-line-number="6">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb234-7" data-line-number="7"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = train_i1l1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -11832.8  -1758.4   -308.5   1480.3  10954.5 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -2.475e+05  4.850e+04  -5.102 2.10e-05 ***
+## ndate           2.284e+01  2.769e+00   8.249 5.62e-09 ***
+## Jan            -1.063e+04  3.401e+03  -3.125 0.004114 ** 
+## Mar             4.727e+03  3.128e+03   1.511 0.141988    
+## Oct             7.839e+03  3.010e+03   2.604 0.014572 *  
+## Nov             5.811e+03  3.106e+03   1.871 0.071872 .  
+## Dec            -1.015e+04  3.092e+03  -3.284 0.002751 ** 
+## allords_volume  2.181e-06  5.508e-07   3.959 0.000469 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4847 on 28 degrees of freedom
+## Multiple R-squared:  0.8468, Adjusted R-squared:  0.8085 
+## F-statistic: 22.11 on 7 and 28 DF,  p-value: 7.884e-10</code></pre>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-16.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-17.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-18.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-19.png" width="672" /></p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb237-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb237-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-20.png" width="672" /></p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1"><span class="co">#0.8085</span></a>
+<a class="sourceLine" id="cb238-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb238-3" data-line-number="3">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb238-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Mar)</a>
+<a class="sourceLine" id="cb238-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb238-6" data-line-number="6">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb238-7" data-line-number="7"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = train_i1l1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -12675.8  -1882.2   -194.8   3226.3  10807.6 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -2.513e+05  4.950e+04  -5.077 2.05e-05 ***
+## ndate           2.285e+01  2.830e+00   8.076 6.62e-09 ***
+## Jan            -1.054e+04  3.475e+03  -3.034 0.005053 ** 
+## Oct             7.334e+03  3.057e+03   2.399 0.023086 *  
+## Nov             5.627e+03  3.172e+03   1.774 0.086553 .  
+## Dec            -1.038e+04  3.156e+03  -3.289 0.002638 ** 
+## allords_volume  2.416e-06  5.399e-07   4.475 0.000109 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4953 on 29 degrees of freedom
+## Multiple R-squared:  0.8343, Adjusted R-squared:    0.8 
+## F-statistic: 24.34 on 6 and 29 DF,  p-value: 4.368e-10</code></pre>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb240-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-21.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-22.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-23.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-24.png" width="672" /></p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb241-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb241-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-25.png" width="672" /></p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1"><span class="co">#0.8</span></a>
+<a class="sourceLine" id="cb242-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb242-3" data-line-number="3">train_i1l1 &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb242-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Nov)</a>
+<a class="sourceLine" id="cb242-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb242-6" data-line-number="6">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb242-7" data-line-number="7"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = train_i1l1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -12894.5  -1933.7    -27.4   3141.3   9781.4 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -2.519e+05  5.124e+04  -4.916 2.95e-05 ***
+## ndate           2.320e+01  2.922e+00   7.938 7.36e-09 ***
+## Jan            -1.177e+04  3.526e+03  -3.338 0.002265 ** 
+## Oct             6.625e+03  3.137e+03   2.112 0.043159 *  
+## Dec            -1.140e+04  3.212e+03  -3.549 0.001297 ** 
+## allords_volume  2.172e-06  5.405e-07   4.019 0.000363 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5127 on 30 degrees of freedom
+## Multiple R-squared:  0.8163, Adjusted R-squared:  0.7857 
+## F-statistic: 26.67 on 5 and 30 DF,  p-value: 3.389e-10</code></pre>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-26.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-27.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-28.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-29.png" width="672" /></p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb245-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb245-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-30.png" width="672" /></p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1"><span class="co">#0.7857</span></a>
+<a class="sourceLine" id="cb246-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb246-3" data-line-number="3">lm_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>. <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(ndate<span class="op">^</span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(ndate<span class="op">^</span><span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(ndate<span class="op">^</span><span class="dv">5</span>), <span class="dt">data =</span> train_i1l1)</a>
+<a class="sourceLine" id="cb246-4" data-line-number="4"><span class="kw">summary</span>(lm_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ . + I(ndate^2) + I(ndate^3) + I(ndate^5), 
+##     data = train_i1l1)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -12075.5  -2036.3      3.2   3322.7   9556.1 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)     5.795e+09  8.107e+09   0.715  0.48087   
+## ndate          -1.337e+06  1.873e+06  -0.714  0.48134   
+## Jan            -1.250e+04  3.778e+03  -3.309  0.00266 **
+## Oct             6.587e+03  3.300e+03   1.996  0.05606 . 
+## Dec            -1.193e+04  3.561e+03  -3.349  0.00240 **
+## allords_volume  2.232e-06  6.057e-07   3.684  0.00101 **
+## I(ndate^2)      1.097e+02  1.538e+02   0.713  0.48180   
+## I(ndate^3)     -3.374e-03  4.736e-03  -0.713  0.48226   
+## I(ndate^5)      1.277e-12  1.795e-12   0.711  0.48318   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5327 on 27 degrees of freedom
+## Multiple R-squared:  0.8215, Adjusted R-squared:  0.7686 
+## F-statistic: 15.53 on 8 and 27 DF,  p-value: 2.828e-08</code></pre>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-31.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-32.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-33.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-29-34.png" width="672" /></p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1">lm_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1, train_i1l1), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb249-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb249-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-35.png" width="672" /></p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1">x =<span class="st"> </span><span class="kw">model.matrix</span>(<span class="op">~</span>., train_i1l1_ok[,<span class="op">-</span><span class="dv">2</span>])</a>
+<a class="sourceLine" id="cb250-2" data-line-number="2">y =<span class="st"> </span>train_i1l1_ok<span class="op">$</span>mean_amount</a>
+<a class="sourceLine" id="cb250-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb250-4" data-line-number="4">cv.fit_ridge =<span class="st"> </span><span class="kw">cv.glmnet</span>(x, y, <span class="dt">family =</span> <span class="st">&#39;gaussian&#39;</span>, <span class="dt">nfolds =</span> <span class="dv">6</span>, <span class="dt">alpha =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb250-5" data-line-number="5">cv.fit_ridge<span class="op">$</span>lambda.min</a></code></pre></div>
+<pre><code>## [1] 75.6825</code></pre>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1"><span class="kw">coef</span>(cv.fit_ridge, <span class="dt">s =</span> cv.fit_ridge<span class="op">$</span>lambda<span class="fl">.1</span>se)</a></code></pre></div>
+<pre><code>## 14 x 1 sparse Matrix of class &quot;dgCMatrix&quot;
+##                            1
+## (Intercept)    -1.450277e+05
+## (Intercept)     .           
+## ndate           1.740200e+01
+## Jan            -9.173277e+03
+## Feb             .           
+## Mar             .           
+## May             .           
+## Jul             .           
+## Aug             .           
+## Oct             2.799762e+03
+## Nov             .           
+## Dec            -5.893588e+03
+## allords_price   .           
+## allords_volume  1.430776e-06</code></pre>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb254-1" data-line-number="1">ridge_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ndate =</span> train_i1l1_ok<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb254-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb254-3" data-line-number="3">ridge_predict<span class="op">$</span>mean_amount_pred &lt;-<span class="st"> </span><span class="kw">predict</span>(cv.fit_ridge<span class="op">$</span>glmnet.fit, <span class="dt">newx =</span> <span class="kw">model.matrix</span>(<span class="op">~</span>., train_i1l1_ok[, <span class="dv">-2</span>]), </a>
+<a class="sourceLine" id="cb254-4" data-line-number="4">                                                                             <span class="dt">s =</span> cv.fit_ridge<span class="op">$</span>lambda.min)</a>
+<a class="sourceLine" id="cb254-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb254-6" data-line-number="6">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> ridge_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1"><span class="co">#prediction_ridge = predict(cv.fit_ridge$glmnet.fit, newx = model.matrix(~ ., train_i1l1[, -2]), </span></a>
+<a class="sourceLine" id="cb255-2" data-line-number="2">                         <span class="co"># type = &quot;class&quot;,</span></a>
+<a class="sourceLine" id="cb255-3" data-line-number="3">                          <span class="co">#s = cv.fit_ridge$lambda.min)</span></a>
+<a class="sourceLine" id="cb255-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb255-5" data-line-number="5"><span class="kw">rmse</span>(train_i1l1_ok<span class="op">$</span>mean_amount, ridge_predict<span class="op">$</span>mean_amount_pred)</a></code></pre></div>
+<pre><code>## [1] 3381.967</code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" data-line-number="1"><span class="kw">rmse</span>(train_i1l1_ok<span class="op">$</span>mean_amount, lm_train_i1l1_predict<span class="op">$</span>mean_amount_pred)</a></code></pre></div>
+<pre><code>## [1] 4613.697</code></pre>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb259-1" data-line-number="1"><span class="co"># over multiple tests lasso consistently 0&#39;s the Feb, Aug, allords_price variables with minimal impact to RMSE error comared to the &quot;ok&quot; model</span></a>
+<a class="sourceLine" id="cb259-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb259-3" data-line-number="3">train_i1l1_ok2 &lt;-<span class="st"> </span>train_i1l1_ok <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb259-4" data-line-number="4"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Feb, <span class="op">-</span>Aug, <span class="op">-</span>allords_price)</a></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1">lm_train_i1l1_ok2 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span>., <span class="dt">data =</span> train_i1l1_ok2)</a>
+<a class="sourceLine" id="cb260-2" data-line-number="2"><span class="kw">summary</span>(lm_train_i1l1_ok2)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ., data = train_i1l1_ok2)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10706.7  -1791.3     82.8   2242.9   7118.8 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -2.484e+05  4.589e+04  -5.414 1.13e-05 ***
+## ndate           2.282e+01  2.619e+00   8.713 3.44e-09 ***
+## Jan            -9.193e+03  3.285e+03  -2.798 0.009547 ** 
+## Mar             6.187e+03  3.027e+03   2.044 0.051183 .  
+## May             5.416e+03  2.911e+03   1.861 0.074119 .  
+## Jul             4.753e+03  2.914e+03   1.631 0.114872    
+## Oct             9.294e+03  2.917e+03   3.186 0.003726 ** 
+## Nov             7.258e+03  3.008e+03   2.413 0.023186 *  
+## Dec            -8.703e+03  2.995e+03  -2.906 0.007380 ** 
+## allords_volume  2.175e-06  5.262e-07   4.134 0.000329 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4584 on 26 degrees of freedom
+## Multiple R-squared:  0.8728, Adjusted R-squared:  0.8287 
+## F-statistic: 19.82 on 9 and 26 DF,  p-value: 1.745e-09</code></pre>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb262-1" data-line-number="1"><span class="kw">plot</span>(lm_train_i1l1_ok2)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-31-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-31-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-31-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-31-4.png" width="672" /></p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb263-1" data-line-number="1">lm_train_i1l1_predict_ok2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1_ok2, train_i1l1_ok2), <span class="dt">ndate =</span> train_i1l1<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb263-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb263-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lm_train_i1l1_predict_ok2, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-31-5.png" width="672" /></p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1">x =<span class="st"> </span><span class="kw">model.matrix</span>(<span class="op">~</span>., train_i1l1_ok2[,<span class="op">-</span><span class="dv">2</span>])</a>
+<a class="sourceLine" id="cb264-2" data-line-number="2">y =<span class="st"> </span>train_i1l1_ok2<span class="op">$</span>mean_amount</a>
+<a class="sourceLine" id="cb264-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb264-4" data-line-number="4">cv.fit_ridge_ok =<span class="st"> </span><span class="kw">cv.glmnet</span>(x, y, <span class="dt">family =</span> <span class="st">&#39;gaussian&#39;</span>, <span class="dt">nfolds =</span> <span class="dv">10</span>, <span class="dt">alpha =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb264-5" data-line-number="5">cv.fit_ridge_ok<span class="op">$</span>lambda.min</a></code></pre></div>
+<pre><code>## [1] 191.8827</code></pre>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1"><span class="kw">coef</span>(cv.fit_ridge_ok, <span class="dt">s =</span> cv.fit_ridge_ok<span class="op">$</span>lambda<span class="fl">.1</span>se)</a></code></pre></div>
+<pre><code>## 11 x 1 sparse Matrix of class &quot;dgCMatrix&quot;
+##                            1
+## (Intercept)    -1.624748e+05
+## (Intercept)     .           
+## ndate           1.833026e+01
+## Jan            -9.439266e+03
+## Mar             7.278698e+02
+## May             .           
+## Jul             .           
+## Oct             3.636235e+03
+## Nov             8.952965e+02
+## Dec            -6.636628e+03
+## allords_volume  1.557927e-06</code></pre>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1">ridge_predict_ok &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ndate =</span> train_i1l1_ok2<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb268-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb268-3" data-line-number="3">ridge_predict_ok<span class="op">$</span>mean_amount_pred &lt;-<span class="st"> </span><span class="kw">predict</span>(cv.fit_ridge_ok<span class="op">$</span>glmnet.fit, <span class="dt">newx =</span> <span class="kw">model.matrix</span>(<span class="op">~</span>., train_i1l1_ok2[, <span class="dv">-2</span>]), </a>
+<a class="sourceLine" id="cb268-4" data-line-number="4">                                                                             <span class="dt">s =</span> cv.fit_ridge_ok<span class="op">$</span>lambda.min)</a>
+<a class="sourceLine" id="cb268-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb268-6" data-line-number="6">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> ridge_predict_ok, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-31-6.png" width="672" /></p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" data-line-number="1"><span class="co">#prediction_ridge = predict(cv.fit_ridge$glmnet.fit, newx = model.matrix(~ ., train_i1l1[, -2]), </span></a>
+<a class="sourceLine" id="cb269-2" data-line-number="2">                         <span class="co"># type = &quot;class&quot;,</span></a>
+<a class="sourceLine" id="cb269-3" data-line-number="3">                          <span class="co">#s = cv.fit_ridge$lambda.min)</span></a>
+<a class="sourceLine" id="cb269-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb269-5" data-line-number="5"><span class="kw">rmse</span>(train_i1l1_ok2<span class="op">$</span>mean_amount, ridge_predict_ok<span class="op">$</span>mean_amount_pred)</a></code></pre></div>
+<pre><code>## [1] 3939.644</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb271-1" data-line-number="1"><span class="kw">rmse</span>(train_i1l1_ok2<span class="op">$</span>mean_amount, lm_train_i1l1_predict_ok2<span class="op">$</span>mean_amount_pred)</a></code></pre></div>
+<pre><code>## [1] 3895.29</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb273-1" data-line-number="1"><span class="co"># drop extra columns from test</span></a>
+<a class="sourceLine" id="cb273-2" data-line-number="2">test_i1l1_mod &lt;-<span class="st"> </span>test_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb273-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(ndate, mean_amount, Jan, Mar, May, Jul, Oct, Nov, Dec, allords_volume)</a>
+<a class="sourceLine" id="cb273-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb273-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb273-6" data-line-number="6"><span class="co">#testset test</span></a>
+<a class="sourceLine" id="cb273-7" data-line-number="7">lm_test_i1l1_pred &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1_ok2, test_i1l1_mod), <span class="dt">ndate =</span> test_i1l1_mod<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb273-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb273-9" data-line-number="9">ridge_predict_test &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">ndate =</span> test_i1l1_mod<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb273-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb273-11" data-line-number="11">ridge_predict_test<span class="op">$</span>mean_amount_pred &lt;-<span class="st"> </span><span class="kw">predict</span>(cv.fit_ridge_ok<span class="op">$</span>glmnet.fit, <span class="dt">newx =</span> <span class="kw">model.matrix</span>(<span class="op">~</span>., test_i1l1_mod[, <span class="dv">-2</span>]), </a>
+<a class="sourceLine" id="cb273-12" data-line-number="12">                                                                             <span class="dt">s =</span> cv.fit_ridge_ok<span class="op">$</span>lambda.min)</a>
+<a class="sourceLine" id="cb273-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb273-14" data-line-number="14"><span class="co"># baseplot_train_i1l1 + geom_line(color =&quot;red&quot;, data = ridge_predict, aes(y = mean_amount_pred))</span></a>
+<a class="sourceLine" id="cb273-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb273-16" data-line-number="16"><span class="kw">rmse</span>(test_i1l1_mod<span class="op">$</span>mean_amount, ridge_predict_test<span class="op">$</span>mean_amount_pred)</a></code></pre></div>
+<pre><code>## [1] 8960.708</code></pre>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1"><span class="kw">rmse</span>(test_i1l1_mod<span class="op">$</span>mean_amount, lm_test_i1l1_pred<span class="op">$</span>mean_amount_pred)</a></code></pre></div>
+<pre><code>## [1] 8672.532</code></pre>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1"><span class="kw">ggplot</span>(test_i1l1_mod, <span class="kw">aes</span>(<span class="dt">x =</span> ndate, <span class="dt">y =</span> mean_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb277-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> ridge_predict_test, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb277-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;blue&quot;</span>, <span class="dt">data =</span> lm_test_i1l1_pred, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" data-line-number="1"><span class="co"># check agains best model</span></a>
+<a class="sourceLine" id="cb278-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb278-3" data-line-number="3"><span class="co"># drop extra columns from test</span></a>
+<a class="sourceLine" id="cb278-4" data-line-number="4">test_i1l1_mod &lt;-<span class="st"> </span>test_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb278-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>trindex_predict, <span class="op">-</span>asx20_price, <span class="op">-</span>Jun, <span class="op">-</span>Sep)</a>
+<a class="sourceLine" id="cb278-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb278-7" data-line-number="7"><span class="co">#testset test</span></a>
+<a class="sourceLine" id="cb278-8" data-line-number="8">lm_test_i1l1_pred &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1_high, test_i1l1_mod), <span class="dt">ndate =</span> test_i1l1_mod<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb278-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb278-10" data-line-number="10"><span class="co"># baseplot_train_i1l1 + geom_line(color =&quot;red&quot;, data = ridge_predict, aes(y = mean_amount_pred))</span></a>
+<a class="sourceLine" id="cb278-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb278-12" data-line-number="12"><span class="kw">rmse</span>(test_i1l1_mod<span class="op">$</span>mean_amount, ridge_predict_test<span class="op">$</span>mean_amount_pred)</a></code></pre></div>
+<pre><code>## [1] 8960.708</code></pre>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" data-line-number="1"><span class="kw">rmse</span>(test_i1l1_mod<span class="op">$</span>mean_amount, lm_test_i1l1_pred<span class="op">$</span>mean_amount_pred)</a></code></pre></div>
+<pre><code>## [1] 11334.3</code></pre>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" data-line-number="1"><span class="kw">ggplot</span>(test_i1l1_mod, <span class="kw">aes</span>(<span class="dt">x =</span> ndate, <span class="dt">y =</span> mean_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb282-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> ridge_predict_test, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb282-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;blue&quot;</span>, <span class="dt">data =</span> lm_test_i1l1_pred, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" data-line-number="1"><span class="co"># the more generalised model produced more accurate results in the test-set than the most accurate training model</span></a></code></pre></div>
+</div>
+<div id="all-ordinaries-volume" class="section level2">
+<h2><span class="header-section-number">6.3</span> All Ordinaries Volume</h2>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" data-line-number="1"><span class="co"># As all ordinaries is a predictor the december value needs to be predicted, the increase in data availability will be leveraged here to create a more accurate model, volumes go back to july 2003</span></a>
+<a class="sourceLine" id="cb284-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb284-3" data-line-number="3">allords_full &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;./integrate_data/allords_0603.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Date = col_date(format = &quot;&quot;),
+##   Price = col_number(),
+##   Open = col_number(),
+##   High = col_number(),
+##   Low = col_number(),
+##   Vol. = col_character(),
+##   `Change %` = col_character()
+## )</code></pre>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" data-line-number="1"><span class="kw">names</span>(allords_full) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;date&quot;</span>, <span class="st">&quot;price&quot;</span>,<span class="st">&quot;open&quot;</span>,<span class="st">&quot;high&quot;</span>,<span class="st">&quot;low&quot;</span>,<span class="st">&quot;volume&quot;</span>,<span class="st">&quot;change&quot;</span>)</a>
+<a class="sourceLine" id="cb286-2" data-line-number="2">allords_full_date &lt;-<span class="st"> </span>allords_full<span class="op">$</span>date</a>
+<a class="sourceLine" id="cb286-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb286-4" data-line-number="4">allords_full[] &lt;-<span class="st"> </span><span class="kw">lapply</span>(allords_full, <span class="cf">function</span>(x) <span class="kw">gsub</span>(<span class="st">&quot;%&quot;</span>, <span class="st">&quot;e-2&quot;</span>, x))</a>
+<a class="sourceLine" id="cb286-5" data-line-number="5">allords_full[] &lt;-<span class="st"> </span><span class="kw">lapply</span>(allords_full, <span class="cf">function</span>(x) <span class="kw">gsub</span>(<span class="st">&quot;B&quot;</span>, <span class="st">&quot;e9&quot;</span>, x))</a>
+<a class="sourceLine" id="cb286-6" data-line-number="6">allords_full[] &lt;-<span class="st"> </span><span class="kw">lapply</span>(allords_full, <span class="cf">function</span>(x) <span class="kw">as.numeric</span>(x))</a></code></pre></div>
+<pre><code>## Warning in FUN(X[[i]], ...): NAs introduced by coercion</code></pre>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" data-line-number="1">allords_full<span class="op">$</span>date &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(allords_full_date)</a>
+<a class="sourceLine" id="cb288-2" data-line-number="2">cor_asx2 &lt;-<span class="st"> </span><span class="kw">cor</span>(allords_full)</a>
+<a class="sourceLine" id="cb288-3" data-line-number="3"><span class="kw">corrplot</span>(cor_asx2, <span class="dt">method =</span> <span class="st">&quot;number&quot;</span>)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">trainrows &lt;-<span class="st"> </span><span class="kw">ceiling</span>(<span class="fl">0.85</span><span class="op">*</span><span class="kw">nrow</span>(allords_full))</a>
+<a class="sourceLine" id="cb289-2" data-line-number="2">train_aofull &lt;-<span class="st"> </span>allords_full[<span class="dv">1</span><span class="op">:</span>trainrows,]</a>
+<a class="sourceLine" id="cb289-3" data-line-number="3">test_aofull &lt;-<span class="st"> </span>allords_full[(trainrows<span class="op">+</span><span class="dv">1</span>)<span class="op">:</span><span class="kw">nrow</span>(allords_full),]</a>
+<a class="sourceLine" id="cb289-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb289-5" data-line-number="5"><span class="kw">str</span>(train_aofull)</a></code></pre></div>
+<pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    137 obs. of  7 variables:
+##  $ date  : num  17106 17075 17045 17014 16983 ...
+##  $ price : num  5502 5402 5525 5529 5644 ...
+##  $ open  : num  5402 5525 5529 5644 5310 ...
+##  $ high  : num  5584 5579 5561 5692 5651 ...
+##  $ low   : num  5139 5347 5294 5510 5238 ...
+##  $ volume: num  1.94e+10 1.57e+10 1.84e+10 1.78e+10 1.57e+10 ...
+##  $ change: num  0.0185 -0.0222 -0.0008 -0.0203 0.0628 -0.0252 0.0248 0.0319 0.0412 -0.0215 ...</code></pre>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="kw">ggplot</span>(train_aofull, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> volume)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-34-2.png" width="672" /></p>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1">aolm &lt;-<span class="st"> </span><span class="kw">lm</span>(volume <span class="op">~</span>., <span class="dt">data =</span> train_aofull)</a>
+<a class="sourceLine" id="cb292-2" data-line-number="2"><span class="kw">summary</span>(aolm)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = volume ~ ., data = train_aofull)
+## 
+## Residuals:
+##        Min         1Q     Median         3Q        Max 
+## -8.644e+09 -3.300e+09 -7.010e+08  2.414e+09  1.940e+10 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  2.662e+10  6.448e+09   4.129 6.47e-05 ***
+## date         3.529e+05  3.719e+05   0.949   0.3444    
+## price       -1.386e+07  1.538e+07  -0.901   0.3690    
+## open         5.978e+06  1.571e+07   0.380   0.7042    
+## high         1.136e+07  6.104e+06   1.862   0.0649 .  
+## low         -6.438e+06  3.801e+06  -1.694   0.0927 .  
+## change       5.490e+10  7.447e+10   0.737   0.4623    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5.138e+09 on 130 degrees of freedom
+## Multiple R-squared:  0.1842, Adjusted R-squared:  0.1465 
+## F-statistic: 4.892 on 6 and 130 DF,  p-value: 0.0001536</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1">x =<span class="st"> </span><span class="kw">model.matrix</span>(<span class="op">~</span>., train_aofull[,<span class="op">-</span><span class="dv">5</span>])</a>
+<a class="sourceLine" id="cb294-2" data-line-number="2">y =<span class="st"> </span>train_aofull<span class="op">$</span>volume</a>
+<a class="sourceLine" id="cb294-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb294-4" data-line-number="4">cv.fit_ridge_ok =<span class="st"> </span><span class="kw">cv.glmnet</span>(x, y, <span class="dt">family =</span> <span class="st">&#39;gaussian&#39;</span>, <span class="dt">nfolds =</span> <span class="dv">10</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)</a>
+<a class="sourceLine" id="cb294-5" data-line-number="5">cv.fit_ridge_ok<span class="op">$</span>lambda.min</a></code></pre></div>
+<pre><code>## [1] 168455586</code></pre>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1"><span class="kw">coef</span>(cv.fit_ridge_ok, <span class="dt">s =</span> cv.fit_ridge_ok<span class="op">$</span>lambda.min)</a></code></pre></div>
+<pre><code>## 8 x 1 sparse Matrix of class &quot;dgCMatrix&quot;
+##                        1
+## (Intercept) 5.986809e+08
+## (Intercept) .           
+## date        .           
+## price       .           
+## open        .           
+## high        .           
+## volume      9.700569e-01
+## change      .</code></pre>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="co">#ridge_predict_ok &lt;- data.frame(ndate = $ndate)</span></a>
+<a class="sourceLine" id="cb298-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb298-3" data-line-number="3"><span class="co">## ridge_predict_ok$mean_amount_pred &lt;- predict(cv.fit_ridge_ok$glmnet.fit, newx = model.matrix(~., train_i1l1_ok2[, -2]), </span></a>
+<a class="sourceLine" id="cb298-4" data-line-number="4"> <span class="co">#                                                                            s = cv.fit_ridge_ok$lambda.min)</span></a>
+<a class="sourceLine" id="cb298-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb298-6" data-line-number="6"><span class="co"># Dec 2016 - Volume 16.35B</span></a></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="co"># predict december 2016</span></a>
+<a class="sourceLine" id="cb299-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb299-3" data-line-number="3">december_prediction &lt;-<span class="st"> </span>train_i1l1_ok2[<span class="dv">1</span>,]</a>
+<a class="sourceLine" id="cb299-4" data-line-number="4">december_prediction<span class="op">$</span>ndate &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.Date</span>(<span class="st">&quot;2016-12-01&quot;</span>))</a>
+<a class="sourceLine" id="cb299-5" data-line-number="5">december_prediction<span class="op">$</span>Jan &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb299-6" data-line-number="6">december_prediction<span class="op">$</span>Dec &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb299-7" data-line-number="7">december_prediction<span class="op">$</span>allords_volume &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="fl">16.35e9</span>)</a>
+<a class="sourceLine" id="cb299-8" data-line-number="8">december_prediction<span class="op">$</span>mean_amount &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb299-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb299-10" data-line-number="10">dec_i1l1_pred &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lm_train_i1l1_ok2, december_prediction), <span class="dt">ndate =</span> december_prediction<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb299-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb299-12" data-line-number="12">dec_i1l1_pred<span class="op">$</span>mean_amount</a></code></pre></div>
+<pre><code>## [1] 169433.5</code></pre>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">ggplot</span>(test_i1l1_mod, <span class="kw">aes</span>(<span class="dt">x =</span> ndate, <span class="dt">y =</span> mean_amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> ridge_predict_test, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;blue&quot;</span>, <span class="dt">data =</span> lm_test_i1l1_pred, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb301-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">&quot;green&quot;</span>, <span class="dt">data =</span> dec_i1l1_pred, <span class="kw">aes</span>(<span class="dt">y=</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="co">#169433.5</span></a></code></pre></div>
+</div>
+<div id="experiment" class="section level2">
+<h2><span class="header-section-number">6.4</span> Experiment</h2>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1">train_i1l1_do &lt;-<span class="st"> </span>train_i1l1 <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb303-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ndatem =</span> ndate<span class="op">*</span><span class="fl">20.83</span>)</a>
+<a class="sourceLine" id="cb303-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb303-4" data-line-number="4"><span class="co">#poly() did not impreove results either</span></a>
+<a class="sourceLine" id="cb303-5" data-line-number="5">lmdo_train_i1l1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mean_amount <span class="op">~</span><span class="st"> </span>ndate <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(ndate<span class="op">^</span><span class="dv">4</span>), <span class="dt">data =</span> train_i1l1_do)</a>
+<a class="sourceLine" id="cb303-6" data-line-number="6"><span class="kw">summary</span>(lmdo_train_i1l1)</a></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mean_amount ~ ndate + I(ndate^4), data = train_i1l1_do)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -17061  -6873   1466   5854  16437 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  9.448e+05  2.234e+06   0.423    0.675
+## ndate       -7.128e+01  1.835e+02  -0.388    0.700
+## I(ndate^4)   5.375e-12  1.071e-11   0.502    0.619
+## 
+## Residual standard error: 9066 on 33 degrees of freedom
+## Multiple R-squared:  0.3682, Adjusted R-squared:  0.3299 
+## F-statistic: 9.614 on 2 and 33 DF,  p-value: 0.0005129</code></pre>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1"><span class="kw">plot</span>(lmdo_train_i1l1)</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-36-2.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-36-3.png" width="672" /><img src="_main_files/figure-html/unnamed-chunk-36-4.png" width="672" /></p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1">lmdo_train_i1l1_predict &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">mean_amount_pred =</span> <span class="kw">predict</span>(lmdo_train_i1l1, train_i1l1_do), <span class="dt">ndate =</span> train_i1l1_do<span class="op">$</span>ndate)</a>
+<a class="sourceLine" id="cb306-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb306-3" data-line-number="3">baseplot_train_i1l1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">color =</span><span class="st">&quot;red&quot;</span>, <span class="dt">data =</span> lmdo_train_i1l1_predict, <span class="kw">aes</span>(<span class="dt">y =</span> mean_amount_pred))</a></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-36-5.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-preparation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fitting-to-all-groups.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
