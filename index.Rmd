@@ -5,6 +5,7 @@ date: "20/04/2020"
 site: "bookdown::bookdown_site"
 output:
   bookdown::gitbook: default
+  delete_merged_file: FALSE
 ---
 
 ```{r setup, include=FALSE}

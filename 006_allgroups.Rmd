@@ -69,8 +69,8 @@ grouped_errors <- output
 december_predict_all
 ```
 ```{r}
-write_csv(grouped_errors, "./appendix_files/error_ouput.csv")
-write_csv(december_predict_all, "./appendix_files/december_predictions.csv")
+write_csv(grouped_errors, "./outputcsvs/error_ouput.csv")
+write_csv(december_predict_all, "./outputcsvs/december_predictions.csv")
 ```
 
 ## Performance
@@ -162,7 +162,6 @@ grouped_errors$pecerror <- grouped_errors$test_error/grouped_errors$mp
 low_e <-grouped_errors %>%
   filter(pecerror <= 0.05)
 
-ggplot(grouped_errors) + geom_boxplot()
 ```
 
 
@@ -215,7 +214,8 @@ row <- cbind(ind,loc,train_error,test_error, total_error)
 output_i6l1 = rbind(output_i6l1, row)
 
 #
-i6l1_orig <- worst_perf
+i6l1_orig <- worst_perf %>% 
+  select(-mp)
 i6l1_orig$iteration <- "before"
 
 output_i6l1$key <- "ind6loc1"
@@ -302,7 +302,8 @@ row <- cbind(ind,loc,train_error,test_error, total_error)
 output_i6l1 = rbind(output_i6l1, row)
 
 #
-i6l1_orig <- worst_perf
+i6l1_orig <- worst_perf %>% 
+  select(-mp)
 i6l1_orig$iteration <- "before"
 
 output_i6l1$key <- "ind6loc1"
@@ -359,7 +360,9 @@ row <- cbind(ind,loc,train_error,test_error, total_error)
 output_i3l9 = rbind(output_i3l9, row)
 
 #
-i3l9_orig <- worst_perf
+i3l9_orig <- worst_perf %>% 
+  select(-mp)
+
 i3l9_orig$iteration <- "before"
 
 output_i3l9$key <- "ind3loc9"
